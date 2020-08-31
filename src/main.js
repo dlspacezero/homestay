@@ -9,9 +9,13 @@ import store from './store'
 import 'amfe-flexible'
 
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem } from 'vant'
+import { Tabbar, TabbarItem ,Swipe, SwipeItem ,Tab, Tabs} from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
+Vue.use(Swipe)
+Vue.use(SwipeItem)
+Vue.use(Tab)
+Vue.use(Tabs)
 
 
 Vue.config.productionTip = false
