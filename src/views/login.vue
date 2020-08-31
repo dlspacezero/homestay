@@ -1,15 +1,13 @@
 <template>
     <div>
-        推荐页
-        <!-- <router-view></router-view> -->
+        登录页
     </div>
 </template>
-
 <script>
 export default {
     
 }
 </script>
-<style scoped>
-
+<style lang="scss">
+    
 </style>
