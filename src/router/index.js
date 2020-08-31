@@ -21,15 +21,15 @@ Vue.use(VueRouter)
         },
         {
           path:'/collect',
-          component:() => import("../views/nominate.vue")
+          component:() => import("../views/collect.vue")
         },
         {
           path:'/discover',
-          component:() => import("../views/nominate.vue")
+          component:() => import("../views/discover.vue")
         },
         {
           path:'/message',
-          component:() => import("../views/nominate.vue")
+          component:() => import("../views/message.vue")
         }
       ]
     }
