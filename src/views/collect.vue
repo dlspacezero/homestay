@@ -1,13 +1,11 @@
 <template>
-    <div>
-        收藏页
-    </div>
+  <div>
+    收藏页
+    收藏页创建
+  </div>
 </template>
 <script>
-export default {
-    
-}
+export default {};
 </script>
 <style scoped>
-
 </style>
