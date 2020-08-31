@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div>
+    404 Not found ...
   </div>
 </template>
 
@@ -11,6 +11,4 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
+<style lang='scss' scoped></style>

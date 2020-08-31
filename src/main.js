@@ -8,6 +8,12 @@ import store from './store'
 //用于设置rem基准值
 import 'amfe-flexible'
 
+// 按需引入Vant组件：
+import { Tabbar, TabbarItem } from 'vant'
+Vue.use(Tabbar)
+Vue.use(TabbarItem)
+
+
 Vue.config.productionTip = false
 
 new Vue({
