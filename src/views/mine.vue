@@ -2,15 +2,23 @@
     <div>
         <Setting />
         <Namepart />
+        <littleCard/>
+        <redPakage/>
+        <coupon />
+        <selfCredit />
         <van-divider>客服电话：400-056-0055</van-divider>
     </div>
 </template>
 <script>
 import Namepart from '@/components/mi/mi-namepart.vue'
 import Setting from '@/components/mi/mi-gongju.vue'
+import littleCard from '@/components/mi/mi-littlecard.vue'
+import redPakage from '@/components/mi/mi-redpakage.vue'
+import coupon from '@/components/mi/mi-coupon.vue'
+import selfCredit from '@/components/mi/mi-selfcredit.vue'
 export default {
     components:{
-        Namepart,Setting
+        Namepart,Setting,littleCard,redPakage,coupon,selfCredit
     }
 }
 </script>
@@ -19,6 +27,7 @@ export default {
         font-size: .45rem;
         color: #999999;
         font-family: 'PingFang-SC-Medium';
+        margin-top: .56rem;
 
     }
 </style>
