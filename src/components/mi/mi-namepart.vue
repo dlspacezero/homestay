@@ -1,10 +1,15 @@
 <template>
     <div class="selfInfo">
-        <van-grid :column-num="2">
-  <van-grid-item icon="home-o" text="文字" dot />
-  <van-grid-item icon="search" text="文字" badge="99+" />
-<littleCard/>
-</van-grid>
+        <div class="toppart">
+            <div class="name">
+                <p>Akali</p>
+                <span>agfjgayu</span>
+            </div>
+            <van-image width="60" height="60" src=""  round/>
+        </div>
+        <div class="cardpart">
+            <littleCard />
+        </div>
     </div>
 </template>
 <script>
@@ -18,7 +23,23 @@ export default {
 <style lang="scss" scoped>
     .selfInfo{
         width:100%;
-        height: 5.33rem;
-        background-color: aqua;
+        height: 178px;
+        background-color: white;
+    .toppart{
+        display: flex;
+        justify-content: space-between;
+        padding: 21px 19.5px 0 14.7px;
+        margin-bottom: 25.5px;  
+        p{
+            font-size: 18px;
+            color: #333333;
+            font-weight: 700;
+        } 
+        span{
+            font-size: 10px;
+            color:teal;
+        }     
+    }
+    
     }
 </style>

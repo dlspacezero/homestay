@@ -2,7 +2,7 @@
     <div>
         <Setting />
         <Namepart />
-        <littleCard/>
+        <Orderpart/>
         <redPakage/>
         <coupon />
         <selfCredit />
@@ -12,13 +12,13 @@
 <script>
 import Namepart from '@/components/mi/mi-namepart.vue'
 import Setting from '@/components/mi/mi-gongju.vue'
-import littleCard from '@/components/mi/mi-littlecard.vue'
+import Orderpart from '@/components/mi/mi-orderpart.vue'
 import redPakage from '@/components/mi/mi-redpakage.vue'
 import coupon from '@/components/mi/mi-coupon.vue'
 import selfCredit from '@/components/mi/mi-selfcredit.vue'
 export default {
     components:{
-        Namepart,Setting,littleCard,redPakage,coupon,selfCredit
+        Namepart,Setting,redPakage,coupon,selfCredit,Orderpart
     }
 }
 </script>
@@ -29,5 +29,8 @@ export default {
         font-family: 'PingFang-SC-Medium';
         margin-top: .56rem;
 
+    }
+    body{
+        background-color: #F9F9F9;
     }
 </style>
