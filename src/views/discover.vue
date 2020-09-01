@@ -16,6 +16,7 @@ export default {
 };
 </script>
 <style lang='scss' >
+@import '../assets/style/command.scss';
 // 发现页外围
 .find-wrap {
   display: flex;
@@ -31,7 +32,7 @@ export default {
     width: 375px;
     height: 44px;
     font-size: 27px;
-    font-family: PingFang;
+    @include pingfang;
     font-weight: 700;
     line-height: 44px;
     text-indent: 15px;

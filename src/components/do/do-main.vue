@@ -252,6 +252,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/style/command.scss';
 .main-wrap {
   // 发现页tab切换
   .tabswitch {
@@ -267,13 +268,14 @@ export default {
     li {
       font-size: 15px;
       color: #999999;
-      font-weight: PingFang-SC-Medium;
+      font-weight: 500;
+      @include pingfang;
       height: 43px;
       line-height: 46px;
       margin: 0 16px 0 16px;
     }
     .active {
-      color: #ff9180;
+      color: $themecolor;
       border-bottom: 3px solid;
     }
   }
@@ -293,7 +295,7 @@ export default {
         margin: 4px 0 0 0;
         width: 100%;
         font-size: 18px;
-        font-family: PingFang-SC-Bold;
+        @include pingfang;
         font-weight: Bold;
         color: #333333;
       }
@@ -337,13 +339,13 @@ export default {
         height: 55px;
         line-height: 55px;
         text-align: center;
-        color: #ff9180;
+        color: $themecolor;
         margin-bottom: 43px;
         font-size: 15px;
         font-weight: bold;
       }
       .van-hairline--surround::after {
-        border-color: #ff9180;
+        border-color: $themecolor;
       }
     }
     .van-swipe-item .hot-wrap {
@@ -406,8 +408,8 @@ export default {
             .hs-hot-likes-num {
               color: #333333;
               font-size: 11px;
-              font-family: PingFang-SC-Bold;
-              font-weight: SC-Bold;
+              @include pingfang;
+              font-weight: bold;
             }
           }
         }
@@ -418,13 +420,13 @@ export default {
         height: 55px;
         line-height: 55px;
         text-align: center;
-        color: #ff9180;
+        color: $themecolor;
         margin-bottom: 43px;
         font-size: 15px;
         font-weight: bold;
       }
       .van-hairline--surround::after {
-        border-color: #ff9180;
+        border-color: $themecolor;
       }
     }
     .van-swipe-item {
@@ -436,7 +438,7 @@ export default {
         .hs-houseInfo {
           display: flex;
           flex-direction: column;
-          font-family: PingFang;
+          @include pingfang;
           margin-bottom: 38.33px;
           .hs-houseImg {
             width: 157px;
@@ -499,13 +501,13 @@ export default {
           height: 55px;
           line-height: 55px;
           text-align: center;
-          color: #ff9180;
+          color: $themecolor;
           margin-bottom: 43px;
           font-size: 15px;
           font-weight: bold;
         }
         .van-hairline--surround::after {
-          border-color: #ff9180;
+          border-color: $themecolor;
         }
       }
       .hs-featureHouse {
@@ -517,7 +519,7 @@ export default {
           display: flex;
           flex-direction: column;
           color: #333;
-          font-family: PingFang;
+          @include pingfang;
           margin-bottom: 32px;
           .hs-typeImg {
             width: 103px;
