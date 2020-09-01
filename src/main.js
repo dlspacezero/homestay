@@ -9,15 +9,18 @@ import store from './store'
 import 'amfe-flexible'
 
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem } from 'vant'
+import { Tabbar, TabbarItem, Swipe, SwipeItem } from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
+Vue.use(Swipe)
+Vue.use(SwipeItem)
+
 
 
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
