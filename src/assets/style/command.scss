@@ -22,3 +22,7 @@ $themecolor : "#FF9181";
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical
 }
+//PingFang字体
+@mixin pingfang(){
+    font-family:"PingFang";
+}
