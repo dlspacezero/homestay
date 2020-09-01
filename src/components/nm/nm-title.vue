@@ -17,5 +17,6 @@ export default {
     font-family: PingFang SC;
     font-weight: bold;
     color: #333333;
+    margin: 38px 0 12px;
   }
 </style>
