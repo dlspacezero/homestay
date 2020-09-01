@@ -1,8 +1,32 @@
 // 公共样式
 // 大家共同填充，需要就引入
+<<<<<<< HEAD
+$themecolor : #FF9181;
+=======
+//主题颜色
 $themecolor : "#FF9181";
+//通用字体
+>>>>>>> 115bd6c0b151dbc1c205c4f6c8a62c370c6e1018
 @mixin commonfont {
     font-size: 14px;
     font-weight: bold;
     color: #666;
+}
+//单行省略
+@mixin singleomit(){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+//多行省略
+@mixin multiomit(){
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical
+}
+//PingFang字体
+@mixin pingfang(){
+    font-family:"PingFang";
 }
