@@ -1,5 +1,5 @@
 import axios from "axios";
-import { reject } from "core-js/fn/promise";
+// import { reject } from "core-js/fn/promise";
 //公共配置
 const instance = axios.create({
     baseURL: '',

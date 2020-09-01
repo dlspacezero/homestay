@@ -7,6 +7,7 @@ import router from './router'
 import store from './store'
 //用于设置rem基准值
 import 'amfe-flexible'
+import '../src/assets/style/reset.css'
 
 // 按需引入Vant组件：
 import { Tabbar, TabbarItem, Grid, GridItem, Icon, Divider } from 'vant'
