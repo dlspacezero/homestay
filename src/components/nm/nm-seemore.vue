@@ -1,6 +1,6 @@
 <template>
     <div class="seemore">
-      <van-button type="primary" plain block color="#FF9180" >查看更多</van-button>
+      <van-button type="primary" plain block color="#FF9180" @click="goList">查看更多</van-button>
     </div>
 </template>
 
@@ -8,6 +8,11 @@
 export default {
   data(){
       return{}
+  },
+  methods:{
+    goList(){
+      // this.$route.push()
+    }
   }
 };
 </script>

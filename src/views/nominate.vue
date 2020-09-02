@@ -2,7 +2,7 @@
   <div class="nominate">
     <!-- 热门入住地板块 -->
     <van-divider :style="{margin: '15px'}" />
-    <nmTitle title='热门入住地 北京'/>
+    <nmTitle title='热门入住地-北京'/>
     <nmTabs />
     <!-- 查看更多板块跳转房间列表页 -->
     <nmSeemore />
@@ -18,7 +18,7 @@
     <nmCityTopic />
     <!-- top/city板块 -->
     <van-divider :style="{margin: '15px'}" />
-    <nmTitle title="TOP/CITY"/>
+    <nmTitle title="TOP / CITY"/>
     <nmChoseCity />
   </div>
 </template>

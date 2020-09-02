@@ -1,18 +1,10 @@
 <template>
     <div class="choseCity">
         <div class="oneLine">
-            <span>成都</span>
-            <span>北京</span>
-            <span>杭州</span>
-            <span>武汉</span>
-            <span>上海</span>
-        </div>
-        <div class="oneLine">
-            <span>重庆</span>
-            <span>广州</span>
-            <span>西安</span>
-            <span>南京</span>
-            <span>全部</span>
+            <van-tabs :line-height="0">
+                <van-tab v-for="(item,index) in cityList1" :key="index" :title="item.name"></van-tab>
+            </van-tabs>
+            <div class="line"></div>
         </div>
     </div>
 </template>
@@ -21,6 +13,27 @@
 export default {
   data(){
     return{
+        cityList1:[{
+            name:'成都'
+        },{
+            name:'北京'
+        },{
+            name:'杭州'
+        },{
+            name:'武汉'
+        },{
+            name:'上海'
+        },{
+            name:'重庆'
+        },{
+            name:'广州'
+        },{
+            name:'西安'
+        },{
+            name:'南京'
+        },{
+            name:'全部'
+        }]
     }
   }
 };
@@ -28,25 +41,38 @@ export default {
 
 <style lang="scss">
 .choseCity{
-    width: 345px;
-    height: 88px;
-    background: #fff;
     box-shadow: 1px 1px 3px rgb(238, 234, 234);
     margin: 0 15px 30px;
     .oneLine{
-        height: 44px;
-        border-bottom: 1px solid #ebedf0;
-        display: flex;
-        justify-content: space-between;
-        span{
-            font: 15px;
-            color: #666;
-            line-height: 44px;
-            margin: 0 20px;
+        position: relative;
+        .van-tabs__wrap{
+            margin-left: -25px;
+            height: 88px;
         }
-    }
-    .oneLine:last-child{
-            border-bottom: none;
+        .line{
+                width: 345px;
+                height: 1px;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                background: #ebedf0;
+                z-index: 10;
+            }
+        .van-tabs__nav{
+            width: 345px;
+            flex-wrap: wrap;
+            .van-tab{
+                width: 69px;
+                font-size: 15px;
+                color: #666;
+                line-height: 44px;
+                z-index: 20;
+            }
+            .van-tab--active{
+                color: #FA9485;
+            }
+        }
+        
     }
 }
 </style>

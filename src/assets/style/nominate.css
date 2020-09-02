@@ -15,8 +15,12 @@
 .van-swipe-item {
     display: flex;
     flex-direction: column;
-    margin-right: 15px;
 }
+
+
+/* .van-swipe-item:nth-child(1) {
+    margin-left: 15px;
+} */
 
 .bannerImg {
     width: 322px;

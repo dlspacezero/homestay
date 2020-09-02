@@ -32,16 +32,21 @@ export default {
         border-radius: 6px;
       }      
       .cardDescribe{
+        font-size: 11px;
         width: 160px;
         margin-bottom: 6px;
         color: #666;
+        font-weight: bold;
       }
       .cardInfo{
         width: 160px;
         margin-bottom: 8px;
         font-size: 14px;
+        line-height: 18px;
+        height: 18px;
         font-weight: bold;
         color: #333;
+        z-index: 10;
         @include singleomit();
       }
       .cardPrice{
