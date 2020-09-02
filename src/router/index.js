@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -43,12 +43,13 @@ const routes = [
     ],
   },
   {
-    path: "*",
-    component: () => import("../views/notfound404.vue"),
+    // 收藏页，查看更多跳转到=>"他们"收藏的美馆
+    path: "/cl-recommend",
+    component: () => import("../components/cl/cl-recommend.vue"),
   },
   {
-    path: "/discover/detail/:id",
-    component: () => import("../components/do/do-detail.vue"),
+    path: "*",
+    component: () => import("../views/notfound404.vue"),
   },
 ];
 const router = new VueRouter({
