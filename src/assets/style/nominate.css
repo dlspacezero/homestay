@@ -1,3 +1,84 @@
-.van-tabs__nav{
+.hs-nmsearch .van-tabs__nav,.van-tabs__nav--card{
     margin: 0;
+    border: none;
+    padding: 0;
+}
+.hs-nmsearch{
+    /* padding-bottom: 21px;
+    box-sizing: border-box; */
+    /* margin-bottom: 21px; */
+    position: relative;
+}
+.hs-nmsearch .van-tabs__wrap,.van-tabs__nav ,.van-tab{
+    height: 37px;
+}
+.hs-nmsearch .van-tabs__wrap{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.hs-nmsearch .van-tab{
+    border-radius: 0px  7px  3px  0px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.hs-nmsearch .van-tabs__nav{
+    border: none;
+}
+.hs-nmsearch .van-tab__pane{
+    padding: 0 25px;
+}
+.hs-nmsearch-city{
+    height: 42px;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.hs-nmsearch-city .hs-nmsearch-place{
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+.hs-nmsearch-place .van-icon-arrow{
+    width: 5px;
+    height: 9px;
+    font-size: 9px;
+    color: #FF9181;
+    margin-right: 13px;
+}
+.place-location{
+    font-size: 11px;
+    color: #FF9181;
+    margin-right: 4px;
+}
+.circle{
+    width: 9px;
+    height: 9px;
+    border: 1px solid #FB7B68;
+    border-radius: 50%;
+    display: inline-block;
+}
+.hs-nmsearch-city .city-name{
+    width: 30px;
+    height: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+}
+.hs-nmbutton{
+    height: 47px;
+    width: 304px;
+    position: absolute;
+    bottom: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.hs-nmbutton .van-button__text{
+    font-size: 18px;
+}
+.hs-nmicon-wrap{
+    
 }

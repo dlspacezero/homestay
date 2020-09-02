@@ -24,16 +24,52 @@
 
                 </span>
             </div>
+            <!-- 搜索版块 -->
             <div class="hs-nmsearch">
                 <van-tabs 
                 v-model="active" 
                 type="card"  
                 color="#f5f5f5" 
                 title-active-color="#333" 
-                title-inactive-color="#333">
-                    <van-tab title="标签 1">国内</van-tab>
-                    <van-tab title="标签 2">国外</van-tab>
+                title-inactive-color="#333"
+                >
+                    <van-tab title="国内">
+                        <!-- 位置 -->
+                        <div class="hs-nmsearch-city">
+                            <span class="city-name">
+                                北京
+                            </span>
+                            <div class="hs-nmsearch-place">
+                                <van-icon name="arrow"  />
+                                <span class="place-location">我的位置</span>
+                                <span class="circle"></span>
+                            </div>
+                        </div>
+                        <!-- 入住时间 -->
+                        <div class="">
+
+                        </div>
+                    </van-tab>
+                    <!-- 国外 -->
+                    <van-tab title="国外">
+                        <div>3</div>
+                        <div>4</div>
+                    </van-tab>
                 </van-tabs>
+                <div class="hs-nmbutton">
+                    <van-button type="primary" block :round="true" color="linear-gradient(90deg, #FF613C 0%, #FBA431 100%)">查找民宿</van-button>
+                </div>
+            </div>
+        </article>
+        <article class="container11">
+            <!-- 按钮区 -->
+            <div class="hs-nmicon-wrap">
+                <van-grid :border="false">
+                    <van-grid-item icon="photo-o" text="文字" />
+                    <van-grid-item icon="photo-o" text="文字" />
+                    <van-grid-item icon="photo-o" text="文字" />
+                    <van-grid-item icon="photo-o" text="文字" />
+                </van-grid>
             </div>
         </article>
     </main>
@@ -54,18 +90,30 @@ export default {
 <style lang="scss" scoped>
     @import "../../assets/style/command.scss";
     @import "../../assets/style/nominate.css";
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
     .my-swipe{
         width: 100%;
         height: 307px;
         color: #fff;
         background-color: #39a9ed;
     }
-    .container{
+    .container,.container11{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+    }
+    .container{
         padding: 0 15px;
+        margin-bottom: 21px;
+    }
+    .container11{
+        padding: 0 10px;
+        margin-top: 33px;
     }
     .hs-nm-main{
         position: relative;
@@ -108,6 +156,5 @@ export default {
             box-shadow: 0px 9px 14px 2px rgba(178, 177, 179, 0.36);
             border-radius: 10px;
         }
-
     }
 </style>

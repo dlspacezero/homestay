@@ -19,7 +19,9 @@ import {
    Button,
    Tab, 
    Tabs,
-
+   Icon,
+   Grid,
+  GridItem
 } from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
@@ -29,6 +31,9 @@ Vue.use(SwipeItem);
 Vue.use(Button);
 Vue.use(Tab);
 Vue.use(Tabs);
+Vue.use(Icon);
+Vue.use(Grid);
+Vue.use(GridItem);
 
 
 Vue.config.productionTip = false
