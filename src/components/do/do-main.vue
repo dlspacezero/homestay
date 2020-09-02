@@ -22,7 +22,11 @@
         <div class="recommend-wrap">
           <p class="hs-recommend-likes">猜你喜欢</p>
           <ul>
+<<<<<<< HEAD
             <li v-for="item in 10" :key="item" @click="toRecommend(1)">
+=======
+            <li v-for="item in 10" :key="item">
+>>>>>>> master
               <div class="hs-recommend-promulator-photo">
                 <!-- <img src alt /> -->
               </div>
@@ -43,7 +47,11 @@
       <van-swipe-item>
         <div class="hot-wrap">
           <ul>
+<<<<<<< HEAD
             <li v-for="item in 4" :key="item" @click="toRecommend(1)">
+=======
+            <li v-for="item in 4" :key="item">
+>>>>>>> master
               <div class="hs-hot-photo">
                 <div class="hs-hot-photo-big"></div>
                 <div class="hs-hot-photo-small-wrap">
@@ -72,7 +80,81 @@
       <van-swipe-item>
         <!-- 主体内容部分 -->
         <section class="hs-content">
+<<<<<<< HEAD
           <div class="hs-houseInfo" v-for="(item,index) in 6" :key="index" @click="toRecommend(1)">
+=======
+          <div class="hs-houseInfo">
+            <div class="hs-houseImg">
+              <img src alt />
+              <span class="hf-position">杭州</span>
+            </div>
+            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
+            <div class="hs-houseDiscuss">
+              <span class="hs-headImg">
+                <img src alt />
+              </span>
+              <span class="hs-goodNum">144</span>
+              <span class="hs-discuss">2</span>
+            </div>
+          </div>
+          <div class="hs-houseInfo">
+            <div class="hs-houseImg">
+              <img src alt />
+              <span class="hf-position">杭州</span>
+            </div>
+            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
+            <div class="hs-houseDiscuss">
+              <span class="hs-headImg">
+                <img src alt />
+              </span>
+              <span class="hs-goodNum">144</span>
+              <span class="hs-discuss">2</span>
+            </div>
+          </div>
+          <div class="hs-houseInfo">
+            <div class="hs-houseImg">
+              <img src alt />
+              <span class="hf-position">杭州</span>
+            </div>
+            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
+            <div class="hs-houseDiscuss">
+              <span class="hs-headImg">
+                <img src alt />
+              </span>
+              <span class="hs-goodNum">144</span>
+              <span class="hs-discuss">2</span>
+            </div>
+          </div>
+          <div class="hs-houseInfo">
+            <div class="hs-houseImg">
+              <img src alt />
+              <span class="hf-position">杭州</span>
+            </div>
+            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
+            <div class="hs-houseDiscuss">
+              <span class="hs-headImg">
+                <img src alt />
+              </span>
+              <span class="hs-goodNum">144</span>
+              <span class="hs-discuss">2</span>
+            </div>
+          </div>
+          <div class="hs-houseInfo">
+            <div class="hs-houseImg">
+              <img src alt />
+              <span class="hf-position">杭州</span>
+            </div>
+            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
+            <div class="hs-houseDiscuss">
+              <span class="hs-headImg">
+                <img src alt />
+              </span>
+              <span class="hs-goodNum">144</span>
+              <span class="hs-discuss">2</span>
+            </div>
+          </div>
+          <div class="hs-houseInfo">
+>>>>>>> master
             <div class="hs-houseImg">
               <img src alt />
               <span class="hf-position">杭州</span>
@@ -92,7 +174,67 @@
       <!-- 特色房源 -->
       <van-swipe-item>
         <section class="hs-featureHouse">
+<<<<<<< HEAD
           <div class="hs-typeHouse"  v-for="(item,index) in 9" :key="index" @click="toSpecial(1)" >
+=======
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+            <div class="hs-typeImg">
+              <img src alt />
+            </div>
+            <span class="hs-typeEn">Villa</span>
+            <span class="hs-typeCn">别墅</span>
+          </div>
+          <div class="hs-typeHouse">
+>>>>>>> master
             <div class="hs-typeImg">
               <img src alt />
             </div>
@@ -114,11 +256,15 @@ export default {
     };
   },
   methods: {
+<<<<<<< HEAD
     // 点击tab滑动下面的轮播
+=======
+>>>>>>> master
     tabClick(i) {
       this.isActive = i;
       this.$refs.changebanner.swipeTo(i);
     },
+<<<<<<< HEAD
     // 滑动下面的轮播上面的tab切换
     onChange(i) {
       this.isActive = i;
@@ -131,11 +277,20 @@ export default {
     toSpecial(id){
       this.$router.push("/detail/special/"+id)
     },
+=======
+    onChange(i) {
+      this.isActive = i;
+    },
+>>>>>>> master
   },
 };
 </script>
 
 <style lang="scss">
+<<<<<<< HEAD
+=======
+@import '../../assets/style/command.scss';
+>>>>>>> master
 .main-wrap {
   // 发现页tab切换
   .tabswitch {
@@ -151,13 +306,22 @@ export default {
     li {
       font-size: 15px;
       color: #999999;
+<<<<<<< HEAD
       font-weight: PingFang-SC-Medium;
+=======
+      font-weight: 500;
+      @include pingfang;
+>>>>>>> master
       height: 43px;
       line-height: 46px;
       margin: 0 16px 0 16px;
     }
     .active {
+<<<<<<< HEAD
       color: #ff9180;
+=======
+      color: $themecolor;
+>>>>>>> master
       border-bottom: 3px solid;
     }
   }
@@ -177,7 +341,11 @@ export default {
         margin: 4px 0 0 0;
         width: 100%;
         font-size: 18px;
+<<<<<<< HEAD
         font-family: PingFang;
+=======
+        @include pingfang;
+>>>>>>> master
         font-weight: Bold;
         color: #333333;
       }
@@ -221,13 +389,21 @@ export default {
         height: 55px;
         line-height: 55px;
         text-align: center;
+<<<<<<< HEAD
         color: #ff9180;
+=======
+        color: $themecolor;
+>>>>>>> master
         margin-bottom: 43px;
         font-size: 15px;
         font-weight: bold;
       }
       .van-hairline--surround::after {
+<<<<<<< HEAD
         border-color: #ff9180;
+=======
+        border-color: $themecolor;
+>>>>>>> master
       }
     }
     .van-swipe-item .hot-wrap {
@@ -242,7 +418,11 @@ export default {
           display: flex;
           flex-direction: column;
           border-bottom: 1px solid #e1e1e1;
+<<<<<<< HEAD
           &:last-child {
+=======
+          &:last-child{
+>>>>>>> master
             border: none;
           }
           .hs-hot-photo {
@@ -290,8 +470,13 @@ export default {
             .hs-hot-likes-num {
               color: #333333;
               font-size: 11px;
+<<<<<<< HEAD
               font-family: PingFang-SC-Bold;
               font-weight: SC-Bold;
+=======
+              @include pingfang;
+              font-weight: bold;
+>>>>>>> master
             }
           }
         }
@@ -302,13 +487,21 @@ export default {
         height: 55px;
         line-height: 55px;
         text-align: center;
+<<<<<<< HEAD
         color: #ff9180;
+=======
+        color: $themecolor;
+>>>>>>> master
         margin-bottom: 43px;
         font-size: 15px;
         font-weight: bold;
       }
       .van-hairline--surround::after {
+<<<<<<< HEAD
         border-color: #ff9180;
+=======
+        border-color: $themecolor;
+>>>>>>> master
       }
     }
     .van-swipe-item {
@@ -320,7 +513,11 @@ export default {
         .hs-houseInfo {
           display: flex;
           flex-direction: column;
+<<<<<<< HEAD
           font-family: PingFang;
+=======
+          @include pingfang;
+>>>>>>> master
           margin-bottom: 38.33px;
           .hs-houseImg {
             width: 157px;
@@ -383,13 +580,21 @@ export default {
           height: 55px;
           line-height: 55px;
           text-align: center;
+<<<<<<< HEAD
           color: #ff9180;
+=======
+          color: $themecolor;
+>>>>>>> master
           margin-bottom: 43px;
           font-size: 15px;
           font-weight: bold;
         }
         .van-hairline--surround::after {
+<<<<<<< HEAD
           border-color: #ff9180;
+=======
+          border-color: $themecolor;
+>>>>>>> master
         }
       }
       .hs-featureHouse {
@@ -401,7 +606,11 @@ export default {
           display: flex;
           flex-direction: column;
           color: #333;
+<<<<<<< HEAD
           font-family: PingFang;
+=======
+          @include pingfang;
+>>>>>>> master
           margin-bottom: 32px;
           .hs-typeImg {
             width: 103px;

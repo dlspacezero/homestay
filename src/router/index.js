@@ -47,6 +47,7 @@ const routes = [
     path: "/cl-recommend",
     component: () => import("../components/cl/cl-recommend.vue"),
   },
+<<<<<<< HEAD
   // 详情页
   {
     path: "/detail",
@@ -64,6 +65,8 @@ const routes = [
       },
     ],
   },
+=======
+>>>>>>> master
   {
     path: "*",
     component: () => import("../views/notfound404.vue"),
