@@ -1,15 +1,11 @@
 <template>
-    <div>
-        推荐页
-        <!-- <router-view></router-view> -->
-    </div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
-<style scoped>
-
+<style lang="scss" >
 </style>
