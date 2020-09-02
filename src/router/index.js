@@ -47,10 +47,22 @@ const routes = [
     path: "/cl-recommend",
     component: () => import("../components/cl/cl-recommend.vue"),
   },
+  // 详情页
   {
-    // 发现详情页
-    path: "/discover/detail/:id",
-    component: () => import("../components/do/do-detail.vue"),
+    path: "/detail",
+    component: () => import("../views/detail.vue"),
+    children: [
+      // 发现页：推荐、网红民宿、体验分享的详情页
+      {
+        path: "recommend/:id",
+        component: () => import("../components/do/do-recommend.vue"),
+      },
+      // 发现页：特色房源的详情页
+      {
+        path: "special/:id",
+        component: () => import("../components/do/do-special.vue"),
+      },
+    ],
   },
   {
     path: "*",

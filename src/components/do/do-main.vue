@@ -22,7 +22,7 @@
         <div class="recommend-wrap">
           <p class="hs-recommend-likes">猜你喜欢</p>
           <ul>
-            <li v-for="item in 10" :key="item" @click="toDetail(1)">
+            <li v-for="item in 10" :key="item" @click="toRecommend(1)">
               <div class="hs-recommend-promulator-photo">
                 <!-- <img src alt /> -->
               </div>
@@ -43,7 +43,7 @@
       <van-swipe-item>
         <div class="hot-wrap">
           <ul>
-            <li v-for="item in 4" :key="item">
+            <li v-for="item in 4" :key="item" @click="toRecommend(1)">
               <div class="hs-hot-photo">
                 <div class="hs-hot-photo-big"></div>
                 <div class="hs-hot-photo-small-wrap">
@@ -72,77 +72,7 @@
       <van-swipe-item>
         <!-- 主体内容部分 -->
         <section class="hs-content">
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
+          <div class="hs-houseInfo" v-for="(item,index) in 6" :key="index" @click="toRecommend(1)">
             <div class="hs-houseImg">
               <img src alt />
               <span class="hf-position">杭州</span>
@@ -162,63 +92,7 @@
       <!-- 特色房源 -->
       <van-swipe-item>
         <section class="hs-featureHouse">
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
+          <div class="hs-typeHouse"  v-for="(item,index) in 9" :key="index" @click="toSpecial(1)" >
             <div class="hs-typeImg">
               <img src alt />
             </div>
@@ -240,15 +114,22 @@ export default {
     };
   },
   methods: {
+    // 点击tab滑动下面的轮播
     tabClick(i) {
       this.isActive = i;
       this.$refs.changebanner.swipeTo(i);
     },
+    // 滑动下面的轮播上面的tab切换
     onChange(i) {
       this.isActive = i;
     },
-    toDetail(i){
-      this.$router.push('/discover/detail/'+'i')
+    // 进入推荐、网红民宿、体验分享详情页
+    toRecommend(id){
+      this.$router.push("/detail/recommend/"+id)
+    },
+    // 进入特色房源详情页
+    toSpecial(id){
+      this.$router.push("/detail/special/"+id)
     },
   },
 };
@@ -296,7 +177,7 @@ export default {
         margin: 4px 0 0 0;
         width: 100%;
         font-size: 18px;
-        font-family: PingFang-SC-Bold;
+        font-family: PingFang;
         font-weight: Bold;
         color: #333333;
       }
