@@ -46,6 +46,10 @@ const routes = [
     path: "*",
     component: () => import("../views/notfound404.vue"),
   },
+  {
+    path: "/discover/detail/:id",
+    component: () => import("../components/do/do-detail.vue"),
+  },
 ];
 const router = new VueRouter({
   routes,
