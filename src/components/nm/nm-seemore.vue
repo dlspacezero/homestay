@@ -23,7 +23,7 @@ export default {
     width: 345px;
     height: 55px;
     font-size: 16px;
-    margin: 0 15px 46px;
+    // margin: 0 15px 46px;
 }
 </style>
 

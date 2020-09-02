@@ -9,6 +9,7 @@
 .hs-nmsearch .van-tabs__wrap,.van-tabs__nav ,.van-tab{
     height: 37px;
 }
+
 .hs-nmsearch .van-tabs__wrap{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -73,6 +74,9 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.hs-nmbutton .van-button{
+    width: 100%;
+}
 .hs-nmbutton .van-button__text{
     font-size: 18px;
 }
@@ -118,7 +122,7 @@
     width: 100%;
 }
 .swipe-button .van-swipe-item{
-    margin-right: 18px;
+    /* margin-right: 18px; */
     width: 142px;
     height: 70px;
     box-shadow: 0px 2px 6px 1px rgba(77, 77, 77, 0.13);
@@ -186,15 +190,11 @@
     margin-bottom: 30px;
 }
 
-.contanier {
-    margin: 0 15px;
-}
-
-.van-swipe {
+#homeBanner .van-swipe {
     margin-left: 15px;
 }
 
-.van-swipe-item {
+#homeBanner .van-swipe-item {
     display: flex;
     flex-direction: column;
 }

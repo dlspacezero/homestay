@@ -5,15 +5,7 @@
         line-width="94px"
         line-height="1px"
         >
-            <van-tab 
-            v-for="(item,index) in tabList"
-            :key="index"
-            :title="item.title"
-            >
-            <div class="nmCardList">
-                <nmCard v-for="i in 4" :key="i"/>
-            </div>
-            </van-tab>
+            <nmHouselist />
         </van-tabs>
     </div>
 
@@ -22,6 +14,7 @@
 </template>
 
 <script>
+import nmHouselist from "./nm-houselist"
 import nmCard from '../nm/nm-card'
 export default {
   data(){
@@ -38,7 +31,8 @@ export default {
     }
   },
     components:{
-        nmCard
+        nmCard,
+        nmHouselist
     }
 };
 </script>

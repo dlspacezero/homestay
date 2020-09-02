@@ -8,7 +8,6 @@
                 width="21px"
                 height="21px"
                 src="https://img.yzcdn.cn/vant/cat.jpeg"
-                :key="i"
                 />
               <van-image
                 class="img2"
@@ -16,7 +15,6 @@
                 width="21px"
                 height="21px"
                 src="https://img.yzcdn.cn/vant/cat.jpeg"
-                :key="i"
                 />
               <van-image
                 class="img3"
@@ -24,7 +22,6 @@
                 width="21px"
                 height="21px"
                 src="https://img.yzcdn.cn/vant/cat.jpeg"
-                :key="i"
                 />
           </span>
           <span class="peopleNum">
