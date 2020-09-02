@@ -10,7 +10,7 @@ import 'amfe-flexible'
 import '../src/assets/style/reset.css'
 
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem, Divider, Tab, Tabs, Button, Swipe, SwipeItem } from 'vant'
+import { Tabbar, TabbarItem, Divider, Tab, Tabs, Button, Swipe, SwipeItem, Image as VanImage, Icon } from 'vant'
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Divider);
@@ -19,6 +19,8 @@ Vue.use(Tabs);
 Vue.use(Button);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
+Vue.use(VanImage);
+Vue.use(Icon);
 
 Vue.config.productionTip = false
 

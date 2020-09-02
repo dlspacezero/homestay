@@ -1,5 +1,6 @@
 <template>
     <div id="homeBanner">
+        <nmTardemark />
         <van-swipe :loop="false" :width="337" :show-indicators="false" :autoplay="3000">
             <van-swipe-item v-for="i in 4" :key="i">
                 <div class="bannerImg">
@@ -20,14 +21,26 @@
 </template>
 
 <script>
+import nmTardemark from '../nm/nm-trademark'
 export default {
   data(){
       return{
           current: 0,
       }
+    },
+    components:{
+        nmTardemark
     }
 };
 </script>
 <style lang="scss" >
 @import '../../assets/style/nominate.css';
+#homeBanner{
+    position: relative;
+    .trademark{
+        position: absolute;
+        right: 15px;
+        top: -30px;
+    }
+}
 </style>
