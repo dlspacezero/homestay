@@ -7,18 +7,28 @@ import router from './router'
 import store from './store'
 //用于设置rem基准值
 import 'amfe-flexible'
-import '../src/assets/style/reset.css'
+
 
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem } from 'vant'
+import { Tabbar, TabbarItem, NavBar, Search, Icon, Popup, Cell, Calendar, DropdownMenu, DropdownItem, Swipe, SwipeItem } from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
-
+Vue.use(NavBar);
+Vue.use(Search);
+Vue.use(Icon);
+Vue.use(Popup);
+Vue.use(Cell);
+Vue.use(Calendar);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+import '../src/assets/style/reset.css'
 
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

@@ -1,7 +1,6 @@
 <template>
   <div>
-    推荐页
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
