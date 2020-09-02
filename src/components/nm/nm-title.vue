@@ -1,12 +1,15 @@
 <template>
-    <h6 class="title">热门入住地·北京</h6>
+    <h6 class="title">
+      {{title}}
+    </h6>
 </template>
 
 <script>
 export default {
   data(){
       return{}
-    }
+    },
+    props:['title']
 };
 </script>
 <style lang="scss" >
@@ -17,6 +20,6 @@ export default {
     font-family: PingFang SC;
     font-weight: bold;
     color: #333333;
-    margin: 38px 0 12px;
+    margin: 38px 15px 12px;
   }
 </style>

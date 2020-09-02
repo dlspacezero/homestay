@@ -7,7 +7,7 @@
       active-color="#FF9181"
       inactive-color="#999999"
       route
-      placeholder
+      :placeholder="true"
     >
       <van-tabbar-item
         :icon="item.icon"

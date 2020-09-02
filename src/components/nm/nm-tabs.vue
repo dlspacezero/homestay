@@ -1,48 +1,64 @@
 <template>
-    <van-tabs 
-    line-width="94px" 
-    line-height="1px"
-    >
-        <van-tab v-for="(item,index) in tabList" 
-        :title="item.title" 
-        :key="index"
-        title-active-color="#333"
-        title-inactive-color="#999"
-
+    <div class="tabs">
+        <van-tabs 
+        v-model="active"
+        line-width="94px"
+        line-height="1px"
         >
-            {{ item.title }}内容
-        </van-tab>
-    </van-tabs>
+            <van-tab 
+            v-for="(item,index) in tabList"
+            :key="index"
+            :title="item.title"
+            >
+            <div class="nmCardList">
+                <nmCard v-for="i in 4" :key="i"/>
+            </div>
+            </van-tab>
+        </van-tabs>
+    </div>
+
+    
+
 </template>
 
 <script>
-
+import nmCard from '../nm/nm-card'
 export default {
   data(){
-      return{
+    return{
+        active:0,
         activeName: 'a',
         tabList:[{
             title:'天安门广场',
-            contents:'内容1'
         },{
             title:'北京西站',
-            contents:'内容2'
         },{
             title:'古北水镇',
-            contents:'内容3'
         }]
-      }
+    }
+  },
+    components:{
+        nmCard
     }
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .van-tabs{
-    .van-tab {
-    width: 94px;
-    margin: 0;
-    padding: 0;
-    flex: none;
+    margin: 0 15px;
+    .van-tabs__wrap{
+        margin-bottom: 24px;
+        .van-tab {
+        width: 94px;
+        padding: 0;
+        flex: none;
+        }
+    }
+    .nmCardList{
+    width: 345px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     }
 }
   

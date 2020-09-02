@@ -9,7 +9,6 @@
           <span>298</span>
         </div>
       </div>
-      
     </div>
 </template>
 
@@ -25,6 +24,7 @@ export default {
   .card{
     .oneCard{
       width: 166px;
+      margin-bottom: 32px;
       .cardUrl{
         width: 100%;
         height: 99px;
@@ -34,11 +34,19 @@ export default {
       .cardDescribe{
         width: 160px;
         margin-bottom: 6px;
+        color: #666;
       }
       .cardInfo{
+        width: 160px;
         margin-bottom: 8px;
         font-size: 14px;
-        // @include commonfont();
+        font-weight: bold;
+        color: #333;
+        @include singleomit();
+      }
+      .cardPrice{
+        color: $themecolor;
+        font-size: 14px;
       }
     }
   }
