@@ -48,6 +48,11 @@ const routes = [
     component: () => import("../components/cl/cl-recommend.vue"),
   },
   {
+    // 发现详情页
+    path: "/discover/detail/:id",
+    component: () => import("../components/do/do-detail.vue"),
+  },
+  {
     path: "*",
     component: () => import("../views/notfound404.vue"),
   },

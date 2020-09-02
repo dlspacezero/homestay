@@ -29,7 +29,10 @@ import {
   Icon,
   Divider,
   Image as VanImage,
+  Swipe, SwipeItem
 } from "vant";
+Vue.use(Swipe);
+Vue.use(SwipeItem);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Tab);
