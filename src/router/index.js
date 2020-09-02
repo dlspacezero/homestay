@@ -54,6 +54,11 @@ const routes = [{
             import ("../components/cl/cl-recommend.vue"),
     },
     {
+        path: "/calendar",
+        component: () =>
+            import ("../views/calendar.vue"),
+    },
+    {
         path: "*",
         component: () =>
             import ("../views/notfound404.vue"),
