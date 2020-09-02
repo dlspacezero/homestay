@@ -120,15 +120,15 @@ export default {};
 <style lang="scss">
 .historyContainer {
   margin-top: 50px;
-  * {
-    padding: 0;
-    margin: 0;
-  }
+  padding-top: 1px;
   .list {
     width: 345px;
-    // padding-top: 8px;
-    margin: 0 auto 16px;
+    margin: 7px auto 15px;
+    // padding-bottom: 1px;
+    color: #333333;
     .li {
+      box-sizing: border-box;
+      width: 345px;
       height: 378px;
       background: #ffffff;
       padding: 8px 7px 0px;
@@ -164,7 +164,6 @@ export default {};
           border-radius: 15px;
           line-height: 30px;
           font-size: 11px;
-          font-family: PingFang SC;
           font-weight: bold;
           color: #999999;
           display: flex;
@@ -183,7 +182,6 @@ export default {};
             border-radius: 2px;
             text-align: center;
             font-size: 11px;
-            font-family: "PingFang SC";
             font-weight: bold;
             color: #f7f7f7;
           }
@@ -193,9 +191,7 @@ export default {};
             margin-left: 13px;
             line-height: 31px;
             font-size: 15px;
-            font-family: "PingFang SC";
             font-weight: bold;
-            color: #333333;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -205,7 +201,6 @@ export default {};
           height: 24px;
           line-height: 24px;
           font-size: 11px;
-          font-family: "PingFang SC";
           font-weight: 500;
           color: #656565;
           span {
@@ -224,7 +219,6 @@ export default {};
             border-radius: 2px;
             line-height: 17px;
             font-size: 11px;
-            font-family: PingFang SC;
             font-weight: 500;
             color: #656565;
           }
@@ -232,21 +226,17 @@ export default {};
         .price {
           height: 48px;
           line-height: 48px;
-          font-family: PingFang SC;
           span.unit {
             font-size: 18px;
             font-weight: bold;
-            color: #333333;
           }
           span.num {
             font-size: 23px;
             font-weight: bold;
-            color: #333333;
           }
           span.evn {
             font-size: 12px;
             font-weight: 500;
-            color: #333333;
           }
         }
       }

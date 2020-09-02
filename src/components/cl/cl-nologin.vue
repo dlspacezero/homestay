@@ -1,30 +1,46 @@
 <template>
   <div class="nologinContainer">
-    <van-empty
-      class="custom-image"
-      image="https://img.yzcdn.cn/vant/custom-empty-image.png"
-      description="登录后可查看您的收藏~"
-    />
-    <van-button color="linear-gradient(to right, #ff6034, #ee0a24)" round to="/login">登录/注册</van-button>
+    <img :src="imgurl" alt="pic" class="empty-img" />
+    <p>登录后可查看您的收藏~</p>
+    <img :src="btnurl" alt="pic" class="btn-img" />
   </div>
 </template>
 
 <script>
-export default {};
+import imgurl from "@/assets/imgs/sc_icon.png";
+import btnurl from "@/assets/imgs/dl_icon.png";
+export default {
+  data() {
+    return {
+      imgurl: imgurl,
+      btnurl: btnurl,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
 .nologinContainer {
   position: relative;
-  .custom-image .van-empty__image {
-    width: 90px;
-    height: 90px;
+  .empty-img {
+    display: block;
+    width: 72px;
+    height: 72px;
+    margin: 125px auto 0;
   }
-  .van-button {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 140px;
+  p {
+    height: 47px;
+    line-height: 47px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #999999;
+  }
+  .btn-img {
+    display: block;
+    width: 158px;
+    height: 40px;
+    margin: 7px auto 0;
   }
 }
 </style>
