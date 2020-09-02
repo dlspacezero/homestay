@@ -7,31 +7,33 @@ import router from './router'
 import store from './store'
 //用于设置rem基准值
 import 'amfe-flexible'
+
 import '../src/assets/style/reset.css'
-
-
-
+import "@/assets/font_mine/iconfont.css"
 
 
 // 按需引入Vant组件：
 import { 
-    Tabbar,
+    Tabbar, 
     TabbarItem, 
     Tab, 
     Tabs, 
     Empty, 
     Button, 
     Tag, 
-     NavBar,
-    DropdownMenu,
-    DropdownItem, 
     Calendar,
     Swipe, 
     SwipeItem,
-    Grid, 
-    GridItem,
-    Icon 
-} from 'vant'
+    NavBar, 
+    DropdownMenu, 
+    DropdownItem, 
+    Grid,
+    GridItem ,
+    Icon,
+    Divider,
+    Image as VanImage,
+} from 'vant';
+
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Tab)
@@ -43,11 +45,17 @@ Vue.use(NavBar)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Calendar)
-Vue.use(Swipe);
-Vue.use(SwipeItem);
+Vue.use(Icon );
 Vue.use(Grid);
 Vue.use(GridItem);
-Vue.use(Icon );
+Vue.use(Divider);
+Vue.use(Icon);
+Vue.use(VanImage);
+Vue.use(SwipeItem)
+Vue.use(Swipe);
+
+
+
 Vue.config.productionTip = false
 
 new Vue({
