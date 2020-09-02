@@ -80,8 +80,10 @@ export default {
 <style lang="scss">
 .recommendContainer {
   h4 {
-    margin: 0;
-    padding: 0;
+    // padding-top: 1px;
+    margin-top: 5px;
+    height: 24px;
+    line-height: 24px;
     font-size: 20px;
     font-weight: 600;
     text-indent: 8px;
@@ -91,10 +93,6 @@ export default {
     font-size: 18px;
   }
   ul {
-    * {
-      padding: 0;
-      margin: 0;
-    }
     box-sizing: border-box;
     width: 375px;
     padding: 15px;
@@ -126,7 +124,6 @@ export default {
         text-overflow: ellipsis;
         line-height: 28px;
         font-size: 15px;
-        font-family: PingFang SC;
         font-weight: bold;
         color: #333333;
       }
@@ -134,7 +131,6 @@ export default {
         width: 100%;
         height: 17px;
         font-size: 12px;
-        font-family: PingFang SC;
         font-weight: 500;
         display: flex;
         justify-content: space-between;

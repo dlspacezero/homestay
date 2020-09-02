@@ -86,11 +86,8 @@ export default {
 .clMoreContainer {
   height: 201px;
   background: #ffffff;
+  margin-top: 9px;
   padding: 4px 0 4px 14px;
-  * {
-    padding: 0;
-    margin: 0;
-  }
   .top {
     height: 46px;
     margin-right: 15px;
