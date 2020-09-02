@@ -20,6 +20,8 @@
     <van-divider :style="{margin: '15px'}" />
     <nmTitle title="TOP / CITY"/>
     <nmChoseCity />
+    <!-- 双色背景部分 -->
+    <div class="anotherBg"></div>
   </div>
 </template>
 
@@ -51,5 +53,16 @@ export default {
 </script>
 
 <style lang="scss" >
-
+.nominate{
+  position: relative;
+  .anotherBg{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 172px;
+    height: 100%;
+    background: #FAFAFB;
+    z-index: -1;
+  }
+}
 </style>

@@ -42,12 +42,14 @@ export default {
 <style lang="scss">
 .choseCity{
     box-shadow: 1px 1px 3px rgb(238, 234, 234);
-    margin: 0 15px 30px;
+    margin: 0 15px 0;
     .oneLine{
         position: relative;
+        background: #fff;
         .van-tabs__wrap{
             margin-left: -25px;
             height: 88px;
+            margin-bottom: 0px;
         }
         .line{
                 width: 345px;

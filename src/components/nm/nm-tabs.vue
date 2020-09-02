@@ -46,6 +46,9 @@ export default {
 <style lang="scss">
 .van-tabs{
     margin: 0 15px;
+    .van-tabs__nav{
+        background: none;
+    }
     .van-tabs__wrap{
         margin-bottom: 24px;
         .van-tab {
