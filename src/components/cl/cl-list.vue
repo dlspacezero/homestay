@@ -35,14 +35,26 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <div class="like"></div>
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import likeimg from "@/assets/imgs/icon_sc.png";
+import unlikeimg from "@/assets/imgs/icon_sc2.png";
+export default {
+  data() {
+    return {
+      like: 0,
+      houseArr: [],
+      unlikeimg: unlikeimg,
+      likeimg: likeimg,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -176,8 +188,6 @@ export default {};
         right: 26px;
         width: 19px;
         height: 17px;
-        background: #fd8270;
-        border: 1px solid #ffffff;
       }
     }
   }
