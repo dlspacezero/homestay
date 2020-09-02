@@ -32,6 +32,9 @@ import {
     Icon,
     Divider,
     Image as VanImage,
+    Cell, 
+    CellGroup,
+    Card,
 } from 'vant';
 
 Vue.use(Tabbar)
@@ -53,8 +56,9 @@ Vue.use(Icon);
 Vue.use(VanImage);
 Vue.use(SwipeItem)
 Vue.use(Swipe);
-
-
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(Card);
 
 Vue.config.productionTip = false
 

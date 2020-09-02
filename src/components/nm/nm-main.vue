@@ -47,7 +47,7 @@
                         </div>
                         <!-- 入住时间 -->
                         <div class="">
-
+                            
                         </div>
                     </van-tab>
                     <!-- 国外 -->
@@ -64,37 +64,98 @@
         <article class="container11">
             <!-- 按钮区 -->
             <div class="hs-nmicon-wrap">
-                <van-grid :border="false">
-                    <van-grid-item icon="photo-o" text="文字" />
-                    <van-grid-item icon="photo-o" text="文字" />
-                    <van-grid-item icon="photo-o" text="文字" />
-                    <van-grid-item icon="photo-o" text="文字" />
+                <van-grid :column-num="5" :border="false" icon-size="45px">
+                    <van-grid-item v-for="value in 10" :key="value" icon="photo-o" text="特惠预售"  />
                 </van-grid>
             </div>
+        </article>
+        <!-- 特惠好房 -->
+        <article class="container hs-nmodds">
+            <!-- 标题 -->
+            <van-cell-group :border="false">
+                <van-cell title="特惠好房" value="MUNIAO" />
+            </van-cell-group>
+            <div class="swipe-button">
+                <!-- 滑块 -->
+                <van-swipe :loop="false"  :show-indicators="false" width="154">
+                    <van-swipe-item v-for="(singlesw,index) in swbuttonList" :key="index" :style="{width:'142px',marginRight:'18px'}">
+                        <h2>{{singlesw.title}}</h2>
+                    </van-swipe-item>
+                </van-swipe>
+            </div>
+            <nmHouselist :list="oddsHouseList" />
         </article>
     </main>
 </template>
 
 <script>
+import nmHouselist from "./nm-houselist";
 export default {
     data(){
         return {
-            active:2
+            active:2,
+            swbuttonList:[
+                {
+                    title:'今夜特价',
+                    text:'今夜预订，立享优惠'
+                },
+                {
+                    title:'新房特惠',
+                    text:'特价新房先到先得'
+                },
+                {
+                    title:'今夜特价',
+                    text:'今夜预订，立享优惠'
+                },
+                {
+                    title:'新房特惠',
+                    text:'特价新房先到先得'
+                }
+            ],
+            oddsHouseList:[
+                {
+                    imgUrl:'https://bkimg.cdn.bcebos.com/pic/43a7d933c895d14391c671507cf082025aaf0714?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5',
+                    city:'北京',
+                    copy:'今夜预订立享',
+                    info:'整租-1居室-宜租2人',
+                    price:298,
+                    address:'地铁上岸站长安天街呃呃呃呃呃呃呃呃呃呃'
+                },
+                {
+                    imgUrl:'https://bkimg.cdn.bcebos.com/pic/43a7d933c895d14391c671507cf082025aaf0714?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5',
+                    city:'北京',
+                    copy:'今夜预订立享',
+                    info:'整租-1居室-宜租2人',
+                    price:298,
+                    address:'地铁上岸站长安天街呃呃呃呃呃呃呃呃呃呃'
+                },
+                {
+                    imgUrl:'https://bkimg.cdn.bcebos.com/pic/43a7d933c895d14391c671507cf082025aaf0714?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5',
+                    city:'北京',
+                    copy:'今夜预订立享',
+                    info:'整租-1居室-宜租2人',
+                    price:298,
+                    address:'地铁上岸站长安天街呃呃呃呃呃呃呃呃呃呃'
+                },
+                {
+                    imgUrl:'https://bkimg.cdn.bcebos.com/pic/43a7d933c895d14391c671507cf082025aaf0714?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5',
+                    city:'北京',
+                    copy:'今夜预订立享',
+                    info:'整租-1居室-宜租2人',
+                    price:298,
+                    address:'地铁上岸站长安天街呃呃呃呃呃呃呃呃呃呃'
+                },
+            ]
         }
     },
     components:{
-        
+        nmHouselist
     }
 };
 </script>
 <style lang="scss" scoped>
     @import "../../assets/style/command.scss";
     @import "../../assets/style/nominate.css";
-    main{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
     .my-swipe{
         width: 100%;
         height: 307px;
@@ -113,12 +174,12 @@ export default {
     }
     .container11{
         padding: 0 10px;
-        margin-top: 33px;
+        margin-top: 54px;
     }
     .hs-nm-main{
         position: relative;
         z-index: 10;
-        top: -79px;
+        margin-top: -79px;
         .hs-nmfuli{
             height: 49px;
             width: 345px;
