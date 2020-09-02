@@ -31,7 +31,10 @@ import { Tabbar,
     Icon,
     Divider,
     Image as VanImage,
+    SwipeItem,
+    Swipe
 } from 'vant'
+import VueRouter from 'vue-router'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Tab)
@@ -48,6 +51,10 @@ Vue.use(GridItem);
 Vue.use(Divider);
 Vue.use(Icon);
 Vue.use(VanImage);
+Vue.use(SwipeItem)
+Vue.use(Swipe);
+
+
 
 Vue.config.productionTip = false
 
