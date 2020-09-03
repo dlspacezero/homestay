@@ -10,45 +10,74 @@
       :placeholder="true"
     >
       <van-tabbar-item
-        :icon="item.icon"
         v-for="(item, index) in tabList"
         :key="index"
         :to="item.to"
-      >{{ item.title }}</van-tabbar-item>
+      >{{ item.title }}
+      <template>
+        <span style="display:block; width:44px; height:46px; background-size:315px" :style="[bg , active==index?item.position1:item.position2]"></span>
+      </template>
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
 
 <script>
+import imgUrl from '../assets/imgs/icon.png'
 export default {
   data() {
     return {
       active: 0,
+      //设置背景图片
+      bg:{
+          backgroundImage:`url(${imgUrl})`,
+      },
       tabList: [
         {
-          icon: "home-o",
-          title: "推荐",
           to: "/index",
+          // 设置图片定位
+          position1:{
+              backgroundPosition:'-50px -208px'
+          },
+          position2:{
+              backgroundPosition:'-50px -146px'
+          }
         },
         {
-          icon: "search",
-          title: "收藏",
           to: "/collect",
+          position1:{
+              backgroundPosition:'-240px -206px'
+          },
+          position2:{
+              backgroundPosition:'-240px -146px'
+          }
         },
         {
-          icon: "friends-o",
-          title: "发现",
           to: "/discover",
+          position1:{
+              backgroundPosition:'-97px -207px'
+          },
+          position2:{
+              backgroundPosition:'-97px -146px'
+          }
         },
         {
-          icon: "setting-o",
-          title: "消息",
           to: "/message",
+          position1:{
+              backgroundPosition:'-150px -206px'
+          },
+          position2:{
+              backgroundPosition:'-150px -146px'
+          }
         },
         {
-          icon: "setting-o",
-          title: "我的",
           to: "/mine",
+          position1:{
+              backgroundPosition:'-197px -206px'
+          },
+          position2:{
+              backgroundPosition:'-197px -146px'
+          }
         },
       ],
     };
@@ -57,8 +86,8 @@ export default {
 };
 </script>
 <style lang='scss' >
-.homeContainer {
-  // 页面底色，列表未铺满时的边缘色，暂时设定色，如有设计颜色，可替换
-  background: #e1e1e1;
+.van-hairline--top-bottom{
+  background: #FFF;
+  z-index: 100;
 }
 </style>
