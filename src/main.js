@@ -13,28 +13,28 @@ import "@/assets/font_mine/iconfont.css"
 
 
 // 按需引入Vant组件：
-import { 
-    Tabbar, 
-    TabbarItem, 
-    Tab, 
-    Tabs, 
-    Empty, 
-    Button, 
-    Tag, 
+import {
+    Tabbar,
+    TabbarItem,
+    Tab,
+    Tabs,
+    Empty,
+    Button,
+    Tag,
+    NavBar,
+    DropdownMenu,
+    DropdownItem,
     Calendar,
-    Swipe, 
-    SwipeItem,
-    NavBar, 
-    DropdownMenu, 
-    DropdownItem, 
     Grid,
-    GridItem ,
+    GridItem,
     Icon,
     Divider,
     Image as VanImage,
     Cell, 
     CellGroup,
     Card,
+    SwipeItem,
+    Swipe 
 } from 'vant';
 
 Vue.use(Tabbar)

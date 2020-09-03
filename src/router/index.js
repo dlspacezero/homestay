@@ -62,6 +62,11 @@ const routes = [{
             import ("../views/indent.vue"),
     },
     {
+        path: "/calendar",
+        component: () =>
+            import ("../views/calendar.vue"),
+    },
+    {
         path: "*",
         component: () =>
             import ("../views/notfound404.vue"),
