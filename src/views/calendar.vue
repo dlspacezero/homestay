@@ -27,24 +27,30 @@
 export default {
     data() {
         return {
+            //设置日历的最长时间
             maxDate: new Date(2021, 1, 2)
         }
     },
     methods: {
+        //回退功能
         goback(){
-
+            this.$router.go(-1);
         },
+        //清空功能
         clear(){
             this.$refs.clear.reset();
         },
+        //获取日期
         formatDate(date) {
             return `${date.getMonth() + 1}/${date.getDate()}`;
         },
+        //选中时间区间
         onConfirm(date) {
             const [start, end] = date;
             this.show = false;
             this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
         },
+        //日期格式化
         formatter(day) {
             const year = day.date.getFullYear();
             const month = day.date.getMonth() + 1;
@@ -103,9 +109,7 @@ export default {
                     }
                 }
             }
-
-            
-            
+            //设置选择时间区间时的显示文本
             if (day.type === 'start') {
                 day.text = '入住';
                 day.bottomInfo = '';
@@ -120,24 +124,29 @@ export default {
 </script>
 <style lang='scss'>
 @import '../assets/style/command.scss';
+    //日历整体样式
     .hs-calendar{
         display: flex;
         flex-direction: column;
+        //顶部标签栏样式
         .van-nav-bar{
             height: 37px;
             position: fixed;
             top: 0;
             left: 0;
             width: 375px;
+            //返回图标样式
             .van-icon{
                 color: #EE8975;
             }
+            //清空按钮样式
             .van-nav-bar__text{
                 color: #EE8975;
                 font-size: 16px;
                 font-weight: 400;
                 @include pingfang;
             }
+            //顶部标题样式
             .van-nav-bar__title {
                 font-size: 16px;
                 font-family: PingFang SC;
@@ -145,9 +154,11 @@ export default {
                 color: #2B2B2B;
             }
         }
+        //取消星期栏的阴影
         .van-calendar__header{
             box-shadow: none;
         }
+        //调整星期栏位置
         .van-calendar__weekdays {
             height: 30px;
             width: 375px;
@@ -155,6 +166,7 @@ export default {
             position: fixed;
             top: 37px;
             left: 0;
+            //设置星期栏内容样式
             .van-calendar__weekday{
                 font-size: 13px;
                 font-family: PingFang SC;
@@ -167,6 +179,7 @@ export default {
                 }
             } 
         }
+        //年月栏样式
         .van-calendar__header-subtitle{
             position: absolute;
             top: 67px;
@@ -179,6 +192,7 @@ export default {
         }
         .van-calendar__body{
             margin-top: 111px;
+            //具体每一天的样式
             .van-calendar__day{
                 margin-bottom: 10px;
                 font-size: 13px;
@@ -189,12 +203,14 @@ export default {
             .weekday {
                 color: #EE8975;
             }
+            //年月日样式
             .van-calendar__month-title{
                 font-size: 14px;
                 font-family: PingFang SC;
                 font-weight: 400;
                 color: #545454;
             }
+            //选中时间区间的区间样式
             .van-calendar__day--middle{
                 color: white!important;
                 z-index: 99;
@@ -204,13 +220,16 @@ export default {
                     z-index: -1;
                 }
             }
+            //入住的样式
             .van-calendar__day--start{
                 color: #fff!important;
             }
+            //离开的样式
             .van-calendar__day--end{
                 color: #fff!important;
             }
         }
+        //不能选择的日期的样式
         .van-calendar__day--disabled{
             color: #383737;
         }
