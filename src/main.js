@@ -35,6 +35,7 @@ import {
     Cell,
     CellGroup,
     Card,
+    Search
 } from 'vant';
 
 Vue.use(Tabbar)
@@ -59,6 +60,7 @@ Vue.use(Swipe);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(Card);
+Vue.use(Search);
 
 Vue.config.productionTip = false
 

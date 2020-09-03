@@ -54,9 +54,17 @@ const routes = [{
             import ("../components/cl/cl-recommend.vue"),
     },
     {
+        //日历页面
         path: "/calendar",
         component: () =>
             import ("../views/calendar.vue"),
+    },
+    {
+        path: "/findspots",
+        component: () =>
+            import ("../views/findspots.vue")
+    },
+    {
         // 订单页面，详情页->点击立即预定按钮 =>订单填写页->点击提交点单按钮 =>支付订单页->左上角回退按钮=>提示“订单已提交成功”页->左上角回退按钮=>订单页
         // 订单页->左上角回退按钮=>我的页（/mine）
         // 我的页 ->我的订单=>订单页
