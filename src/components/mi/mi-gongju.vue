@@ -14,12 +14,12 @@ export default {
 <style lang="scss" scoped>
     .topSettings{
         width: 100%;
-        height: 1.32rem;
+        height: 44px;
         display: flex;
         justify-content: flex-end;
         .van-icon{
-            line-height: 1.32rem;
-            margin-right: .35rem;
+            line-height: 44px;
+            margin-right: 30px;
         }
     }
 </style>
