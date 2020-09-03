@@ -2,8 +2,9 @@
     <div class="coupon">
         <div class="wrap">
             <van-grid  :column-num="4"  :border="false" :gutter="8">
-                <van-grid-item v-for="(item,index) in dataList" :key="index" >
-                    <span :class="item.icon" class="iconfont"></span>
+                <van-grid-item v-for="(item,index) in dataList" :key="index"  :to="item.to">
+                    <!-- <span :class="item.icon" class="iconfont"></span> -->
+                    <img :src="item.icon" alt="">
                     <p>{{item.title}}</p>
                 </van-grid-item>
             </van-grid>
@@ -13,27 +14,32 @@
 </template>
 
 <script>
+import coupond from '../../assets/imgs/mine/login_icon_yh.png'
+import invited from '../../assets/imgs/mine/login_icon_yq.png'
+import jifen from '../../assets/imgs/mine/login_icon_jf.png'
+import huiyuan from '../../assets/imgs/mine/login_icon_jk.png'
 export default {
     data() {
         return {
             dataList:[
                 {
                     title:'优惠券',
-                    icon:'icon-youhuiquan',              
+                    icon:coupond, 
+                    to:'/coupond'             
                 },
                 {
                     title:'邀请好友',
-                    icon:'icon-zmxy',              
+                    icon:invited,
+                    to:'/redpakage'
                 },
                 {
                     title:'积分',
-                    icon:'icon-order_icon',              
+                    icon:jifen,              
                 },
                 {
                     title:'金卡会员',
-                    icon:'icon-shuben',              
-                },
-               
+                    icon:huiyuan,              
+                },               
             ]
         }
     },
@@ -67,11 +73,9 @@ export default {
             margin-top: 10px;
             text-align: center;
         }
-        span{
-            display: inline-block;
-            width: 20px;
-            height: 15px;
-            font-size: 21px;
+        img{
+            width: 22px;
+            height: 22px;
            
         }
 </style>

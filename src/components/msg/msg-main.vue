@@ -1,3 +1,3 @@
 <template>
-    <div>消息页</div>
+    <div>消息zujian</div>
 </template>

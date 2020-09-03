@@ -3,7 +3,8 @@
         <div class="wrap">
             <van-grid :column-num="4"  :border="false">
             <van-grid-item v-for="(item,index) in dataList" :key="index"   >
-                <span :class="item.icon"  class="iconfont"></span>
+                <!-- <span :class="item.icon"  class="iconfont"></span> -->
+                <img :src="item.icon" alt="">
                 <p>{{item.title}}</p>
             </van-grid-item>
             
@@ -15,42 +16,49 @@
 </template>
 
 <script>
-
+import pj from '../../assets/imgs/mine/login_toolbar_icon_pj.png'
+import xy from '../../assets/imgs/mine/login_toolbar_icon_xy.png'
+import xb from '../../assets/imgs/mine/login_toolbar_icon_xb.png'
+import wd from '../../assets/imgs/mine/login_toolbar_icon_wd.png'
+import kf from '../../assets/imgs/mine/login_toolbar_icon_kf.png'
+import qz from '../../assets/imgs/mine/login_toolbar_icon_qz.png'
+import yj from '../../assets/imgs/mine/login_toolbar_icon_yj.png'
+import dhj from '../../assets/imgs/mine/login_toolbar_icon_dhj.png'
 export default {
     data() {
         return {
             dataList:[
                 {
                     title:'我的评价',
-                    icon:'icon-shoucang',              
+                    icon:pj,              
                 },
                 {
                     title:'芝麻信用',
-                    icon:'icon-zmxy',              
+                    icon:xy,              
                 },
                 {
                     title:'小白信用',
-                    icon:'icon-order_icon',              
+                    icon:xb,              
                 },
                 {
                     title:'我的故事',
-                    icon:'icon-shuben',              
+                    icon:wd,              
                 },
                 {
                     title:'开具发票',
-                    icon:'icon-dingdanliebiao-tianchong',              
+                    icon:kf,              
                 },
                 {
                     title:'求租',
-                     icon:'icon-dingdanguanli',              
+                     icon:qz,              
                 },
                 {
                     title:'意见反馈',
-                    icon:'icon-xinfeng',              
+                    icon:yj,              
                 },
                 {
                     title:'兑换券',
-                    icon:'icon-xianxiaquan',              
+                    icon:dhj,              
                 }
             ]
         }
@@ -90,11 +98,11 @@ export default {
             margin-top: 13.67px;
             text-align: center;
         }
-        span{
-            display: inline-block;
-            width: 23.67px;
-            height: 22.67px;
-            font-size: 25px;
+        img{
+           
+            width: 22px;
+            height: 22px;
+            
            
         }
     }

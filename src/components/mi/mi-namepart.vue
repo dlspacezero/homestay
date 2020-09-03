@@ -2,10 +2,10 @@
     <div class="selfInfo">
         <div class="toppart">
             <div class="name">
-                <p>Akali</p>
+                <p>注册/登录</p>
                 <span>agfjgayu</span>
             </div>
-            <van-image width="60" height="60" src=""  round/>
+            <van-image width="66" height="66" src=""  round/>
         </div>
         <div class="cardpart">
             <littleCard />
@@ -31,13 +31,15 @@ export default {
         padding: 21px 19.5px 0 14.7px;
         margin-bottom: 25.5px;  
         p{
-            font-size: 18px;
+            font-size: 21px;
             color: #333333;
             font-weight: 700;
+            height: 20px;
+            margin-bottom: 17.33px;
         } 
         span{
-            font-size: 10px;
-            color:teal;
+            font-size: 11px;
+            color:#999999;
         }     
     }
     

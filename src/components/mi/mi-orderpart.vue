@@ -3,6 +3,7 @@
         <div class="wrap">
             <van-nav-bar
                 @click-right="onClickRight"
+                :border='false'
                 
                 >
                 <template #left>
@@ -38,7 +39,9 @@ export default {
            background-color:#ffffff;
            height: 47px;
            padding: 9px 0 9px 0;
-           
+        //    .van-hairline--bottom{
+        //        border: 1px solid white;
+        //    }
            
            .van-nav-bar__left{
                span{
