@@ -64,7 +64,6 @@ export default {
     top: 0;
     width: 172px;
     height: 100%;
-    background: #FAFAFB;
     z-index: -1;
   }
 }

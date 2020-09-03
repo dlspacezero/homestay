@@ -61,4 +61,5 @@ export default {
   // 页面底色，列表未铺满时的边缘色，暂时设定色，如有设计颜色，可替换
   background: #F9F9F9;
 }
+  
 </style>
