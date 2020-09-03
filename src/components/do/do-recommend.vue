@@ -4,16 +4,20 @@
     <!-- 详情页照片 -->
     <div class="discover-detail-photo">
       <!-- 详情页照片头部 -->
-      <div class="discover-detail-photo-header">
-        <div class="back" @click="toBack">&lt;</div>
-        <div class="share">&gt;</div>
+      <div class="discover-detail-photo-header" :style="{display:disappear,background:bgColor}">
+        <span class="iconfont icon-arrow-right" @click="toBack" :style="{color:activeColor}"></span>
+        <van-cell @click="showShare = true" class="share">
+          <span class="iconfont icon-zhuanfa" :style="{color:activeColor}"></span>
+        </van-cell>
+        <van-share-sheet v-model="showShare" :options="options" @select="onSelect" />
       </div>
       <!-- 详情页banner轮播图 -->
       <van-swipe @change="onChange" :loop="false">
-        <van-swipe-item>1</van-swipe-item>
-        <van-swipe-item>2</van-swipe-item>
-        <van-swipe-item>3</van-swipe-item>
-        <van-swipe-item>4</van-swipe-item>
+        <van-swipe-item v-for="(item,index) in 4" :key="index">
+          <div class="bigphoto">
+            <img src="../../assets/images/hs-photo-01.jpg" alt />
+          </div>
+        </van-swipe-item>
         <template #indicator>
           <div class="custom-indicator">{{ current + 1 }}/4</div>
         </template>
@@ -23,13 +27,16 @@
     <div class="discover-detail-main">
       <div class="discover-detail-author">
         <div class="discover-detail-author-headshot">
-          <img src alt />
+          <img src="../../assets/images/touxiang.jpg" alt />
         </div>
         <div class="discover-detail-author-info">
           <p class="discover-detail-author-name">还是孩子~</p>
           <p class="discover-detail-author-date">4-10</p>
         </div>
-        <p class="discover-detail-author-likes">点赞349</p>
+        <p class="discover-detail-author-likes" @click="likes" :style="{color:likesColor}">
+          <span class="iconfont icon-dianzan" :style="{color:numsColor}" ref="number"></span>
+          349
+        </p>
       </div>
       <div class="discover-detail-content">
         <span class="city">武汉</span>
@@ -67,54 +74,158 @@
       </div>
       <div class="discover-detail-comment-num discover-detail-comment-recommend">推荐房源</div>
     </div>
-    <van-swipe :loop="false" width="150" :show-indicators="false" class="recommendHome">
-      <van-swipe-item v-for="(item,index) in 4" :key="index">
+    <!-- 详情页推荐房源 -->
+    <ul class="recommendHome">
+      <li v-for="(item,index) in 4" :key="index">
         <div class="photo">
-          <img src alt />
+          <img src="../../assets/images/hs-photo-01.jpg" alt />
         </div>
         <p class="type">整租-普通公寓-宜住2人</p>
         <p class="info">【有時 鼠尾草海盐还有江景房】</p>
         <p class="price">¥558</p>
-      </van-swipe-item>
-    </van-swipe>
-    <div class="discover-detail-past">
+      </li>
+    </ul>
+    <!-- 详情页往期精选 -->
+    <div class="discover-detail-past" @click="toDiscover">
       <p>查看往期精选名宿</p>
-      <span>&gt;</span>
+      <span class="iconfont icon-arrow-left-copy"></span>
     </div>
+    <!-- 详情页底部添加评论 -->
     <div class="discover-detail-footer">
       <van-cell is-link @click="showPopup">
         <div class="addmsg">添加一条评论</div>
       </van-cell>
-      <van-popup v-model="show" position="bottom" closeable close-icon-position="top-left">
-        <div class="publish">发表</div>
+      <van-popup
+        v-model="show"
+        position="bottom"
+        closeable
+        close-icon-position="top-left"
+        @close="closeMsg"
+      >
+        <div class="publish" @click="addmsg">发表</div>
         <div class="publish-msg">发表评论</div>
-        <textarea placeholder="写评论。。。" name id cols="30" rows="5"></textarea>
-        <div class="msg-num">
-          <p>0/50</p>
-        </div>
+        <van-field
+          v-model="message"
+          rows="5"
+          autosize
+          type="textarea"
+          maxlength="50"
+          placeholder="写评论。。。"
+          show-word-limit
+          @input="inputMsg"
+        />
       </van-popup>
-      <van-button color="linear-gradient(to right, #ff6034, #ee0a24)" size="small" round>直达房源</van-button>
+      <van-button
+        @click="toIndex"
+        color="linear-gradient(to right, #ff6034, #ee0a24)"
+        size="small"
+        round
+      >直达房源</van-button>
     </div>
   </div>
 </template>
 <script>
+import { Toast } from "vant";
 export default {
   data() {
     return {
       current: 0,
       show: false,
+      message: "",
+      showShare: false,
+      options: [
+        { name: "微信", icon: "wechat" },
+        { name: "朋友圈", icon: "wechat" },
+        { name: "QQ", icon: "qq" },
+        { name: "QQ空间", icon: "qq" },
+        { name: "微博", icon: "weibo" },
+      ],
+      activeColor: "white",
+      disappear: "flex",
+      bgColor: "transparent",
+      scroll: "",
+      num: 0,
+      likesColor: "#7b7b7b",
+      numsColor: "#999999",
+      numbers: "",
     };
   },
   methods: {
+    // 获取dom滚动条滑动数据，并改变照片头部的 返回、分享的颜色
+    menu() {
+      this.scroll =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (this.scroll > 1) {
+        this.activeColor = "#FF9180";
+        this.bgColor = "white";
+      } else {
+        this.activeColor = "white";
+        this.bgColor = "transparent";
+      }
+    },
+    // 头部照片轮播改变对应索引
     onChange(index) {
       this.current = index;
     },
+    // 头部照片返回上一级路由
     toBack() {
       this.$router.go(-1);
     },
+    // 关闭发表评论，照片头部显示
+    closeMsg() {
+      this.disappear = "flex";
+    },
+    // 照片头部分享 底部弹出层
+    onSelect(option) {
+      Toast(option.name);
+      this.showShare = false;
+    },
+    // 查看往期名宿 去发现页
+    toDiscover() {
+      this.$router.push("/discover");
+    },
+    // 直达房源去 首页
+    toIndex() {
+      this.$router.push("/index");
+    },
+    // 点赞改变颜色
+    likes() {
+      if (this.num == 0) {
+        this.likesColor = "#FF9180";
+        this.numsColor = "#FF9180";
+        this.num = 1;
+      } else if (this.num == 1) {
+        this.likesColor = "#7b7b7b";
+        this.numsColor = "#999999";
+        this.num = 0;
+      }
+    },
+    // 发表评论遮罩层显示，照片头部隐藏
     showPopup() {
       this.show = true;
+      this.disappear = "none";
     },
+    // 发表评论不为空
+    addmsg() {
+      if (this.message !== "") {
+        Toast("点评成功！");
+        setTimeout(() => {
+          this.show = false;
+        }, 900);
+      } else {
+        Toast("请输入内容");
+      }
+    },
+    // 发表评论字数超过50
+    inputMsg() {
+      if (this.message.toString().length > 49) {
+        Toast("最多输入50个字");
+        this.show = true;
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.menu);
   },
 };
 </script>
@@ -129,22 +240,43 @@ export default {
   .discover-detail-photo-header {
     width: 100%;
     height: 50px;
-    background: white;
+    background: transparent;
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
-    .back,
-    .share {
-      color: orange;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .back {
-      left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon-arrow-right {
+      margin-left: 10px;
+      color: white;
     }
     .share {
-      right: 10px;
+      padding: 0;
+      width: 18px;
+      margin-right: 10px;
+      background: transparent;
+    }
+    .icon-zhuanfa {
+      color: white;
+    }
+    .van-popup--bottom.van-popup--round {
+      border-radius: 0;
+      .van-share-sheet__options {
+        overflow: hidden;
+        margin-left: -20px;
+        border-radius: 0;
+      }
+      .van-share-sheet__cancel {
+        background: #e1e1e1;
+      }
+    }
+  }
+  .bigphoto {
+    height: 276px;
+    img {
+      height: 276px;
     }
   }
   .discover-detail-main {
@@ -161,6 +293,11 @@ export default {
         background: skyblue;
         border-radius: 50%;
         float: left;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
       .discover-detail-author-info {
         float: left;
@@ -183,6 +320,9 @@ export default {
         font-family: PingFang;
         font-weight: bold;
         margin: 10px 0 0 0;
+        .icon-dianzan {
+          color: #7b7b7b;
+        }
       }
     }
     .discover-detail-content {
@@ -252,7 +392,6 @@ export default {
     }
   }
   .van-swipe {
-    z-index: -1;
     height: 276px;
     background: skyblue;
     .custom-indicator {
@@ -273,16 +412,25 @@ export default {
     background: none;
     height: 190px;
     margin-top: 20px;
-    .van-swipe-item {
-      display: flex;
-      flex-direction: column;
-      padding-left: 15px;
+    display: flex;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+      width: 150px;
+      margin-left: 15px;
     }
     .photo {
       width: 150px;
       height: 95px;
       background: skyblue;
       border-radius: 10px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .type {
       @include singleomit;
@@ -307,7 +455,6 @@ export default {
       font-size: 12px;
     }
   }
-
   .discover-detail-past {
     margin: 0 15px 70px;
     height: 60px;
@@ -340,6 +487,9 @@ export default {
     position: fixed;
     bottom: 0;
     left: 0;
+    .van-cell__right-icon {
+      display: none;
+    }
     .van-popup--bottom {
       height: 100%;
       background: white;
@@ -357,21 +507,10 @@ export default {
         margin-top: 60px;
         border-bottom: 4px solid #e1e1e1;
       }
-      textarea {
-        width: 330px;
-        margin: 10px 20px 80px 20px;
-        display: inline-block;
-        border: none;
-        color: #333333;
-        font-size: 15px;
-      }
-      .msg-num {
-        height: 30px;
-        line-height: 30px;
-        padding: 0 15px;
-        border-top: 1px solid #e1e1e1;
-        p {
-          float: right;
+      .van-cell {
+        border-bottom: 1px solid #e1e1e1;
+        .van-field__word-limit {
+          margin-top: 50px;
           color: $themecolor;
         }
       }
@@ -383,7 +522,7 @@ export default {
       border-bottom: 1px solid #e1e1e1;
     }
     .van-button--small {
-      width: 71px;
+      width: 78px;
       height: 26px;
     }
   }

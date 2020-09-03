@@ -2,10 +2,6 @@
   <div class="find-wrap">
     <!-- 发现页标题 -->
     <p class="find-title">发现</p>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     <!-- 发现页主要内容 -->
     <doMain />
   </div>
@@ -20,10 +16,7 @@ export default {
 };
 </script>
 <style lang='scss' >
-<<<<<<< HEAD
-=======
 @import '../assets/style/command.scss';
->>>>>>> master
 // 发现页外围
 .find-wrap {
   display: flex;
@@ -39,11 +32,7 @@ export default {
     width: 375px;
     height: 44px;
     font-size: 27px;
-<<<<<<< HEAD
-    font-family: PingFang;
-=======
     @include pingfang;
->>>>>>> master
     font-weight: 700;
     line-height: 44px;
     text-indent: 15px;
