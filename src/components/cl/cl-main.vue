@@ -88,6 +88,7 @@ export default {
 </script>
 
 <style lang="scss" >
+// @import "../../assets/style/collect.css";
 .clMainContainer {
   font-family: PingFang SC;
   height: 100%;

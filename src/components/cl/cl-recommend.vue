@@ -8,7 +8,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -21,7 +21,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -34,7 +34,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -47,7 +47,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -60,7 +60,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
