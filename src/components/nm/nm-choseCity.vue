@@ -52,29 +52,30 @@ export default {
             margin-bottom: 0px;
         }
         .line{
-                width: 345px;
-                height: 1px;
-                position: absolute;
-                left: 0;
-                top: 50%;
-                background: #ebedf0;
-                z-index: 10;
+            width: 345px;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            background: #ebedf0;
+            z-index: 10;
             }
         .van-tabs__nav{
             width: 345px;
+            height: 88px;
+            margin-left: 15px;
             flex-wrap: wrap;
             .van-tab{
+                height: 44px;
                 width: 69px;
                 font-size: 15px;
                 color: #666;
-                line-height: 44px;
                 z-index: 20;
             }
             .van-tab--active{
                 color: #FA9485;
             }
         }
-        
     }
 }
 </style>
