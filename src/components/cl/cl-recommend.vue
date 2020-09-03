@@ -140,6 +140,8 @@ export default {
         font-size: 15px;
         font-weight: bold;
         color: #333333;
+        margin: 0px;
+        height: 30px;
       }
       .info {
         width: 100%;

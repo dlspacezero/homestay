@@ -4,7 +4,7 @@
       <span class="title" :style="{margin:'0px'}">看看他们都收藏了什么</span>
       <span class="btn" @click="toRecommend" :style="{width:'95px'}">点击查看更多&gt;</span>
     </div>
-    <ul>
+    <ul class="morelist">
       <li>
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
@@ -110,6 +110,7 @@ export default {
       font-family: PingFang SC;
       font-weight: bold;
       color: #656565;
+      margin: 0px;
     }
     .btn {
       line-height: 46px;
@@ -170,6 +171,14 @@ export default {
         width: 18px;
         height: 17px;
       }
+    }
+  }
+}
+.morelist{
+  li{
+    .title{
+      margin:0px;
+      height: 30px;
     }
   }
 }

@@ -94,7 +94,9 @@ export default {
   height: 100%;
   // background: #e1e1e1;
   position: relative;
-
+  .van-tabs{
+    margin: 0px;
+  }
   .topChoose {
     position: fixed;
     top: 50px;
