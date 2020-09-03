@@ -12,8 +12,6 @@ import '../src/assets/style/reset.css'
 import "@/assets/font_mine/iconfont.css"
 
 
-
-
 // 按需引入Vant组件：
 import {
     Tabbar,
@@ -23,19 +21,22 @@ import {
     Empty,
     Button,
     Tag,
+    Calendar,
+    Swipe,
+    SwipeItem,
     NavBar,
     DropdownMenu,
     DropdownItem,
-    Calendar,
     Grid,
     GridItem,
     Icon,
     Divider,
     Image as VanImage,
-    SwipeItem,
-    Swipe
-} from 'vant'
-import VueRouter from 'vue-router'
+    Cell,
+    CellGroup,
+    Card,
+} from 'vant';
+
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Tab)
@@ -47,6 +48,7 @@ Vue.use(NavBar)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Calendar)
+Vue.use(Icon);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(Divider);
@@ -54,8 +56,9 @@ Vue.use(Icon);
 Vue.use(VanImage);
 Vue.use(SwipeItem)
 Vue.use(Swipe);
-
-
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(Card);
 
 Vue.config.productionTip = false
 
