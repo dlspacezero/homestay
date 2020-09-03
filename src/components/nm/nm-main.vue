@@ -84,12 +84,15 @@
                 </van-swipe>
             </div>
             <nmHouselist :list="oddsHouseList" />
+            
         </article>
     </main>
 </template>
 
 <script>
 import nmHouselist from "./nm-houselist";
+
+
 export default {
     data(){
         return {
@@ -145,7 +148,9 @@ export default {
                     price:298,
                     address:'地铁上岸站长安天街呃呃呃呃呃呃呃呃呃呃'
                 },
-            ]
+            ],
+            
+
         }
     },
     components:{
