@@ -56,6 +56,11 @@ const routes = [{
                 component: () =>
                     import ("../views/mine.vue"),
             },
+            {
+                path: '/register',
+                component: () =>
+                    import ('../views/mine-register.vue'),
+            },
         ],
     },
     {

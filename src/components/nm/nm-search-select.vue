@@ -1,7 +1,8 @@
 <template>
   <div class="select" >
       <!-- 日期选择 -->
-      <a href="javascript:;" class="data" @click="showtime=true">
+      <a href="javascript:;" class="data" >
+        <!-- @click="showtime=true" -->
           <!-- <p>住09-02</p>
           <p>退09-03</p> -->
           {{date}}
@@ -9,7 +10,7 @@
         <div class="small-div"></div>
         
       </a>
-       <van-calendar v-model="showtime" type="range" @confirm="onConfirm" :style="{ height: '100%' }"  />
+       <!-- <van-calendar v-model="showtime" type="range" @confirm="onConfirm" :style="{ height: '100%' }"  /> -->
       <!-- 选择位置选项 -->
       <a href="javascript:;"  @click="showPlace">
         选择位置
@@ -66,15 +67,15 @@ export default {
           showSelect() {
       this.showselect = true;
     },
-    formatDate(date) {
-      return `${date.getMonth() + 1}/${date.getDate()}`;
-    },
-    onConfirm(date) {
-      const [start, end] = date;
-      this.showtime = false;
-      this.date = `住店${this.formatDate(start)}
-                    离店${this.formatDate(end)}`;
-    },
+    // formatDate(date) {
+    //   return `${date.getMonth() + 1}/${date.getDate()}`;
+    // },
+    // onConfirm(date) {
+    //   const [start, end] = date;
+    //   this.showtime = false;
+    //   this.date = `住店${this.formatDate(start)}
+    //                 离店${this.formatDate(end)}`;
+    // },
   }
 };
 </script>
