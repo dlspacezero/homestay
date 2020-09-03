@@ -71,6 +71,11 @@ const routes = [{
         component: () =>
             import ("../views/notfound404.vue"),
     },
+    {
+        path: '/search',
+        component: () =>
+            import ('../views/nm-search.vue'),
+    },
 ];
 const router = new VueRouter({
     routes,
