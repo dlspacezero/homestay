@@ -8,21 +8,24 @@ $themecolor : #FF9181;
     font-weight: bold;
     color: #666;
 }
+
 //单行省略
-@mixin singleomit(){
+@mixin singleomit() {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 //多行省略
-@mixin multiomit(){
-    overflow : hidden;
+@mixin multiomit() {
+    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical
 }
+
 //PingFang字体
-@mixin pingfang(){
-    font-family:"PingFang";
+@mixin pingfang() {
+    font-family: "PingFang";
 }

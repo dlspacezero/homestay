@@ -13,10 +13,8 @@ import "@/assets/font_mine/iconfont.css"
 import VueRouter from 'vue-router'
 
 
-
-
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem, Grid, GridItem, Icon, Divider, NavBar, Image as VanImage, Button, Tab, Tabs, Empty, Tag, DropdownMenu, DropdownItem, Calendar, SwipeCell, Card, SwipeItem, Swipe } from 'vant'
+import { Tabbar, TabbarItem, Grid, GridItem, Icon, Divider, NavBar, Image as VanImage, Button, Tab, Tabs, Empty, Tag, DropdownMenu, DropdownItem, Calendar, SwipeCell, Card, SwipeItem, Swipe, Cell, CellGroup } from 'vant'
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Grid);
@@ -50,6 +48,7 @@ Vue.use(NavBar)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Calendar)
+Vue.use(Icon);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(Divider);
@@ -57,8 +56,9 @@ Vue.use(Icon);
 Vue.use(VanImage);
 Vue.use(SwipeItem)
 Vue.use(Swipe);
-
-
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(Card);
 
 Vue.config.productionTip = false
 

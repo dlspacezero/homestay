@@ -15,7 +15,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <span class="like"></span>
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
       </li>
       <li>
         <img
@@ -27,7 +28,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <span class="like"></span>
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
       </li>
       <li>
         <img
@@ -39,7 +41,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <span class="like"></span>
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
       </li>
       <li>
         <img
@@ -51,7 +54,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <span class="like"></span>
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
       </li>
       <li>
         <img
@@ -63,16 +67,23 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <span class="like"></span>
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import likeimg from "@/assets/imgs/icon_sc.png";
+import unlikeimg from "@/assets/imgs/icon_sc2.png";
 export default {
   data() {
-    return {};
+    return {
+      like: 0,
+      unlikeimg: unlikeimg,
+      likeimg: likeimg,
+    };
   },
   methods: {
     toRecommend() {
@@ -86,11 +97,8 @@ export default {
 .clMoreContainer {
   height: 201px;
   background: #ffffff;
+  margin-top: 9px;
   padding: 4px 0 4px 14px;
-  * {
-    padding: 0;
-    margin: 0;
-  }
   .top {
     height: 46px;
     margin-right: 15px;
@@ -161,7 +169,6 @@ export default {
         right: 6px;
         width: 18px;
         height: 17px;
-        border: 1px solid #ffffff;
       }
     }
   }
