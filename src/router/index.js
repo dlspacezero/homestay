@@ -44,7 +44,18 @@ const routes = [{
                 path: "/mine",
                 component: () =>
                     import ("../views/mine.vue"),
+
             },
+            {
+                path: '/coupond',
+                component: () =>
+                    import ("@/components/mi/mi-secondpage/coupond-secondpage.vue")
+            },
+            {
+                path: '/redpakage',
+                component: () =>
+                    import ("@/components/mi/mi-secondpage/redpakage-secondpage.vue")
+            }
         ],
     },
     {

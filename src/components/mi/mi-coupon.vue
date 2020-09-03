@@ -2,7 +2,7 @@
     <div class="coupon">
         <div class="wrap">
             <van-grid  :column-num="4"  :border="false" :gutter="8">
-                <van-grid-item v-for="(item,index) in dataList" :key="index" >
+                <van-grid-item v-for="(item,index) in dataList" :key="index"  :to="item.to">
                     <span :class="item.icon" class="iconfont"></span>
                     <p>{{item.title}}</p>
                 </van-grid-item>
@@ -19,11 +19,13 @@ export default {
             dataList:[
                 {
                     title:'优惠券',
-                    icon:'icon-youhuiquan',              
+                    icon:'icon-youhuiquan', 
+                    to:'/coupond'             
                 },
                 {
                     title:'邀请好友',
-                    icon:'icon-zmxy',              
+                    icon:'icon-zmxy',
+                    to:'/redpakage'
                 },
                 {
                     title:'积分',
@@ -32,8 +34,7 @@ export default {
                 {
                     title:'金卡会员',
                     icon:'icon-shuben',              
-                },
-               
+                },               
             ]
         }
     },
