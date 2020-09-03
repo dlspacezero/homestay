@@ -9,7 +9,6 @@ import store from './store'
 import 'amfe-flexible'
 
 import '../src/assets/style/reset.css'
-import "@/assets/font_mine/iconfont.css"
 import VueRouter from 'vue-router'
 
 
