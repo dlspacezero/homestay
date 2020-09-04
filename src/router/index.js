@@ -24,15 +24,8 @@ const routes = [{
                 path: "/index",
                 component: () =>
                     import ("../views/nominate.vue"),
-                children: [{
-                        path: '',
-                        redirect: '/search'
-                    },
-                    {
-                        path: '/search',
-                        component: () =>
-                            import ('../views/nm-search.vue'),
-                    },
+                children: [
+                    
 
                 ]
             },
@@ -56,12 +49,18 @@ const routes = [{
                 component: () =>
                     import ("../views/mine.vue"),
             },
-            {
-                path: '/register',
-                component: () =>
-                    import ('../views/mine-register.vue'),
-            },
+            
         ],
+    },
+    {
+        path: '/search',
+        component: () =>
+            import ('../views/nm-search.vue'),
+    },
+    {
+        path: '/register',
+        component: () =>
+            import ('../views/mine-register.vue'),
     },
     {
         path: "*",
