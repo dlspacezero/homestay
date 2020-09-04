@@ -1,17 +1,18 @@
 <template>
   <div class="clMainContainer">
     <!-- 收藏主页头部 -->
-    <van-tabs v-model="active">
+    <van-tabs v-model="active" class="cl-main-tabs">
       <van-tab title="收藏">
         <!-- 登录，且有收藏数据时显示 -->
-        <!-- <div class="topChoose">
+        <div class="topChoose">
           <div class="date after-icon" @click="toChooseDate">选择入离时间</div>
-          <div class="city after-icon" @click="toChooseCity">全部城市</div>
-          <div class="sort after-icon" @click="toChooseSorts">默认排序</div>
-        </div>-->
+          <div class="city after-icon" @click="toChooseCity">{{clChooseCity}}</div>
+          <div class="sort after-icon" @click="toChooseSorts">{{clChooseSort}}</div>
+        </div>
+
         <div class="scrollWrap">
           <!-- 登录，且有收藏数据时显示 -->
-          <!-- <ClList></ClList> -->
+          <ClList></ClList>
           <!-- 无论是否登录，都显示 -->
           <ClMore></ClMore>
         </div>
@@ -41,17 +42,23 @@ header Tab切换  收藏和浏览记录 两大组件
 </template>
 
 <script>
+// 引入模块
 import ClMore from "./cl-more";
 import ClList from "./cl-list";
 import ClNoLogin from "./cl-nologin";
 import ClNoSku from "./cl-nosku";
 import ClBrowsingHistory from "./cl-browsing-history";
+
+// 获取数据
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
       active: 0,
       token: "",
       collectData: "",
+      // city: "全部城市",
     };
   },
   components: {
@@ -64,38 +71,38 @@ export default {
   mounted() {
     this.token = localStorage.getItem("token");
   },
+  computed: {
+    ...mapState(["clChooseCity", "clChooseSort"]),
+  },
   methods: {
     toChooseDate() {
       // 路由到日期选择页
       // 选择入住日期，离馆日期，自动跳转到主页，并将日期数据给主页显示，发送请求，进行可选的收藏店铺渲染
-      // 数据  子传父
     },
     toChooseCity() {
       // 路由到城市选择页，
       // 选择城市，自动跳转到主页，并将城市数据给主页显示，发送请求，进行可选的收藏店铺渲染
-      // 数据  子传父
+      this.$router.push("/cl-choose-city");
     },
     toChooseSorts() {
       // 路由到排序选择页
       // 点击一次选项，进行判断是否和上一次点击同一个选项，
-      // 数据  子传父
       // 如果是不做请求，跳转回收藏主页面，不用再次渲染，
       // 如果不是发送相应请求，跳转回收藏主页面，进行数据渲染，
       // 或者将请求过的排序数据存入sessionStorage,再次点击相应排序时，不用发送请求，从本地取数据渲染，缺点：不能即时更新，容易超出体积
+      this.$router.push("/cl-choose-sort");
     },
   },
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .clMainContainer {
+  min-height: calc(100vh - 100px);
+  background: #f7f7f7;
   font-family: PingFang SC;
   height: 100%;
-  // background: #e1e1e1;
   position: relative;
-  .van-tabs{
-    margin: 0px;
-  }
   .topChoose {
     position: fixed;
     top: 50px;
@@ -133,11 +140,21 @@ export default {
       display: none;
     }
   }
+
+  .van-tabs {
+    margin: 0;
+  }
+  .van-tabs__nav--line {
+    box-sizing: content-box;
+    height: 100%;
+    padding-bottom: 0;
+  }
   .van-tabs--line .van-tabs__wrap {
     width: 375px;
     position: fixed;
     top: 0px;
     left: 0;
+    margin: 0;
     z-index: 5000;
     height: 49px;
     background: #ffffff;
@@ -149,8 +166,12 @@ export default {
       .van-tab {
         font-size: 15px;
         font-weight: 500;
+        height: 49px;
+        width: auto;
+        text-align: start;
         color: #999999;
         flex: 0 1 auto;
+        padding: 0 15px;
       }
       .van-tab--active {
         color: #ff917f;
@@ -159,7 +180,8 @@ export default {
     .van-tabs__line {
       position: absolute;
       left: 0;
-      z-index: 1;
+      bottom: 0;
+      z-index: 333;
       width: 16px;
       height: 3px;
       background: #ff917f;
