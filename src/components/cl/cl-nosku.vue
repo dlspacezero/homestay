@@ -19,12 +19,12 @@ export default {
 <style lang="scss">
 .noskuContainer {
   position: relative;
-  margin-bottom: 55px;
+  padding: 125px 0 55px;
   .empty-img {
     display: block;
     width: 72px;
     height: 72px;
-    margin: 125px auto 0;
+    margin: 0 auto;
   }
   p {
     height: 47px;

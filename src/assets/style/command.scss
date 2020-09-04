@@ -3,7 +3,7 @@
 //主题颜色
 $themecolor : #FF9181;
 //通用字体
-@mixin commonfont {
+@mixin commonfont() {
     font-size: 14px;
     font-weight: bold;
     color: #666;

@@ -22,17 +22,17 @@
         <div class="recommend-wrap">
           <p class="hs-recommend-likes">猜你喜欢</p>
           <ul>
-            <li v-for="item in 10" :key="item">
+            <li v-for="item in 10" :key="item" @click="toRecommend(1)">
               <div class="hs-recommend-promulator-photo">
-                <!-- <img src alt /> -->
+                <img src="../../assets/images/hs-photo-01.jpg" alt />
               </div>
               <p class="hs-recommend-promulator-title">住进霍格沃兹的魔法城堡！上海木屋民宿！</p>
               <div class="hs-recommend-promulator">
                 <div class="hs-recommend-promulator-headshot">
-                  <!-- <img src alt /> -->
+                  <img src="../../assets/images/touxiang.jpg" alt />
                 </div>
-                <span>367</span>
-                <span>2</span>
+                <span class="iconfont icon-dianzan"> 367</span>
+                <span class="iconfont icon-pinglun"> 2</span>
               </div>
             </li>
           </ul>
@@ -43,25 +43,37 @@
       <van-swipe-item>
         <div class="hot-wrap">
           <ul>
-            <li v-for="item in 4" :key="item">
+            <li v-for="item in 4" :key="item" @click="toRecommend(1)">
               <div class="hs-hot-photo">
-                <div class="hs-hot-photo-big"></div>
+                <div class="hs-hot-photo-big">
+                  <img src="../../assets/images/hs-photo-01.jpg" alt />
+                </div>
                 <div class="hs-hot-photo-small-wrap">
                   <div class="hs-hot-photo-small">
-                    <img src alt />
+                    <img src="../../assets/images/hs-photo-01.jpg" alt />
                   </div>
                   <div class="hs-hot-photo-small">
-                    <img src alt />
+                    <img src="../../assets/images/hs-photo-01.jpg" alt />
                   </div>
                 </div>
               </div>
               <p class="hs-hot-promulator-title">住进霍格沃兹的魔法城堡！上海木屋民宿！</p>
               <p class="hs-hot-promulator">昔风里 小木屋</p>
               <div class="hs-hot-likes">
-                <div class="hs-hot-likes-headshot">
-                  <img src alt />
+                <div>
+                  <div class="hs-hot-likes-headshot">
+                    <img src="../../assets/images/touxiang.jpg" alt />
+                  </div>
+                  <div class="hs-hot-likes-headshot headshot1">
+                    <img src="../../assets/images/touxiang.jpg" alt />
+                  </div>
+                  <div class="hs-hot-likes-headshot headshot2">
+                    <img src="../../assets/images/touxiang.jpg" alt />
+                  </div>
                 </div>
-                <span class="hs-hot-likes-num">点赞368</span>
+                <span class="iconfont icon-dianzan ">
+                  <span class="hs-hot-likes-num"> 368</span>
+                </span>
               </div>
             </li>
           </ul>
@@ -72,88 +84,18 @@
       <van-swipe-item>
         <!-- 主体内容部分 -->
         <section class="hs-content">
-          <div class="hs-houseInfo">
+          <div class="hs-houseInfo" v-for="(item,index) in 6" :key="index" @click="toRecommend(1)">
             <div class="hs-houseImg">
-              <img src alt />
+              <img src="../../assets/images/hs-photo-01.jpg" alt />
               <span class="hf-position">杭州</span>
             </div>
             <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
             <div class="hs-houseDiscuss">
               <span class="hs-headImg">
-                <img src alt />
+                <img src="../../assets/images/touxiang.jpg" alt />
               </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
-            </div>
-          </div>
-          <div class="hs-houseInfo">
-            <div class="hs-houseImg">
-              <img src alt />
-              <span class="hf-position">杭州</span>
-            </div>
-            <div class="hs-houseDescribe">第一次来杭州，住西湖边清新loft</div>
-            <div class="hs-houseDiscuss">
-              <span class="hs-headImg">
-                <img src alt />
-              </span>
-              <span class="hs-goodNum">144</span>
-              <span class="hs-discuss">2</span>
+              <span class="iconfont icon-dianzan hs-goodNum"> 144</span>
+              <span class="iconfont icon-pinglun hs-discuss"> 2</span>
             </div>
           </div>
           <div class="hs-getMore van-hairline--surround">查看更多</div>
@@ -162,68 +104,17 @@
       <!-- 特色房源 -->
       <van-swipe-item>
         <section class="hs-featureHouse">
-          <div class="hs-typeHouse">
+          <div
+            class="hs-typeHouse"
+            v-for="(item,index) in specialList"
+            :key="index"
+            @click="toSpecial(1)"
+          >
             <div class="hs-typeImg">
-              <img src alt />
+              <img src="../../assets/images/discover-special-01.jpg" alt />
             </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
-          </div>
-          <div class="hs-typeHouse">
-            <div class="hs-typeImg">
-              <img src alt />
-            </div>
-            <span class="hs-typeEn">Villa</span>
-            <span class="hs-typeCn">别墅</span>
+            <span class="hs-typeEn">{{item.enm}}</span>
+            <span class="hs-typeCn">{{item.cnm}}</span>
           </div>
         </section>
       </van-swipe-item>
@@ -237,22 +128,79 @@ export default {
     return {
       tabswitch: ["推荐", "网红民宿", "体验分享", "特色房源"],
       isActive: 0,
+      specialList: [
+        {
+          img: "../../assets/images/discover-special-01.jpg",
+          enm: "Villa",
+          cnm: "别墅",
+        },
+        {
+          img: "../../assets/images/discover-special-02.jpg",
+          enm: "Sea view room",
+          cnm: "海景房",
+        },
+        {
+          img: "../../assets/images/discover-special-03.jpg",
+          enm: "Thematic features",
+          cnm: "主题特色",
+        },
+        {
+          img: "../../assets/images/discover-special-04.jpg",
+          enm: "Lovers room",
+          cnm: "情侣房",
+        },
+        {
+          img: "../../assets/images/discover-special-05.jpg",
+          enm: "loft",
+          cnm: "复式",
+        },
+        {
+          img: "../../assets/images/discover-special-06.jpg",
+          enm: "Courtyard",
+          cnm: "四合院",
+        },
+        {
+          img: "../../assets/images/discover-special-07.jpg",
+          enm: "Wooden house",
+          cnm: "木屋",
+        },
+        {
+          img: "../../assets/images/discover-special-08.jpg",
+          enm: "Ancient town",
+          cnm: "古镇客栈",
+        },
+        {
+          img: "../../assets/images/discover-special-09.jpg",
+          enm: "Famhouse",
+          cnm: "农家院",
+        },
+      ],
     };
   },
   methods: {
+    // 点击tab滑动下面的轮播
     tabClick(i) {
-      this.isActive = i;
+      // this.isActive = i;
       this.$refs.changebanner.swipeTo(i);
     },
+    // 滑动下面的轮播上面的tab切换
     onChange(i) {
       this.isActive = i;
+    },
+    // 进入推荐、网红民宿、体验分享详情页
+    toRecommend(id) {
+      this.$router.push("/detail/recommend/" + id);
+    },
+    // 进入特色房源详情页
+    toSpecial(id) {
+      this.$router.push("/detail/special/" + id);
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../assets/style/command.scss';
+@import "../../assets/style/command.scss";
 .main-wrap {
   // 发现页tab切换
   .tabswitch {
@@ -287,6 +235,16 @@ export default {
     left: 0;
     right: 0;
     overflow-y: auto;
+    .iconfont {
+      display: inline-block;
+      margin-left: 15px;
+      color: #7b7b7b;
+      font-size: 14px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
     .van-swipe-item .recommend-wrap {
       display: flex;
       flex-direction: column;
@@ -312,6 +270,7 @@ export default {
             height: 117px;
             background: skyblue;
             border-radius: 10px;
+            overflow: hidden;
           }
           .hs-recommend-promulator-title {
             width: 164px;
@@ -329,6 +288,7 @@ export default {
               height: 20px;
               background: red;
               border-radius: 50%;
+              overflow: hidden;
             }
           }
         }
@@ -360,7 +320,7 @@ export default {
           display: flex;
           flex-direction: column;
           border-bottom: 1px solid #e1e1e1;
-          &:last-child{
+          &:last-child {
             border: none;
           }
           .hs-hot-photo {
@@ -371,6 +331,7 @@ export default {
               height: 197px;
               background: skyblue;
               border-radius: 10px;
+              overflow: hidden;
             }
             .hs-hot-photo-small-wrap {
               display: flex;
@@ -381,6 +342,7 @@ export default {
                 height: 94px;
                 background: skyblue;
                 border-radius: 10px;
+                overflow: hidden;
               }
             }
           }
@@ -404,12 +366,27 @@ export default {
               height: 28px;
               background: red;
               border-radius: 50%;
+              overflow: hidden;
+              float: left;
+            }
+            .headshot1 {
+              position: relative;
+              left: -10px;
+              z-index: -1;
+            }
+            .headshot2 {
+              position: relative;
+              left: -20px;
+              z-index: -2;
             }
             .hs-hot-likes-num {
               color: #333333;
               font-size: 11px;
               @include pingfang;
               font-weight: bold;
+            }
+            .iconfont{
+              color: #FE8E47;
             }
           }
         }
@@ -443,9 +420,10 @@ export default {
           .hs-houseImg {
             width: 157px;
             height: 149px;
-            border-radius: 6px;
+            border-radius: 10px;
             background: crimson;
             position: relative;
+            overflow: hidden;
             img {
               width: 100%;
               height: 100%;
@@ -481,6 +459,7 @@ export default {
             color: #333;
             font-size: 11px;
             font-weight: 500;
+            display: flex;
             span {
               display: inline-block;
             }
@@ -489,6 +468,7 @@ export default {
               height: 28px;
               border-radius: 50%;
               background: chocolate;
+              overflow: hidden;
               img {
                 width: 100%;
                 height: 100%;
@@ -525,12 +505,11 @@ export default {
             width: 103px;
             height: 116px;
             border-radius: 6px;
-            background: coral;
             margin-bottom: 19px;
-            img {
-              width: 100%;
-              height: 100%;
-            }
+            // img {
+            //   width: 100%;
+            //   height: 100%;
+            // }
           }
           .hs-typeEn {
             margin-left: 6px;

@@ -22,11 +22,12 @@ export default {
 <style lang="scss">
 .nologinContainer {
   position: relative;
+  padding-top: 125px;
   .empty-img {
     display: block;
     width: 72px;
     height: 72px;
-    margin: 125px auto 0;
+    margin: 0 auto;
   }
   p {
     height: 47px;

@@ -85,13 +85,4 @@ export default {
   methods: {},
 };
 </script>
-<style lang='scss' >
-// .homeContainer {
-//   // 页面底色，列表未铺满时的边缘色，暂时设定色，如有设计颜色，可替换
-//   background: #e1e1e1;
-// }
-// .van-hairline--top-bottom{
-//   background: #FFF;
-//   z-index: 100;
-// }
-</style>
+<style lang='scss' ></style>

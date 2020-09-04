@@ -216,6 +216,11 @@ export default {
     },
     components:{
         nmHouselist
+    },
+    async mounted(){
+        
+        await this.$store.dispatch('changeBannerList');
+        console.log(this.$store.state.bannerlist);
     }
 };
 </script>
