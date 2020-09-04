@@ -22,7 +22,7 @@
       <section class="hs-spotContent">
         <p class="hs-spotsTitle">
           <span class="hs-line">
-            <img src="../assets/imgs/icon.png" alt="">
+            <img src="../assets/imgs/spoticon.png" alt="">
           </span>
           <span class="hs-hot">热门景点</span>
           <span class="hs-img">HOT</span>
@@ -65,7 +65,7 @@
       <section class="hs-spotContent">
           <p class="hs-spotsTitle">
             <span class="hs-line">
-              <img src="../assets/imgs/icon.png" alt="">
+              <img src="../assets/imgs/spoticon.png" alt="">
             </span>
             <span class="hs-hot">热门地标</span>
             <span class="hs-img hs-logo">
@@ -110,7 +110,7 @@
       <section class="hs-spotContent">
           <p class="hs-spotsTitle">
             <span class="hs-line">
-              <img src="../assets/imgs/icon.png" alt="">
+              <img src="../assets/imgs/spoticon.png" alt="">
             </span>
             <span class="hs-hot">猜你喜欢·北京房源</span>
           </p>
