@@ -116,6 +116,11 @@ const routes = [
         path:'/register',
         component:() => import('../views/mine-register.vue')
     },
+    //订单页面
+    {
+        path:'/order',
+        component:() => import('../views/indent.vue')
+    },
     { //404 not found
         path: "*",
         component: () =>

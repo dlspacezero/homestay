@@ -8,7 +8,6 @@
                 >
                 <template #left>
                     <span>我的订单</span>
-                    
                 </template>
                 <template #right>
                     <span>查看订单</span>
@@ -22,8 +21,10 @@
 <script>
 export default {
     methods: {
+        //点击查看订单
         onClickRight(){
-            console.log(2);
+            //跳转到订单页面
+            this.$router.push('/order');
         }
     },
 }
