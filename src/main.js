@@ -50,8 +50,12 @@ import {
     PasswordInput,
     NumberKeyboard,
     RadioGroup,
-    Radio
+    Radio,
+    IndexBar, 
+    IndexAnchor
 } from 'vant';
+Vue.use(IndexAnchor);
+Vue.use(IndexBar);
 Vue.use(ShareSheet);
 Vue.use(Toast);
 Vue.use(NavBar);

@@ -15,10 +15,11 @@
       class="my-swipe"
       :loop="false"
       :show-indicators="false"
+      :stop-propagation="false"
       ref="changebanner"
     >
       <!-- 推荐 -->
-      <van-swipe-item>
+      <van-swipe-item class="first">
         <div class="recommend-wrap">
           <p class="hs-recommend-likes">猜你喜欢</p>
           <ul>
@@ -31,8 +32,8 @@
                 <div class="hs-recommend-promulator-headshot">
                   <img src="../../assets/images/touxiang.jpg" alt />
                 </div>
-                <span class="iconfont icon-dianzan"> 367</span>
-                <span class="iconfont icon-pinglun"> 2</span>
+                <span class="iconfont icon-dianzan">367</span>
+                <span class="iconfont icon-pinglun">2</span>
               </div>
             </li>
           </ul>
@@ -40,7 +41,7 @@
         </div>
       </van-swipe-item>
       <!-- 网红民宿 -->
-      <van-swipe-item>
+      <van-swipe-item class="second">
         <div class="hot-wrap">
           <ul>
             <li v-for="item in 4" :key="item" @click="toRecommend(1)">
@@ -71,8 +72,8 @@
                     <img src="../../assets/images/touxiang.jpg" alt />
                   </div>
                 </div>
-                <span class="iconfont icon-dianzan ">
-                  <span class="hs-hot-likes-num"> 368</span>
+                <span class="iconfont icon-dianzan">
+                  <span class="hs-hot-likes-num">368</span>
                 </span>
               </div>
             </li>
@@ -81,7 +82,7 @@
         </div>
       </van-swipe-item>
       <!-- 体验分享 -->
-      <van-swipe-item>
+      <van-swipe-item  class="third">
         <!-- 主体内容部分 -->
         <section class="hs-content">
           <div class="hs-houseInfo" v-for="(item,index) in 6" :key="index" @click="toRecommend(1)">
@@ -94,15 +95,15 @@
               <span class="hs-headImg">
                 <img src="../../assets/images/touxiang.jpg" alt />
               </span>
-              <span class="iconfont icon-dianzan hs-goodNum"> 144</span>
-              <span class="iconfont icon-pinglun hs-discuss"> 2</span>
+              <span class="iconfont icon-dianzan hs-goodNum">144</span>
+              <span class="iconfont icon-pinglun hs-discuss">2</span>
             </div>
           </div>
           <div class="hs-getMore van-hairline--surround">查看更多</div>
         </section>
       </van-swipe-item>
       <!-- 特色房源 -->
-      <van-swipe-item>
+      <van-swipe-item  class="fourth">
         <section class="hs-featureHouse">
           <div
             class="hs-typeHouse"
@@ -128,6 +129,7 @@ export default {
     return {
       tabswitch: ["推荐", "网红民宿", "体验分享", "特色房源"],
       isActive: 0,
+      isLoading: false,
       specialList: [
         {
           img: "../../assets/images/discover-special-01.jpg",
@@ -229,12 +231,7 @@ export default {
   }
   // 发现页轮播图
   .my-swipe {
-    position: absolute;
-    top: 91px;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    overflow-y: auto;
+    margin-top: 91px;
     .iconfont {
       display: inline-block;
       margin-left: 15px;
@@ -385,8 +382,8 @@ export default {
               @include pingfang;
               font-weight: bold;
             }
-            .iconfont{
-              color: #FE8E47;
+            .iconfont {
+              color: #fe8e47;
             }
           }
         }
@@ -506,10 +503,10 @@ export default {
             height: 116px;
             border-radius: 6px;
             margin-bottom: 19px;
-            // img {
-            //   width: 100%;
-            //   height: 100%;
-            // }
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
           .hs-typeEn {
             margin-left: 6px;

@@ -34,8 +34,7 @@
           <p class="discover-detail-author-date">4-10</p>
         </div>
         <p class="discover-detail-author-likes" @click="likes" :style="{color:likesColor}">
-          <span class="iconfont icon-dianzan" :style="{color:numsColor}" ref="number"></span>
-          349
+          <span class="iconfont icon-dianzan" :style="{color:numsColor}" ref="number">349</span>
         </p>
       </div>
       <div class="discover-detail-content">
@@ -194,10 +193,12 @@ export default {
         this.likesColor = "#FF9180";
         this.numsColor = "#FF9180";
         this.num = 1;
+        this.$refs.number.innerHTML = +this.$refs.number.innerHTML + 1;
       } else if (this.num == 1) {
         this.likesColor = "#7b7b7b";
         this.numsColor = "#999999";
         this.num = 0;
+        this.$refs.number.innerHTML = +this.$refs.number.innerHTML - 1;
       }
     },
     // 发表评论遮罩层显示，照片头部隐藏
