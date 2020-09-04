@@ -83,7 +83,7 @@ const routes = [{
         component: () =>
             import ("../views/calendar.vue"),
     },
-    {
+    { //搜索景点页面
         path: "/findspots",
         component: () =>
             import ("../views/findspots.vue")
