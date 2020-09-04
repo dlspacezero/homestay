@@ -3,7 +3,7 @@
     <!-- 筛选条件 -->
     <div class="content-top">
         <!-- 移动滑块插件 -->
-        <van-swipe :loop="false" :width="90" :show-indicators="false">
+        <van-swipe :loop="false" :width="100" :show-indicators="false">
             <van-swipe-item v-for="(value,index) in list" :key="index" :class="{active:index===aindex}" @click="change(index)">{{value}} <div class="content-top-arrow"></div></van-swipe-item>
         </van-swipe>
         <!-- <div class="content-top-scroll">
@@ -88,18 +88,22 @@ export default {
                 line-height: 30px;
                 border-radius: 15px;
                 margin-top: 8px;
-                margin-right: 10px;
+                // margin-right: 10px;
                 position: relative;
-                .content-top-arrow{
-                    width: 0;
-                    height: 0;
-                    border-width: 3px 1.5px;
-                    border-style: solid;
-                    border-color: black transparent transparent transparent;
-                    position: absolute;
-                    top: 15px;
-                    right: 10px;
+                 .van-swipe__track{
+                        width: 1000px;
+                    .content-top-arrow{
+                        width: 0;
+                        height: 0;
+                        border-width: 3px 1.5px;
+                        border-style: solid;
+                        border-color: black transparent transparent transparent;
+                        position: absolute;
+                        top: 15px;
+                        right: 10px;
                 }
+                }
+                
 
             }
               .active{
@@ -272,6 +276,7 @@ export default {
             margin-bottom: 62px;
             text-align: center;
         }
+       
     }
 
 </style>

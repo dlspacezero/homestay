@@ -112,6 +112,10 @@ const routes = [
       component: () =>
           import ('../views/nm-search.vue'),
     },
+    {
+        path:'/register',
+        component:() => import('../views/mine-register.vue')
+    },
     { //404 not found
         path: "*",
         component: () =>
