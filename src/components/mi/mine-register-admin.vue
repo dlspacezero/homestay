@@ -18,7 +18,7 @@
             <div class="smalldiv"></div>
             </label><input type="number" name="tel" id="tel" placeholder="请输入手机号">
             <!-- 获取验证码 -->
-            <a href="javascript:;" class="register-tel-getrequier van-hairline--left" v-show="time==120" @click="timeless">获取验证码</a>
+            <!-- <a href="javascript:;" class="register-tel-getrequier van-hairline--left" v-show="time==120" @click="timeless">获取验证码</a> -->
             <!-- 点击以后出现倒计时 -->
             <a href="javascript:;" class="register-tel-getrequier van-hairline--left" v-show="time<120" :v-model="time">{{time}}s以后可重发</a>
         </div>
@@ -198,7 +198,7 @@ export default {
             }
             // 手机号码输入
             #tel{
-                width: 188px;
+                width: 278px;
                 height: 27px;
                 line-height: 27px;
                 border: none;
