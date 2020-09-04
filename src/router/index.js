@@ -3,16 +3,16 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    redirect: "/index",
-  },
-  {
-    //登陆注册页
-    path: "/login",
-    component: () => import("../views/login.vue"),
-  },
+const routes = [{
+        path: "/",
+        redirect: "/index",
+    },
+    {
+        //登陆注册页
+        path: "/login",
+        component: () =>
+            import ("../views/login.vue"),
+    },
     {
         path: "/home",
         component: () =>
@@ -21,38 +21,38 @@ const routes = [
                 path: "",
                 redirect: "/index",
             },
-            {   //首页
+            { //首页
                 path: "/index",
                 component: () =>
                     import ("../views/nominate.vue"),
             },
-            {   //收藏页
+            { //收藏页
                 path: "/collect",
                 component: () =>
                     import ("../views/collect.vue"),
             },
-            {   //发现页
+            { //发现页
                 path: "/discover",
                 component: () =>
                     import ("../views/discover.vue"),
             },
-            {   //消息页
+            { //消息页
                 path: "/message",
                 component: () =>
                     import ("../views/message.vue"),
             },
-            {   //我的
+            { //我的
                 path: "/mine",
                 component: () =>
                     import ("../views/mine.vue"),
 
             },
-            {   //优惠券
+            { //优惠券
                 path: '/coupond',
                 component: () =>
                     import ("@/components/mi/mi-secondpage/coupond-secondpage.vue")
             },
-            {   //红包页
+            { //红包页
                 path: '/redpakage',
                 component: () =>
                     import ("@/components/mi/mi-secondpage/redpakage-secondpage.vue")
@@ -78,6 +78,17 @@ const routes = [
             import ("../components/cl/cl-recommend.vue"),
     },
     {
+        //日历页面
+        path: "/calendar",
+        component: () =>
+            import ("../views/calendar.vue"),
+    },
+    { //搜索景点页面
+        path: "/findspots",
+        component: () =>
+            import ("../views/findspots.vue")
+    },
+    {
         // 订单页面，详情页->点击立即预定按钮 =>订单填写页->点击提交点单按钮 =>支付订单页->左上角回退按钮=>提示“订单已提交成功”页->左上角回退按钮=>订单页
         // 订单页->左上角回退按钮=>我的页（/mine）
         // 我的页 ->我的订单=>订单页
@@ -85,36 +96,40 @@ const routes = [
         component: () =>
             import ("../views/indent.vue"),
     },
-    {   //日历页
+    { //日历页
         path: "/calendar",
         component: () =>
             import ("../views/calendar.vue"),
     },
     // 详情页
     {
-      path: "/detail",
-      component: () => import("../views/detail.vue"),
-      children: [
-        // 发现页：推荐、网红民宿、体验分享的详情页
-        {
-          path: "recommend/:id",
-          component: () => import("../components/do/do-recommend.vue"),
-        },
-        // 发现页：特色房源的详情页
-        {
-          path: "special/:id",
-          component: () => import("../components/do/do-special.vue"),
-        },
-      ],
+        path: "/detail",
+        component: () =>
+            import ("../views/detail.vue"),
+        children: [
+            // 发现页：推荐、网红民宿、体验分享的详情页
+            {
+                path: "recommend/:id",
+                component: () =>
+                    import ("../components/do/do-recommend.vue"),
+            },
+            // 发现页：特色房源的详情页
+            {
+                path: "special/:id",
+                component: () =>
+                    import ("../components/do/do-special.vue"),
+            },
+        ],
     },
     { //搜索页
-      path: '/search',
-      component: () =>
-          import ('../views/nm-search.vue'),
+        path: '/search',
+        component: () =>
+            import ('../views/nm-search.vue'),
     },
     {
-        path:'/register',
-        component:() => import('../views/mine-register.vue')
+        path: '/register',
+        component: () =>
+            import ('../views/mine-register.vue')
     },
     //订单页面
     {
@@ -128,6 +143,6 @@ const routes = [
     }
 ];
 const router = new VueRouter({
-  routes,
+    routes,
 });
 export default router;

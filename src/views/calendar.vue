@@ -28,7 +28,7 @@ export default {
     data() {
         return {
             //设置日历的最长时间
-            maxDate: new Date(2021, 1, 2)
+            maxDate: new Date(2021, 1, 28)
         }
     },
     methods: {
@@ -166,6 +166,7 @@ export default {
             position: fixed;
             top: 37px;
             left: 0;
+            z-index: 99;
             //设置星期栏内容样式
             .van-calendar__weekday{
                 font-size: 13px;
@@ -200,8 +201,11 @@ export default {
                 font-weight: 400;
                 color: #383737;
             }
+            // .selectable-day {
+            //     color: #383737!important;
+            // }
             .weekday {
-                color: #EE8975;
+                color: #EE8975!important;
             }
             //年月日样式
             .van-calendar__month-title{
@@ -230,8 +234,8 @@ export default {
             }
         }
         //不能选择的日期的样式
-        .van-calendar__day--disabled{
-            color: #383737;
+        .van-calendar__day--disabled {
+            color: #c8c9cc!important;
         }
     }
 </style>

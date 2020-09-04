@@ -79,6 +79,8 @@ Vue.use(Calendar);
 Vue.use(SwipeCell);
 Vue.use(Cell);
 Vue.use(CellGroup);
+Vue.use(Card);
+Vue.use(Search);
 Vue.use(CouponCell);
 Vue.use(CouponList);
 Vue.use(Popup);
