@@ -21,8 +21,7 @@ export default {
 
 <style lang="scss" >
 .orderEmpty {
-  //   height: 688px;
-  padding: 240px 0 175px;
+  padding: 240px 0 0;
   img {
     display: block;
     width: 109px;

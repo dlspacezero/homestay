@@ -1,7 +1,7 @@
 <template>
   <div class="orderContainer">
     <!-- 订单页 -->
-    <van-nav-bar title="订单" left-arrow @click-left="toMine" class="van-hairline--bottom" />
+    <van-nav-bar title="订单" left-text="<" @click-left="toMine" class="van-hairline--bottom" />
     <van-tabs v-model="active" swipeable>
       <van-tab v-for="item in tabArr" :title="item.bar" :key="item.bar">
         <!-- 如果数据为空时显示 -->
@@ -43,10 +43,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .orderContainer {
   // 页面底色，列表未铺满时的边缘色，暂时设定色，如有设计颜色，可替换
-  background: #e1e1e1;
+  min-height: 100vh;
+  background: #f7f7f7;
   font-family: PingFang SC;
 
   // 头部样式
@@ -57,11 +58,28 @@ export default {
       font-weight: 600;
       color: #333333;
     }
-    .van-icon {
-      color: #fe9180;
-    }
+  }
+  .van-nav-bar__left .van-nav-bar__text {
+    color: #fe9180;
   }
   // tab-bar样式
+  .van-tabs {
+    margin: 0;
+    min-height: calc(100vh - 50px);
+  }
+  .van-tabs .van-tabs__wrap {
+    margin: 0;
+  }
+  .van-tabs .van-tabs__nav {
+    background: #fff;
+  }
+  .van-tabs .van-tabs__wrap .van-tab {
+    width: 50%;
+    padding: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+  }
   .van-tabs--line .van-tabs__wrap {
     height: 33px;
     font-size: 13px;

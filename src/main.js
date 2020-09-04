@@ -13,28 +13,30 @@ import "@/assets/font_mine/iconfont.css"
 
 
 // 按需引入Vant组件：
-import { 
-    Tabbar, 
-    TabbarItem, 
-    Tab, 
-    Tabs, 
-    Empty, 
-    Button, 
-    Tag, 
+import {
+    Tabbar,
+    TabbarItem,
+    Tab,
+    Tabs,
+    Empty,
+    Button,
+    Tag,
     Calendar,
-    Swipe, 
+    Swipe,
     SwipeItem,
-    NavBar, 
-    DropdownMenu, 
-    DropdownItem, 
+    NavBar,
+    DropdownMenu,
+    DropdownItem,
     Grid,
-    GridItem ,
+    GridItem,
     Icon,
     Divider,
     Image as VanImage,
-    Cell, 
+    Cell,
     CellGroup,
     Card,
+    Dialog,
+    Toast
 } from 'vant';
 
 Vue.use(Tabbar)
@@ -48,7 +50,7 @@ Vue.use(NavBar)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Calendar)
-Vue.use(Icon );
+Vue.use(Icon);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(Divider);
@@ -59,6 +61,8 @@ Vue.use(Swipe);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(Card);
+Vue.use(Dialog);
+Vue.use(Toast);
 
 Vue.config.productionTip = false
 
