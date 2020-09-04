@@ -1,9 +1,11 @@
 <template>
-  <div class="sortContainer">
-    <van-dropdown-menu>
-      <van-dropdown-item v-model="value1" :options="option1" :get-container="getContainer" />
-      <van-dropdown-item v-model="value2" :options="option2" />
-    </van-dropdown-menu>
+  <div class="clChooseCityContainer">
+    <van-nav-bar title="排序" fixed placeholder left-text="X" @click-left="onClickLeft" />
+    <!-- class="van-hairline--bottom" -->
+    <p v-for="(item,index) in sortArr" :key="index" @click="choose(index)">
+      <span class="sortName">{{item.sortName}}</span>
+      <span class="chooseicon" v-if="show===index">√</span>
+    </p>
   </div>
 </template>
 
@@ -11,28 +13,52 @@
 export default {
   data() {
     return {
-      value1: 0,
-      value2: "a",
-      option1: [
-        { text: "全部商品", value: 0 },
-        { text: "新款商品", value: 1 },
-        { text: "活动商品", value: 2 },
-      ],
-      option2: [
-        { text: "默认排序", value: "a" },
-        { text: "好评排序", value: "b" },
-        { text: "销量排序", value: "c" },
+      sort: "",
+      show: null,
+      sortArr: [
+        { sortName: "默认排序", param: "" },
+        { sortName: "时间从早到晚", param: "" },
+        { sortName: "价格由高到低", param: "" },
+        { sortName: "价格由低到高", param: "" },
+        { sortName: "最受欢迎", param: "" },
       ],
     };
   },
   methods: {
-    // 返回一个特定的 DOM 节点，作为挂载的父节点
-    getContainer() {
-      return document.querySelector(".sortContainer");
+    onClickLeft() {
+      this.$router.go(-1);
+    },
+    choose(index) {
+      this.show = null;
+      this.sort = this.sortArr[index].sortName;
+      this.show = index;
+      this.$store.commit("getClChooseSort", {
+        sort: this.sort,
+      });
+      this.$router.replace("/collect");
     },
   },
 };
 </script>
 
 <style lang="scss">
+.clChooseCityContainer {
+  font-family: PingFang SC;
+  .van-nav-bar__text {
+    color: #333;
+    font-size: 18px;
+  }
+  p {
+    height: 30px;
+    border-bottom: 1px solid #f1f1f1;
+    line-height: 30px;
+    font-size: 12px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    .chooseicon {
+      color: #fe9180;
+    }
+  }
+}
 </style>

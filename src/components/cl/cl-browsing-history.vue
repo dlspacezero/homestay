@@ -18,7 +18,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="history-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -55,7 +55,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="history-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -92,7 +92,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="history-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -136,8 +136,8 @@ export default {
   padding-top: 1px;
   .list {
     width: 345px;
-    margin: 7px auto 15px;
-    // padding-bottom: 1px;
+    margin: 0 auto;
+    padding: 0px 0 1px;
     color: #333333;
     .li {
       box-sizing: border-box;
@@ -183,7 +183,7 @@ export default {
           justify-content: space-evenly;
           align-items: center;
         }
-        .title {
+        .history-li-title {
           height: 31px;
           display: flex;
           align-items: center;
@@ -260,6 +260,7 @@ export default {
         right: 26px;
         width: 19px;
         height: 17px;
+        background: transparent;
       }
     }
   }

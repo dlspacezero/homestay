@@ -59,6 +59,18 @@ const routes = [{
         ],
     },
     {
+        // 收藏页，头部"全部城市"跳转到=>城市页
+        path: "/cl-choose-city",
+        component: () =>
+            import ("../components/cl/cl-list-choose/cl-list-choose-city.vue"),
+    },
+    {
+        // 收藏页，头部"排序"跳转到=>排序页
+        path: "/cl-choose-sort",
+        component: () =>
+            import ("../components/cl/cl-list-choose/cl-list-choose-sorts.vue"),
+    },
+    {
         // 收藏页，查看更多跳转到=>"他们"收藏的美馆
         path: "/cl-recommend",
         component: () =>

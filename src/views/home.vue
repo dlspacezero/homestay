@@ -85,9 +85,4 @@ export default {
   methods: {},
 };
 </script>
-<style lang='scss' >
-.van-hairline--top-bottom{
-  background: #FFF;
-  z-index: 100;
-}
-</style>
+<style lang='scss' ></style>
