@@ -13,7 +13,7 @@ import VueRouter from 'vue-router'
 
 
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem, Grid, GridItem, Icon, Divider, NavBar, Image as VanImage, Button, Tab, Tabs, Empty, Tag, DropdownMenu, DropdownItem, Calendar, SwipeCell, Card, SwipeItem, Swipe, Cell, CellGroup, CouponCell, CouponList, Search, Popup } from 'vant'
+import { Tabbar, TabbarItem, Grid, GridItem, Icon, Divider, NavBar, Image as VanImage, Button, Tab, Tabs, Empty, Tag, DropdownMenu, DropdownItem, Calendar, SwipeCell, Card, SwipeItem, Swipe, Cell, CellGroup, CouponCell, CouponList, Search, Popup, PullRefresh } from 'vant'
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Grid);
@@ -41,6 +41,7 @@ Vue.use(CouponCell);
 Vue.use(CouponList);
 Vue.use(Search);
 Vue.use(Popup);
+Vue.use(PullRefresh);
 
 Vue.config.productionTip = false
 
