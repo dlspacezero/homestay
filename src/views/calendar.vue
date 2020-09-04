@@ -166,6 +166,7 @@ export default {
             position: fixed;
             top: 37px;
             left: 0;
+            z-index: 99;
             //设置星期栏内容样式
             .van-calendar__weekday{
                 font-size: 13px;
