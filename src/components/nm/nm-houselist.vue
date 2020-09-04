@@ -17,7 +17,6 @@
 export default {
     data(){
         return{
-
         }
     },
     props:{
@@ -29,6 +28,8 @@ export default {
     @import "../../assets/style/command.scss";
     .hs-nmroomlist .house-address{
         @include singleomit;
+        height: 18px;
+        line-height: 18px;
     }
     .house-describe{
         width: 100%;

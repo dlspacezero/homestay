@@ -187,6 +187,7 @@ export default {
           height: 31px;
           display: flex;
           align-items: center;
+          
           .cyber {
             width: 49px;
             height: 16px;

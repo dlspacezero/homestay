@@ -25,7 +25,7 @@
                 />
           </span>
           <span class="peopleNum">
-              <span>102家品牌已入驻</span>
+              <span class="num">102家品牌已入驻</span>
               <van-icon name="arrow" />
           </span>
       </div>
@@ -76,13 +76,14 @@ export default {
         line-height: 20px;
         display: flex;
         align-items: center;
-        &:first-child{
+        .num{
             font-size: 12px;
             color: #333;
             @include singleomit()
         }
         .van-icon-arrow{
             margin-left: 4px;
+            font-size: 12px;
         }
     }
 }
