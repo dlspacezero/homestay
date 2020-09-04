@@ -2,10 +2,13 @@
     <main>
         <!-- 轮播图 -->
         <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white" :show-indicators="false">
-            <van-swipe-item>1</van-swipe-item>
-            <van-swipe-item>2</van-swipe-item>
-            <van-swipe-item>3</van-swipe-item>
-            <van-swipe-item>4</van-swipe-item>
+            <van-swipe-item v-for="(imgUrl,index) in bannerlist" :key="index">
+                <van-image
+                width="100%"
+                height="100%"
+                :src="imgUrl"
+                />
+            </van-swipe-item>
         </van-swipe>
         <!-- 轮播图以下内容 -->
         <article class="container hs-nm-main" >
@@ -211,16 +214,17 @@ export default {
             },{
                 name:'聚会轰趴',
                 img:jhhp
-            }]
+            }],
+            bannerlist:[]
         }
     },
     components:{
         nmHouselist
     },
     async mounted(){
-        
+        //轮播图
         await this.$store.dispatch('changeBannerList');
-        console.log(this.$store.state.bannerlist);
+        this.bannerlist = this.$store.state.bannerlist;
     }
 };
 </script>
@@ -231,7 +235,6 @@ export default {
         width: 100%;
         height: 307px;
         color: #fff;
-        background-color: #39a9ed;
     }
     .container,.container11{
         display: flex;
