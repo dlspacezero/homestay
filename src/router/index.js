@@ -1,17 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const routes = [{
-        path: "/",
-        redirect: "/index",
-    },
-    {
-        path: "/login",
-        component: () =>
-            import ("../views/login.vue"),
-    },
+const routes = [
+  {
+    path: "/",
+    redirect: "/index",
+  },
+  {
+    //登陆注册页
+    path: "/login",
+    component: () => import("../views/login.vue"),
+  },
     {
         path: "/home",
         component: () =>
@@ -20,38 +21,38 @@ const routes = [{
                 path: "",
                 redirect: "/index",
             },
-            {
+            {   //首页
                 path: "/index",
                 component: () =>
                     import ("../views/nominate.vue"),
             },
-            {
+            {   //收藏页
                 path: "/collect",
                 component: () =>
                     import ("../views/collect.vue"),
             },
-            {
+            {   //发现页
                 path: "/discover",
                 component: () =>
                     import ("../views/discover.vue"),
             },
-            {
+            {   //消息页
                 path: "/message",
                 component: () =>
                     import ("../views/message.vue"),
             },
-            {
+            {   //我的
                 path: "/mine",
                 component: () =>
                     import ("../views/mine.vue"),
 
             },
-            {
+            {   //优惠券
                 path: '/coupond',
                 component: () =>
                     import ("@/components/mi/mi-secondpage/coupond-secondpage.vue")
             },
-            {
+            {   //红包页
                 path: '/redpakage',
                 component: () =>
                     import ("@/components/mi/mi-secondpage/redpakage-secondpage.vue")
@@ -84,23 +85,40 @@ const routes = [{
         component: () =>
             import ("../views/indent.vue"),
     },
-    {
+    {   //日历页
         path: "/calendar",
         component: () =>
             import ("../views/calendar.vue"),
     },
+    // 详情页
     {
+      path: "/detail",
+      component: () => import("../views/detail.vue"),
+      children: [
+        // 发现页：推荐、网红民宿、体验分享的详情页
+        {
+          path: "recommend/:id",
+          component: () => import("../components/do/do-recommend.vue"),
+        },
+        // 发现页：特色房源的详情页
+        {
+          path: "special/:id",
+          component: () => import("../components/do/do-special.vue"),
+        },
+      ],
+    },
+    { //搜索页
+      path: '/search',
+      component: () =>
+          import ('../views/nm-search.vue'),
+    },
+    { //404 not found
         path: "*",
         component: () =>
             import ("../views/notfound404.vue"),
-    },
-    {
-        path: '/search',
-        component: () =>
-            import ('../views/nm-search.vue'),
-    },
+    }
 ];
 const router = new VueRouter({
-    routes,
+  routes,
 });
 export default router;
