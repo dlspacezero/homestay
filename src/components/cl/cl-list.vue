@@ -18,7 +18,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="list-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -35,8 +35,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="unLike(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
     </div>
   </div>
@@ -54,12 +54,43 @@ export default {
       likeimg: likeimg,
     };
   },
+  methods: {
+    unLike(like) {
+      this.$dialog
+        .confirm({
+          title: "温馨提示",
+          message: "是否取消收藏？",
+          confirmButtonText: "是",
+          confirmButtonColor: "#ff917f",
+          cancelButtonText: "否",
+          overlayStyle: { backgroundColor: "rgba(125, 125, 125, 0.4)" },
+          getContainer: ".listContainer",
+        })
+        .then((like) => {
+          // on confirm
+          this.like = 0;
+          this.$toast({
+            message: "取消收藏成功！",
+            position: "bottom",
+            className: "cl-list-toast",
+            getContainer: ".listContainer",
+          });
+        })
+        .catch(() => {
+          // on cancel
+          this.like = 1;
+        });
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 .listContainer {
   padding-top: 46px;
+  .cl-list-toast {
+    background-color: rgba(125, 125, 125, 0.4);
+  }
   .list {
     width: 345px;
     margin: 8px auto 8px;
@@ -111,7 +142,7 @@ export default {
           justify-content: space-evenly;
           align-items: center;
         }
-        .title {
+        .list-li-title {
           height: 31px;
           display: flex;
           align-items: center;
@@ -188,6 +219,7 @@ export default {
         right: 26px;
         width: 19px;
         height: 17px;
+        background: transparent;
       }
     }
   }

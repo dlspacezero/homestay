@@ -1,7 +1,7 @@
 <template>
   <div class="clMoreContainer">
     <div class="top">
-      <span class="title">看看他们都收藏了什么</span>
+      <span class="top-title">看看他们都收藏了什么</span>
       <span class="btn" @click="toRecommend">点击查看更多&gt;</span>
     </div>
     <ul>
@@ -10,7 +10,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -23,7 +23,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -36,7 +36,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -49,7 +49,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -62,7 +62,7 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
@@ -104,7 +104,7 @@ export default {
     margin-right: 15px;
     display: flex;
     justify-content: space-between;
-    .title {
+    .top-title {
       font-size: 15px;
       line-height: 46px;
       font-family: PingFang SC;
@@ -137,7 +137,7 @@ export default {
         height: 83px;
         border-radius: 9px;
       }
-      .title {
+      .li-title {
         width: 133px;
         white-space: nowrap;
         overflow: hidden;
@@ -169,6 +169,7 @@ export default {
         right: 6px;
         width: 18px;
         height: 17px;
+        background: transparent;
       }
     }
   }
