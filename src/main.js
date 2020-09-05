@@ -51,7 +51,7 @@ import {
     NumberKeyboard,
     RadioGroup,
     Radio,
-    PullRefresh
+    PullRefresh,
 } from 'vant';
 Vue.use(ShareSheet);
 Vue.use(Toast);
@@ -93,6 +93,7 @@ Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(PullRefresh);
 import '../src/assets/style/reset.css'
+
 
 Vue.config.productionTip = false;
 

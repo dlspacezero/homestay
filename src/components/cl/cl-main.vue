@@ -78,6 +78,7 @@ export default {
     toChooseDate() {
       // 路由到日期选择页
       // 选择入住日期，离馆日期，自动跳转到主页，并将日期数据给主页显示，发送请求，进行可选的收藏店铺渲染
+      this.$router.push("/calendar");
     },
     toChooseCity() {
       // 路由到城市选择页，

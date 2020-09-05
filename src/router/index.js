@@ -106,8 +106,8 @@ const routes = [{
     // 详情页
     {
         path: "/detail",
-        component: () =>
-            import ("../views/detail.vue"),
+        // 主详情页，动态路由，多个页面的房屋列表点击可跳转=>主详情页
+        component:()=>import("../views/detail.vue"),
         children: [
             // 发现页：推荐、网红民宿、体验分享的详情页
             {
@@ -121,6 +121,10 @@ const routes = [{
                 component: () =>
                     import ("../components/do/do-special.vue"),
             },
+            {
+                path: "house/:id",
+                component: () => import ("../views/maindetails.vue"),
+            }
         ],
     },
     { //搜索页
