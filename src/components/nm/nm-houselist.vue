@@ -1,7 +1,7 @@
 <template>
     <div class="hs-nmroomlist">
         <van-grid :border="false" :column-num="2">
-            <van-grid-item v-for="(item,index) in list" :key="index" :style="{flexBasis:'auto'}">
+            <van-grid-item v-for="(item,index) in list" :key="index" ref="houseWrap" :dataId="index"  :style="{flexBasis:'auto'}" @click="toHouseDetail(index)">
                 <van-image :src="item.imgUrl" />
                 <div class="house-describe">
                     <p class="house-info">{{item.info}}</p>
@@ -17,10 +17,19 @@
 export default {
     data(){
         return{
+
         }
     },
     props:{
         list:Array
+    },
+    methods:{
+        toHouseDetail(i){//带着id跳转到详情页
+            //给组件添加一个自定义属性，然后用这种方式去获取到这个自定义属性
+            console.log(this.$refs.houseWrap[i].$attrs.dataId);
+            //然后进行跳转
+            this.$router.push('/detail/'+this.$refs.houseWrap[i].$attrs.dataId);
+        }
     }
 }
 </script>

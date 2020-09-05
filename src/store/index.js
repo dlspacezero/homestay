@@ -8,7 +8,7 @@ export default new Vuex.Store({
     state: {
         clChooseCity: '全部城市',
         clChooseSort: '默认样式',
-        //轮播图图片数组
+        //首页轮播图图片数组
         bannerlist:[]
     },
     mutations: {
@@ -31,6 +31,7 @@ export default new Vuex.Store({
         },
     },
     actions: {
+        //获取首页轮播图数据
         async changeBannerList({ commit },payload){
             //调用api方法发送请求获取数据
             const response = await getBannerList();

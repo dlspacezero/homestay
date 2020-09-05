@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <!-- 入住时间 -->
-                        <div class="sleepTime">
+                        <div class="sleepTime" @click="arrivalTime"><!--点击跳转到日期选择-->
                             <div class="comegoTime">
                                 <span>今天入住</span>
                                 <span style="margin-left:40px">明天离店</span>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <!-- 搜索景点与地标 -->
-                        <div class="searchArea">
+                        <div class="searchArea" @click="searchArea"><!--点击跳转景区搜索页-->
                             <span>搜索北京的景点、地标、房源编号</span>
                             <span>
                                 <van-icon name="arrow" />
@@ -83,8 +83,12 @@
                         <div>4</div>
                     </van-tab>
                 </van-tabs>
+                <!-- 查找民宿按钮 -->
                 <div class="hs-nmbutton">
-                    <van-button type="primary" block :round="true" color="linear-gradient(90deg, #FF613C 0%, #FBA431 100%)">查找民宿</van-button>
+                    <!-- 点击跳转到搜索列表 -->
+                    <van-button type="primary" block :round="true" color="linear-gradient(90deg, #FF613C 0%, #FBA431 100%)" @click="searchList">
+                        查找民宿
+                    </van-button>
                 </div>
             </div>
         </article>
@@ -92,7 +96,7 @@
             <!-- 按钮区 -->
             <div class="hs-nmicon-wrap" style="padding-bottom:30px;">
                 <van-grid :column-num="5" :border="false" icon-size="45px">
-                    <van-grid-item v-for="(item,index) in middleShow" :key="index" :icon="item.img" :text="item.name" />
+                    <van-grid-item v-for="(item,index) in middleShow" :key="index" :icon="item.img" :text="item.name" @click="searchType" />
                 </van-grid>
             </div>
         </article>
@@ -105,7 +109,7 @@
             <div class="swipe-button">
                 <!-- 滑块 -->
                 <van-swipe :loop="false"  :show-indicators="false" width="154">
-                    <van-swipe-item v-for="(singlesw,index) in swbuttonList" :key="index" :style="{width:'142px',marginRight:'18px'}">
+                    <van-swipe-item v-for="(singlesw,index) in swbuttonList"  :key="index" :style="{width:'142px',marginRight:'18px'}" >
                         <h2>{{singlesw.title}}</h2>
                     </van-swipe-item>
                 </van-swipe>
@@ -150,6 +154,7 @@ export default {
                     text:'特价新房先到先得'
                 }
             ],
+            //推荐房源列表
             oddsHouseList:[
                 {
                     imgUrl:'https://bkimg.cdn.bcebos.com/pic/43a7d933c895d14391c671507cf082025aaf0714?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5',
@@ -215,7 +220,7 @@ export default {
                 name:'聚会轰趴',
                 img:jhhp
             }],
-            bannerlist:[]
+            bannerlist:[]//轮播图列表
         }
     },
     components:{
@@ -225,6 +230,29 @@ export default {
         //轮播图
         await this.$store.dispatch('changeBannerList');
         this.bannerlist = this.$store.state.bannerlist;
+    },
+    methods:{
+        searchArea(){//点击跳转景区搜索页
+            this.$router.push({
+                //路由自定义的name
+                name:'spot',
+                //路由
+                path:'/findspots',
+                //传过去的城市
+                params:{
+                    city:'北京'
+                }
+            });
+        },
+        arrivalTime(){//点击跳转到选择入住时间列表页
+            this.$router.push('/calendar');
+        },
+        searchList(){//点击跳转到搜索列表页
+            this.$router.push('/search');
+        },
+        searchType(){//点击按钮区跳转到搜索页面
+            this.$router.push('/search');
+        }
     }
 };
 </script>

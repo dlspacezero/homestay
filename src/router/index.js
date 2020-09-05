@@ -23,6 +23,7 @@ const routes = [{
             },
             { //首页
                 path: "/index",
+                name:'home',
                 component: () =>
                     import ("../views/nominate.vue"),
             },
@@ -85,6 +86,7 @@ const routes = [{
     },
     { //搜索景点页面
         path: "/findspots",
+        name:'spot',
         component: () =>
             import ("../views/findspots.vue")
     },
@@ -126,7 +128,7 @@ const routes = [{
         component: () =>
             import ('../views/nm-search.vue'),
     },
-    {
+    {   //登录注册页面
         path: '/register',
         component: () =>
             import ('../views/mine-register.vue')
