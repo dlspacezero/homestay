@@ -41,7 +41,8 @@ import {
     CouponCell,
     CouponList,
     Search,
-    Popup
+    Popup,
+    ShareSheet
 } from 'vant';
 
 Vue.use(Tabbar)
@@ -83,6 +84,7 @@ Vue.use(Popup);
 Vue.use(Card);
 Vue.use(Dialog);
 Vue.use(Toast);
+Vue.use(ShareSheet);
 
 Vue.config.productionTip = false
 

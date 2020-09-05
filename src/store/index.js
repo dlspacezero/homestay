@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        clChooseCity: '全部城市',
-        clChooseSort: '默认样式',
+        clChooseCity: '全部城市', // 收藏页获取城市名
+        clChooseSort: '默认排序', // 收藏页获取排序参数
     },
     mutations: {
         // 收藏页获取城市名

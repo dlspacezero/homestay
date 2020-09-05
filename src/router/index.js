@@ -90,6 +90,12 @@ const routes = [{
             import ("../views/calendar.vue"),
     },
     {
+        // 主详情页，动态路由，多个页面的房屋列表点击可跳转=>主详情页
+        path: "/main-details/:id",
+        component: () =>
+            import ("../views/maindetails.vue"),
+    },
+    {
         path: "*",
         component: () =>
             import ("../views/notfound404.vue"),
