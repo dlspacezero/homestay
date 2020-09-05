@@ -59,12 +59,12 @@
                             </div>
                             <div class="dayshow">
                                 <div>
-                                    <span>8月10日</span>
+                                    <span>{{ date.selectday || '' | tostart  }}</span>
                                     <span style="margin-left:6px">&nbsp;—&nbsp;</span>
-                                    <span style="margin-left:8px">8月11日</span>
+                                    <span style="margin-left:8px">{{ date.selectday || '' | toend  }}</span>
                                 </div>
                                 <div>
-                                    <span>共1晚</span>
+                                    <span>共{{  date.daynum || 1}}晚</span>
                                     <van-icon name="arrow" />
                                 </div>
                             </div>
@@ -132,6 +132,7 @@ import whtj from '../../assets/imgs/home_icon_whtj.png'
 import czxf from '../../assets/imgs/home_icon_czxf.png'
 import zcz from '../../assets/imgs/home_icon_zcz.png'
 import jhhp from '../../assets/imgs/home_icon_jhhp.png'
+import { mapState } from 'vuex';
 export default {
     data(){
         return {
@@ -220,16 +221,37 @@ export default {
                 name:'聚会轰趴',
                 img:jhhp
             }],
-            bannerlist:[]//轮播图列表
+            bannerlist:[],//轮播图列表
         }
     },
     components:{
         nmHouselist
     },
     async mounted(){
+
         //轮播图
         await this.$store.dispatch('changeBannerList');
         this.bannerlist = this.$store.state.bannerlist;
+        console.log(this.date);
+    },
+    computed:{
+        ...mapState({
+            date:'date'
+        }),
+
+    },
+    filters:{
+        //对日期进行格式化
+        toend(val){
+            if(!val)return;
+            const end = val.split('-')[1].split('/');
+            return `${end[0]}月${end[1]}日`;
+        },
+        tostart(val){
+            if(!val)return ;
+            const start =  val.split('-')[0].split('/');
+            return `${start[0]}月${start[1]}日`;
+        }
     },
     methods:{
         searchArea(){//点击跳转景区搜索页

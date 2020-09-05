@@ -19,6 +19,7 @@ const routes = [{
             import ("../views/home.vue"),
         children: [{
                 path: "",
+                name:'home',
                 redirect: "/index",
             },
             { //首页
@@ -26,6 +27,9 @@ const routes = [{
                 name:'home',
                 component: () =>
                     import ("../views/nominate.vue"),
+                children:[
+                    
+                ]
             },
             { //收藏页
                 path: "/collect",
@@ -61,6 +65,12 @@ const routes = [{
         ],
     },
     {
+        //日历页面
+        path: "calendar",
+        component: () =>
+            import ("../views/calendar.vue"),
+    },
+    {
         // 收藏页，头部"全部城市"跳转到=>城市页
         path: "/cl-choose-city",
         component: () =>
@@ -78,12 +88,7 @@ const routes = [{
         component: () =>
             import ("../components/cl/cl-recommend.vue"),
     },
-    {
-        //日历页面
-        path: "/calendar",
-        component: () =>
-            import ("../views/calendar.vue"),
-    },
+    
     { //搜索景点页面
         path: "/findspots",
         name:'spot',

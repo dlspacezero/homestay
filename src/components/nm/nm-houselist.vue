@@ -28,7 +28,7 @@ export default {
             //给组件添加一个自定义属性，然后用这种方式去获取到这个自定义属性
             console.log(this.$refs.houseWrap[i].$attrs.dataId);
             //然后进行跳转
-            this.$router.push('/detail/'+this.$refs.houseWrap[i].$attrs.dataId);
+            this.$router.push('detail/house/'+this.$refs.houseWrap[i].$attrs.dataId);
         }
     }
 }

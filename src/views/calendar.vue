@@ -19,6 +19,7 @@
         :max-date="maxDate"
         row-height=40
         ref="clear"
+        position="right"
     />
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
     data() {
         return {
             //设置日历的最长时间
-            maxDate: new Date(2021, 1, 28)
+            maxDate: new Date(2021, 1, 28),
+            show:false
         }
     },
     methods: {
@@ -47,8 +49,26 @@ export default {
         //选中时间区间
         onConfirm(date) {
             const [start, end] = date;
+
             this.show = false;
+            //天数
+            let daynum = this.computeDay(start,end);
+            //9/7 - 9/18 选择的日期
             this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
+            //存储到store中
+            this.$store.commit('updateState',{
+                'date': {
+                    selectday:this.date,
+                    daynum
+                }
+            });
+            setTimeout(()=>{
+                this.$router.go(-1);
+            }); 
+        },
+        //计算时间跨度（天数）
+        computeDay(start,end){
+            return end.getDate() - start.getDate();
         },
         //日期格式化
         formatter(day) {
