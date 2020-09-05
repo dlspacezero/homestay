@@ -9,7 +9,7 @@ import store from "./store";
 import 'amfe-flexible'
 
 import '../src/assets/style/reset.css'
-import VueRouter from 'vue-router'
+// import VueRouter from 'vue-router'
 
 import "../src/assets/style/reset.css";
 // 引入发现页icon-font：
@@ -51,8 +51,12 @@ import {
     NumberKeyboard,
     RadioGroup,
     Radio,
-    PullRefresh,
+    IndexBar, 
+    IndexAnchor,
+    PullRefresh
 } from 'vant';
+Vue.use(IndexAnchor);
+Vue.use(IndexBar);
 Vue.use(ShareSheet);
 Vue.use(Toast);
 Vue.use(NavBar);

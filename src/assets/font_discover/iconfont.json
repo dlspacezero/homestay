@@ -41,6 +41,13 @@
       "unicode_decimal": 59022
     },
     {
+      "icon_id": "5973047",
+      "name": "心",
+      "font_class": "xin",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "14097278",
       "name": "转发",
       "font_class": "zhuanfa",
