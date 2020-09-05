@@ -38,6 +38,11 @@ const routes = [{
                         component: () =>
                             import ('../views/nm-search-order.vue'),
                     },
+                    {
+                        path: '/pay',
+                        component: () =>
+                            import ('../views/nm-search-payorder.vue'),
+                    },
 
                 ]
             },

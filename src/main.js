@@ -10,7 +10,7 @@ import 'amfe-flexible'
 
 
 // 按需引入Vant组件：
-import { Tabbar, TabbarItem, NavBar, Search, Icon, Popup, Cell, Calendar, DropdownMenu, DropdownItem, Swipe, SwipeItem, Field, PasswordInput, NumberKeyboard, RadioGroup, Radio } from 'vant'
+import { Tabbar, TabbarItem, NavBar, Search, Icon, Popup, Cell, Calendar, DropdownMenu, DropdownItem, Swipe, SwipeItem, Field, PasswordInput, NumberKeyboard, RadioGroup, Radio, CellGroup } from 'vant'
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(NavBar);
@@ -28,6 +28,7 @@ Vue.use(PasswordInput);
 Vue.use(NumberKeyboard);
 Vue.use(Radio);
 Vue.use(RadioGroup);
+Vue.use(CellGroup);
 import '../src/assets/style/reset.css'
 
 Vue.config.productionTip = false

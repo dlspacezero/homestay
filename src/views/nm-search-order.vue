@@ -103,7 +103,8 @@
     <p class="order-end">预定代表您同意《预定须知》、《保险须知》、《预定保障计划》</p>
     <footer>
       <p>¥489.00</p>
-      <a href="javascript:;"><img src="@/assets/img/dd-tj@2x.png" alt=""></a>
+      <router-view></router-view>
+      <a href="javascript:;" @click="gotopay"><img src="@/assets/img/dd-tj@2x.png" alt="" route></a>
     </footer>
   </div>
 </template>
@@ -111,7 +112,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+   
+    };
   },
 
   components: {},
@@ -120,7 +123,12 @@ export default {
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    gotopay(){
+      console.log(1);
+      this.$router.push('/pay')
+    }
+  },
 };
 </script>
 
@@ -558,6 +566,7 @@ export default {
       left: 0;
       bottom: 0;
       background: white;
+      // display: none;
       z-index: 999;
       display: flex;
       align-items: center;
