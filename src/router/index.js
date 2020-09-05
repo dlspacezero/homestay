@@ -33,6 +33,11 @@ const routes = [{
                         component: () =>
                             import ('../views/nm-search.vue'),
                     },
+                    {
+                        path: '/order',
+                        component: () =>
+                            import ('../views/nm-search-order.vue'),
+                    },
 
                 ]
             },
