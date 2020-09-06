@@ -2,6 +2,11 @@
   <div class="orderContainer">
     <!-- 订单页 -->
     <van-nav-bar title="订单" left-arrow @click-left="toMine" class="van-hairline--bottom" />
+    <!-- 进行中 订单详细信息 -->
+    <ordering />
+    <!-- 已完成 订单详细信息 -->
+    <orderfinish />
+
     <van-tabs v-model="active" swipeable>
       <van-tab v-for="item in tabArr" :title="item.bar" :key="item.bar">
         <!-- 如果数据为空时显示 -->
@@ -14,6 +19,8 @@
 
 <script>
 import OrderEmpty from "@/components/order/orderempty.vue";
+import ordering from "@/components/order/order-ing.vue";
+import orderfinish from "@/components/order/order-finish.vue";
 export default {
   data() {
     return {
@@ -34,6 +41,8 @@ export default {
   },
   components: {
     OrderEmpty,
+    ordering,
+    orderfinish,
   },
   methods: {
     toMine() {
