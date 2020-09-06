@@ -2,7 +2,7 @@
     <div class="register">
   <div class="mine-register" v-show="showbox==true">
       <!-- 退出按钮 -->
-      <a href="javascript:;" class="exit van-hairline--surround"><img src="@/assets/img/sign_out.png" alt=""></a>
+      <a href="javascript:;" class="exit van-hairline--surround" @click="toback"><img src="@/assets/img/sign_out.png" alt=""></a>
       <!-- logo -->
       <div class="register-logo">
           <div class="logo"><img src="@/assets/img/dl_icon.png" alt=""></div>
@@ -73,7 +73,9 @@ export default {
           this.componentname='Regadmin'
           this.showbox=false
       },
-     
+      toback(){//后退
+          this.$router.go(-1);
+      },
       timeless(){
            
           let timer=setInterval(() => {

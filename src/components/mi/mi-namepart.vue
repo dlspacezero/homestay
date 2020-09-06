@@ -1,6 +1,6 @@
 <template>
     <div class="selfInfo">
-        <div class="toppart">
+        <div class="toppart" @click="toRegister">
             <div class="name">
                 <p>注册/登录</p>
                 <span>agfjgayu</span>
@@ -17,6 +17,11 @@ import littleCard from '@/components/mi/mi-littlecard.vue'
 export default {
     components:{
         littleCard
+    },
+    methods:{
+        toRegister(){
+            this.$router.push('/register');
+        }
     }
 }
 </script>

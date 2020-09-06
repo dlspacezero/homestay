@@ -2,7 +2,7 @@
   <div class="admin">
     <div class="register-admin">
       <!-- 退出按钮 -->
-      <a href="javascript:;" class="exit van-hairline--surround">
+      <a href="javascript:;" class="exit van-hairline--surround" @click="toback">
         <img src="@/assets/img/sign_out.png" alt />
       </a>
       <!-- logo -->
@@ -61,7 +61,6 @@ export default {
       componentname:'',
     };
   },
-
   components: {
       Regtel
   },
@@ -71,6 +70,9 @@ export default {
   mounted() {},
 
   methods: {
+      toback(){//后退
+        this.$router.go(-1);
+      },
       changecomponent(){
           this.componentname='Regtel'
         //   this.showbox=false

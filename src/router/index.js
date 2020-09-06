@@ -8,12 +8,6 @@ const routes = [{
         redirect: "/index",
     },
     {
-        //登陆注册页
-        path: "/login",
-        component: () =>
-            import ("../views/login.vue"),
-    },
-    {
         path: "/home",
         component: () =>
             import ("../views/home.vue"),
@@ -50,7 +44,6 @@ const routes = [{
                 path: "/mine",
                 component: () =>
                     import ("../views/mine.vue"),
-
             },
             { //优惠券
                 path: '/coupond',
@@ -92,12 +85,12 @@ const routes = [{
         //填写订单页面
         path: '/addorder',
         component: () =>
-            import ('../views/nm-search-order.vue'),
+            import ('../views/order.vue'),
     },
     {   //支付页面
         path: '/pay',
         component: () =>
-            import ('../views/nm-search-payorder.vue'),
+            import ('../views/payorder.vue'),
     },
     { //搜索景点页面
         path: "/findspots",
@@ -145,12 +138,12 @@ const routes = [{
     { //搜索页
         path: '/search',
         component: () =>
-            import ('../views/nm-search.vue'),
+            import ('../views/search.vue'),
     },
     {   //登录注册页面
         path: '/register',
         component: () =>
-            import ('../views/mine-register.vue')
+            import ('../views/register.vue')
     },
     //订单页面
     {
