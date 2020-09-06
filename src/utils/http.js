@@ -2,7 +2,7 @@ import axios from "axios";
 // import { reject } from "core-js/fn/promise";
 //公共配置
 const instance = axios.create({
-    baseURL: 'https://www.fastmock.site/mock/dd5d2be32516ae30b85ba4b82c92917d/base',
+    baseURL: 'https://www.fastmock.site/mock/c9ddd5292f7ac7a2936abc608f7ca7e5/api',
     timeout: 10000,
     headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
 });

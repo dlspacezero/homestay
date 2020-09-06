@@ -39,10 +39,9 @@ export default new Vuex.Store({
         async changeBannerList({ commit },payload){
             //调用api方法发送请求获取数据
             const response = await getBannerList();
-            // console.log(response.data.list);
             //commit 触发updateState更新属性
             commit('updateState',{
-                'bannerlist' : response.data.list
+                'bannerlist' : response.data.result.list
             });
         }
     },
