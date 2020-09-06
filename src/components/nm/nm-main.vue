@@ -59,12 +59,12 @@
                             </div>
                             <div class="dayshow">
                                 <div>
-                                    <span>8月10日</span>
+                                    <span>{{ start   }}</span>
                                     <span style="margin-left:6px">&nbsp;—&nbsp;</span>
-                                    <span style="margin-left:8px">8月11日</span>
+                                    <span style="margin-left:8px">{{ end }}</span>
                                 </div>
                                 <div>
-                                    <span>共1晚</span>
+                                    <span>共{{  daynum }}晚</span>
                                     <van-icon name="arrow" />
                                 </div>
                             </div>
@@ -132,6 +132,7 @@ import whtj from '../../assets/imgs/home_icon_whtj.png'
 import czxf from '../../assets/imgs/home_icon_czxf.png'
 import zcz from '../../assets/imgs/home_icon_zcz.png'
 import jhhp from '../../assets/imgs/home_icon_jhhp.png'
+import { mapState } from 'vuex';
 export default {
     data(){
         return {
@@ -220,18 +221,75 @@ export default {
                 name:'聚会轰趴',
                 img:jhhp
             }],
-            bannerlist:[]//轮播图列表
+            bannerlist:[],//轮播图列表
+            start:'',//开始日期
+            end:'',//结束日期
+            daynum:1,//天数
         }
     },
     components:{
-        nmHouselist
+        nmHouselist,
     },
-    async mounted(){
+    mounted(){
         //轮播图
-        await this.$store.dispatch('changeBannerList');
-        this.bannerlist = this.$store.state.bannerlist;
+        this.getBanner();
+        console.log(this.$store.state.date);
+        //对开始日期和退房日期进行初始化
+        this.initDate();
+    },
+    computed:{
+        //用state的辅助函数拿date属性
+        ...mapState({
+            //函数写法
+            date: state => state.date
+        }),
+
+    },
+    watch:{
+
+    },
+    filters:{
+        
     },
     methods:{
+        //对开始日期和退房日期进行设置
+        initDate(){
+            let start = 0;
+            let end = 0;
+            //如果从日历上选择了日期
+            if(this.date.status === 0){
+                start = this.date.start.getTime();
+                end = this.date.end.getTime();
+                //天数
+                this.daynum = (end -start) / 86400000;//86400000一天的毫秒数
+            }else{
+                //如果没有选择日期
+                //默认为今天和明天
+                //今天
+                start = new Date().getTime();
+                //明天
+                end = new Date();
+                end = end.setDate(end.getDate() + 1);
+            }
+            //转换日期格式
+            this.start = this.formatDate(start);
+            this.end = this.formatDate(end);
+            console.log(this.start,this.end);
+        },
+        formatDate(date){//将日期格式为9月6日格式
+            //转换为日期对象
+            const dateObject = new Date(date);
+            //加一是因为月份是0~11来表示的
+            let month = dateObject.getMonth() + 1;
+            //获取天数
+            let day = dateObject.getDate();
+            return `${month}月${day}日`;
+        },
+        //获取轮播图的方法
+        async getBanner(){
+            await this.$store.dispatch('changeBannerList');
+            this.bannerlist = this.$store.state.bannerlist;
+        },
         searchArea(){//点击跳转景区搜索页
             this.$router.push({
                 //路由自定义的name

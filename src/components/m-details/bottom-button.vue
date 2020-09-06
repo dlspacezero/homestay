@@ -12,7 +12,7 @@
         <img :src="sc_icon12" alt="pic" />
         <span>聊天</span>
       </div>
-      <button @click="toOrderFillIn(id,date.into,date.out)">立即预定</button>
+      <button @click="toAddOrder(something)">立即预定</button>
     </div>
   </div>
 </template>
@@ -32,9 +32,12 @@ export default {
     };
   },
   methods: {
-    toOrderFillIn(id, date1, date2) {
-      //   this.$router.push("/main-details/" + id + date1 + date2);
-    },
+    // toOrderFillIn(id) {
+    //   //   this.$router.push("/main-details/" + id );
+    // },
+    toAddOrder(a){
+      this.$router.push('/addorder');
+    }
   },
 };
 </script>

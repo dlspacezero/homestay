@@ -84,6 +84,9 @@ export default {
     };
   },
   methods: {},
+  mounted(){
+    
+  }
 };
 </script>
 <style lang='scss' ></style>

@@ -12,24 +12,24 @@
       </a>
        <!-- <van-calendar v-model="showtime" type="range" @confirm="onConfirm" :style="{ height: '100%' }"  /> -->
       <!-- 选择位置选项 -->
-      <a href="javascript:;"  @click="showPlace">
+      <a href="javascript:;"  >
         选择位置
           <!--  右下角小箭头 -->
         <div class="small-div"  ></div>
        
       </a>
-       <van-popup v-model="showplace" position="bottom" :style="{ height: '100%' }"  closeable close-icon-position="top-left">选择位置</van-popup>
+       <!-- <van-popup v-model="showplace" position="bottom" :style="{ height: '100%' }"  closeable close-icon-position="top-left">选择位置</van-popup> -->
        <!-- 默认排序下拉菜单 -->
        <van-dropdown-menu>
             <van-dropdown-item v-model="value1" :options="option1" />
               <div class="small-div"></div>
         </van-dropdown-menu>
-      <a href="javascript:;"  @click="showSelect">
+      <a href="javascript:;"  >
          筛选条件
            <!--  右下角小箭头 -->
         <div class="small-div"></div>
       </a>
-      <van-popup v-model="showselect" position="bottom" :style="{ height: '100%' }"  closeable close-icon-position="top-left">筛选条件</van-popup>
+      <!-- <van-popup v-model="showselect" position="bottom" :style="{ height: '100%' }"  closeable close-icon-position="top-left">筛选条件</van-popup> -->
   </div>
 </template>
 

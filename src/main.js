@@ -59,6 +59,8 @@ Vue.use(IndexAnchor);
 Vue.use(IndexBar);
 Vue.use(ShareSheet);
 Vue.use(Toast);
+Vue.use(Tabbar)
+Vue.use(TabbarItem)
 Vue.use(NavBar);
 Vue.use(Search);
 Vue.use(Icon);
@@ -81,7 +83,6 @@ Vue.use(Tabs);
 Vue.use(Tag);
 Vue.use(Calendar);
 Vue.use(SwipeCell);
-Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(Card);
 Vue.use(Search);

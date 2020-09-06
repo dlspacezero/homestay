@@ -9,7 +9,14 @@ export default new Vuex.Store({
         clChooseCity: '全部城市',
         clChooseSort: '默认样式',
         //首页轮播图图片数组
-        bannerlist:[]
+        bannerlist:[],
+        //首页选择日期
+        date:{
+            //应该会有这些属性
+            //start
+            //end
+            //status
+        }
     },
     mutations: {
         //更新state属性
@@ -35,10 +42,9 @@ export default new Vuex.Store({
         async changeBannerList({ commit },payload){
             //调用api方法发送请求获取数据
             const response = await getBannerList();
-            // console.log(response.data.list);
             //commit 触发updateState更新属性
             commit('updateState',{
-                'bannerlist' : response.data.list
+                'bannerlist' : response.data.result.list
             });
         }
     },

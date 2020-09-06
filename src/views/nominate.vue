@@ -1,5 +1,6 @@
 <template>
   <div>
+      <router-view></router-view>
       <noMain />
       <div class="nominate">
         <!-- 热门入住地板块 -->
