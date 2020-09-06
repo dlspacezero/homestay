@@ -51,24 +51,19 @@ export default {
             const [start, end] = date;
 
             this.show = false;
-            //天数
-            let daynum = this.computeDay(start,end);
             //9/7 - 9/18 选择的日期
             this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
             //存储到store中
             this.$store.commit('updateState',{
                 'date': {
-                    selectday:this.date,
-                    daynum
+                    start,//开始日期
+                    end,//退房日期
+                    status:0//为0表示日期由点击日历选择
                 }
             });
             setTimeout(()=>{
                 this.$router.go(-1);
             }); 
-        },
-        //计算时间跨度（天数）
-        computeDay(start,end){
-            return end.getDate() - start.getDate();
         },
         //日期格式化
         formatter(day) {

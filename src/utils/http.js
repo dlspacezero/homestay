@@ -3,7 +3,7 @@ import axios from "axios";
 //公共配置
 const instance = axios.create({
     baseURL: 'https://www.fastmock.site/mock/c9ddd5292f7ac7a2936abc608f7ca7e5/api',
-    timeout: 10000,
+    timeout: 30000,
     headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
 });
 

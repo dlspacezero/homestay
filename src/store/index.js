@@ -12,7 +12,10 @@ export default new Vuex.Store({
         bannerlist:[],
         //首页选择日期
         date:{
-            //
+            //应该会有这些属性
+            //start
+            //end
+            //status
         }
     },
     mutations: {
