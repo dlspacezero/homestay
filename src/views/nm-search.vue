@@ -45,4 +45,7 @@ export default {
     // 头部搜索
     
 }
+.van-tabbar__placeholder{
+  height: 0;
+}
 </style>

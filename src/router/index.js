@@ -28,7 +28,7 @@ const routes = [{
                 component: () =>
                     import ("../views/nominate.vue"),
                 children:[
-                    
+
                 ]
             },
             { //收藏页
@@ -88,7 +88,17 @@ const routes = [{
         component: () =>
             import ("../components/cl/cl-recommend.vue"),
     },
-    
+    {
+        //填写订单页面
+        path: '/addorder',
+        component: () =>
+            import ('../views/nm-search-order.vue'),
+    },
+    {   //支付页面
+        path: '/pay',
+        component: () =>
+            import ('../views/nm-search-payorder.vue'),
+    },
     { //搜索景点页面
         path: "/findspots",
         name:'spot',
