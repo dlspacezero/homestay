@@ -33,6 +33,7 @@ export default {
         display: flex;
         justify-content: flex-end;
         background-color: white;
+        background-color: wheat;
         img{
             width: 22px;
             height: 22px;
