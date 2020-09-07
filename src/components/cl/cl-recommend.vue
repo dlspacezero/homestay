@@ -3,7 +3,7 @@
     <van-nav-bar fixed placeholder left-text="X" @click-left="onClickLeft" />
     <h4>"他们"收藏的美馆</h4>
     <ul>
-      <li>
+      <li @click="toDetail(id)">
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
@@ -13,60 +13,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-      </li>
-      <li>
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
-        <p class="info">
-          <span class="addr">背景朝阳区</span>
-          <span class="price">￥558</span>
-        </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-      </li>
-      <li>
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
-        <p class="info">
-          <span class="addr">背景朝阳区</span>
-          <span class="price">￥558</span>
-        </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-      </li>
-      <li>
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
-        <p class="info">
-          <span class="addr">背景朝阳区</span>
-          <span class="price">￥558</span>
-        </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-      </li>
-      <li>
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
-        <p class="info">
-          <span class="addr">背景朝阳区</span>
-          <span class="price">￥558</span>
-        </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click.stop="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click.stop="unLike(like)" />
       </li>
     </ul>
   </div>
@@ -78,14 +26,20 @@ import unlikeimg from "@/assets/imgs/icon_sc2.png";
 export default {
   data() {
     return {
+      id: "",
       like: 0,
       unlikeimg: unlikeimg,
       likeimg: likeimg,
     };
   },
   methods: {
+    // 回退到收藏页
     onClickLeft() {
       this.$router.go(-1);
+    },
+    // 点击进入详情页
+    toDetail(id) {
+      this.$router.push("detail/house/" + id);
     },
     Like(like) {
       this.$toast({

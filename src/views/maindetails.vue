@@ -21,7 +21,9 @@ import DetailsBottom from "@/components/m-details/details-bottom.vue";
 import BottomButton from "@/components/m-details/bottom-button.vue";
 export default {
   data() {
-    return {};
+    return {
+      id: "",
+    };
   },
   components: {
     TopNavBar,
@@ -30,7 +32,9 @@ export default {
     DetailsBottom,
     BottomButton,
   },
-  mounted() {},
+  mounted() {
+    this.id = this.$route.params.id;
+  },
   computed: {},
   methods: {},
 };

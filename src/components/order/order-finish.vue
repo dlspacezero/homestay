@@ -49,6 +49,7 @@ export default {};
   height: 353px;
   background: white;
   color: #333333;
+  margin-top: 13px;
   .hs-order-header {
     padding: 0 15px;
     height: 55px;
