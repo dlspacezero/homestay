@@ -54,8 +54,8 @@
                         <!-- 入住时间 -->
                         <div class="sleepTime" @click="arrivalTime"><!--点击跳转到日期选择-->
                             <div class="comegoTime">
-                                <span>今天入住</span>
-                                <span style="margin-left:40px">明天离店</span>
+                                <span>{{startText | weekText}}入住</span>
+                                <span style="margin-left:40px">{{ endText | weekText }}离店</span>
                             </div>
                             <div class="dayshow">
                                 <div>
@@ -225,6 +225,8 @@ export default {
             start:'',//开始日期
             end:'',//结束日期
             daynum:1,//天数
+            startText:7,//0~6星期一~星期天 0星期天  7今天 8明天
+            endText:8
         }
     },
     components:{
@@ -233,7 +235,7 @@ export default {
     mounted(){
         //轮播图
         this.getBanner();
-        console.log(this.$store.state.date);
+        // console.log(this.$store.state.date);
         //对开始日期和退房日期进行初始化
         this.initDate();
     },
@@ -243,13 +245,41 @@ export default {
             //函数写法
             date: state => state.date
         }),
-
     },
     watch:{
-
     },
     filters:{
-        
+        weekText(val){
+            switch(val){
+                case 0:
+                    return '周日';
+                    break;
+                case 1:
+                    return '周一';
+                    break;
+                case 2:
+                    return '周二';
+                    break;
+                case 3:
+                    return '周三';
+                    break;
+                case 4:
+                    return '周四';
+                    break;
+                case 5:
+                    return '周五';
+                    break;
+                case 6:
+                    return '周六';
+                    break;
+                case 7:
+                    return '今天';
+                    break;
+                case 8:
+                    return '明天';
+                    break;
+            }
+        }
     },
     methods:{
         //对开始日期和退房日期进行设置
@@ -271,6 +301,10 @@ export default {
                 end = new Date();
                 end = end.setDate(end.getDate() + 1);
             }
+            //根据start 和end 计算出星期
+            this.startText = this.WeekDay(start);
+            this.endText = this.WeekDay(end);
+            console.log(this.startText,this.endText);
             //转换日期格式
             this.start = this.formatDate(start);
             this.end = this.formatDate(end);
@@ -284,6 +318,56 @@ export default {
             //获取天数
             let day = dateObject.getDate();
             return `${month}月${day}日`;
+        },
+        //求出周几 - 周几
+        WeekDay(time){
+            //time 毫秒数
+            //判断是不是今天
+            if(this.isToday(time)){
+                return 7;
+            }
+            //判断是不是明天
+            if(this.isTomorrow(time)){
+                return 8;
+            }
+            //否则就返回星期一~星期六的数字
+            let date = new Date(time);
+            return date.getDay();
+        },
+        //判断是不是明天
+        isTomorrow(time){
+            //date传进来的是毫秒数
+            //今天
+            let today = new Date();
+            //今天的毫秒数加一天的毫秒数就是明天
+            let compare = new Date(today.getTime() + 24*60*60*1000);
+            let date = new Date(time);
+            //是否为同一年
+            if(date.getFullYear() == compare.getFullYear()){
+                //是否为同一个月
+                if(date.getMonth() == compare.getMonth()){
+                    //是否为同一天
+                    return date.getDate() == compare.getDate() ? true : false;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        },
+        //判度是否为今天
+        isToday(time){
+            let date = new Date(time);
+            let today = new Date();
+            if(today.getFullYear() == date.getFullYear()){
+                if(today.getMonth() == date.getMonth()){
+                    return today.getDate() == date.getDate() ? true : false;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
         },
         //获取轮播图的方法
         async getBanner(){

@@ -5,7 +5,7 @@
         <span class="pric">￥</span>
         <span>{{totalPrice}}</span>
       </p>
-      <div class="bottom">共1晚</div>
+      <div class="bottom" @mesg="mesg">共{{date.daynum}}晚</div>
     </div>
     <div class="right">
       <div class="icon">
@@ -25,19 +25,31 @@ export default {
       sc_icon12: sc_icon12,
       id: "1",
       date: {
-        into: "2020-09-15",
-        out: "2020-09-18",
+        start: "",
+        end: "",
+        daynum: 1,
       },
       totalPrice: 0,
     };
+  },
+  mounted() {
+    console.log(this.date);
   },
   methods: {
     // toOrderFillIn(id) {
     //   //   this.$router.push("/main-details/" + id );
     // },
-    toAddOrder(a){
-      this.$router.push('/addorder');
-    }
+    toAddOrder(a) {
+      this.$router.push("/addorder");
+    },
+    mesg(val) {
+      if (!val) return "";
+      let [start, end, daynum] = val;
+      this.date.start = start;
+      this.date.end = end;
+      this.date.daynum = daynum;
+      return this.date;
+    },
   },
 };
 </script>

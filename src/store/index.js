@@ -16,7 +16,8 @@ export default new Vuex.Store({
             //start
             //end
             //status
-        }
+        },
+        discoverlist:[],
     },
     mutations: {
         //更新state属性
