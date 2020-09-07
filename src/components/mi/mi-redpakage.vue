@@ -4,7 +4,7 @@
             <van-nav-bar
                 @click-right="onClickRight">
                 <template #left>
-                    <span class="iconfont icon-shuben"></span>
+                    <img :src="redpakage" alt="">
                     <span>您有150元礼包待领取  立即领取</span>
                 </template>
                 
@@ -17,10 +17,17 @@
 </template>
 
 <script>
+import redpakage from '../../assets/imgs/mine/login_neirong.png'
 export default {
+    data() {
+        return {
+            redpakage:redpakage,
+        }
+    },
     methods: {
         onClickRight(){
             console.log(1);
+            this.$router.push("/coupond");
         }
     },
 }
@@ -37,12 +44,18 @@ export default {
            background-color: white;
            height: 45px;
        }
+       img{
+           width: 22px;
+           height: 22px;
+           margin-right: 9px;
+       }
        span{
            color: #FC413E;
            font-size: 15px;
        }
        .van-icon-arrow{
            color: #FC413E;
+           margin-right: 8px;
        }
    }
 </style>

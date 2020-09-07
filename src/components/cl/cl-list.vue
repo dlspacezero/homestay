@@ -1,7 +1,7 @@
 <template>
   <div class="listContainer">
     <div class="list">
-      <div class="li">
+      <div class="li" @click="toDetail(id)">
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
@@ -35,8 +35,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="unLike(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click.stop="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click.stop="unLike(like)" />
       </div>
     </div>
   </div>
@@ -48,6 +48,7 @@ import unlikeimg from "@/assets/imgs/icon_sc2.png";
 export default {
   data() {
     return {
+      id: 1,
       like: 0,
       houseArr: [],
       unlikeimg: unlikeimg,
@@ -55,6 +56,18 @@ export default {
     };
   },
   methods: {
+    toDetail(id) {
+      this.$router.push("detail/house/" + id);
+    },
+    Like(like) {
+      this.$toast({
+        message: "收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".listContainer",
+      });
+      this.like = 1;
+    },
     unLike(like) {
       this.$dialog
         .confirm({
@@ -67,18 +80,13 @@ export default {
           getContainer: ".listContainer",
         })
         .then((like) => {
-          // on confirm
           this.like = 0;
           this.$toast({
             message: "取消收藏成功！",
             position: "bottom",
-            className: "cl-list-toast",
+            className: "cl-detail-toast",
             getContainer: ".listContainer",
           });
-        })
-        .catch(() => {
-          // on cancel
-          this.like = 1;
         });
     },
   },
@@ -223,5 +231,9 @@ export default {
       }
     }
   }
+}
+// 提示信息样式
+.van-toast {
+  background-color: rgba(125, 125, 125, 0.4);
 }
 </style>

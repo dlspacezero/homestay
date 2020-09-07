@@ -2,10 +2,13 @@
     <main>
         <!-- 轮播图 -->
         <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white" :show-indicators="false">
-            <van-swipe-item>1</van-swipe-item>
-            <van-swipe-item>2</van-swipe-item>
-            <van-swipe-item>3</van-swipe-item>
-            <van-swipe-item>4</van-swipe-item>
+            <van-swipe-item v-for="(imgUrl,index) in bannerlist" :key="index">
+                <van-image
+                width="100%"
+                height="100%"
+                :src="imgUrl"
+                />
+            </van-swipe-item>
         </van-swipe>
         <!-- 轮播图以下内容 -->
         <article class="container hs-nm-main" >
@@ -49,25 +52,25 @@
                             </div>
                         </div>
                         <!-- 入住时间 -->
-                        <div class="sleepTime">
+                        <div class="sleepTime" @click="arrivalTime"><!--点击跳转到日期选择-->
                             <div class="comegoTime">
                                 <span>今天入住</span>
                                 <span style="margin-left:40px">明天离店</span>
                             </div>
                             <div class="dayshow">
                                 <div>
-                                    <span>8月10日</span>
+                                    <span>{{ start   }}</span>
                                     <span style="margin-left:6px">&nbsp;—&nbsp;</span>
-                                    <span style="margin-left:8px">8月11日</span>
+                                    <span style="margin-left:8px">{{ end }}</span>
                                 </div>
                                 <div>
-                                    <span>共1晚</span>
+                                    <span>共{{  daynum }}晚</span>
                                     <van-icon name="arrow" />
                                 </div>
                             </div>
                         </div>
                         <!-- 搜索景点与地标 -->
-                        <div class="searchArea">
+                        <div class="searchArea" @click="searchArea"><!--点击跳转景区搜索页-->
                             <span>搜索北京的景点、地标、房源编号</span>
                             <span>
                                 <van-icon name="arrow" />
@@ -80,8 +83,12 @@
                         <div>4</div>
                     </van-tab>
                 </van-tabs>
+                <!-- 查找民宿按钮 -->
                 <div class="hs-nmbutton">
-                    <van-button type="primary" block :round="true" color="linear-gradient(90deg, #FF613C 0%, #FBA431 100%)">查找民宿</van-button>
+                    <!-- 点击跳转到搜索列表 -->
+                    <van-button type="primary" block :round="true" color="linear-gradient(90deg, #FF613C 0%, #FBA431 100%)" @click="searchList">
+                        查找民宿
+                    </van-button>
                 </div>
             </div>
         </article>
@@ -89,7 +96,7 @@
             <!-- 按钮区 -->
             <div class="hs-nmicon-wrap" style="padding-bottom:30px;">
                 <van-grid :column-num="5" :border="false" icon-size="45px">
-                    <van-grid-item v-for="(item,index) in middleShow" :key="index" :icon="item.img" :text="item.name" />
+                    <van-grid-item v-for="(item,index) in middleShow" :key="index" :icon="item.img" :text="item.name" @click="searchType" />
                 </van-grid>
             </div>
         </article>
@@ -102,7 +109,7 @@
             <div class="swipe-button">
                 <!-- 滑块 -->
                 <van-swipe :loop="false"  :show-indicators="false" width="154">
-                    <van-swipe-item v-for="(singlesw,index) in swbuttonList" :key="index" :style="{width:'142px',marginRight:'18px'}">
+                    <van-swipe-item v-for="(singlesw,index) in swbuttonList"  :key="index" :style="{width:'142px',marginRight:'18px'}" >
                         <h2>{{singlesw.title}}</h2>
                     </van-swipe-item>
                 </van-swipe>
@@ -125,6 +132,7 @@ import whtj from '../../assets/imgs/home_icon_whtj.png'
 import czxf from '../../assets/imgs/home_icon_czxf.png'
 import zcz from '../../assets/imgs/home_icon_zcz.png'
 import jhhp from '../../assets/imgs/home_icon_jhhp.png'
+import { mapState } from 'vuex';
 export default {
     data(){
         return {
@@ -147,6 +155,7 @@ export default {
                     text:'特价新房先到先得'
                 }
             ],
+            //推荐房源列表
             oddsHouseList:[
                 {
                     imgUrl:'https://bkimg.cdn.bcebos.com/pic/43a7d933c895d14391c671507cf082025aaf0714?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5',
@@ -211,16 +220,97 @@ export default {
             },{
                 name:'聚会轰趴',
                 img:jhhp
-            }]
+            }],
+            bannerlist:[],//轮播图列表
+            start:'',//开始日期
+            end:'',//结束日期
+            daynum:1,//天数
         }
     },
     components:{
-        nmHouselist
+        nmHouselist,
     },
-    async mounted(){
+    mounted(){
+        //轮播图
+        this.getBanner();
+        console.log(this.$store.state.date);
+        //对开始日期和退房日期进行初始化
+        this.initDate();
+    },
+    computed:{
+        //用state的辅助函数拿date属性
+        ...mapState({
+            //函数写法
+            date: state => state.date
+        }),
+
+    },
+    watch:{
+
+    },
+    filters:{
         
-        await this.$store.dispatch('changeBannerList');
-        console.log(this.$store.state.bannerlist);
+    },
+    methods:{
+        //对开始日期和退房日期进行设置
+        initDate(){
+            let start = 0;
+            let end = 0;
+            //如果从日历上选择了日期
+            if(this.date.status === 0){
+                start = this.date.start.getTime();
+                end = this.date.end.getTime();
+                //天数
+                this.daynum = (end -start) / 86400000;//86400000一天的毫秒数
+            }else{
+                //如果没有选择日期
+                //默认为今天和明天
+                //今天
+                start = new Date().getTime();
+                //明天
+                end = new Date();
+                end = end.setDate(end.getDate() + 1);
+            }
+            //转换日期格式
+            this.start = this.formatDate(start);
+            this.end = this.formatDate(end);
+            console.log(this.start,this.end);
+        },
+        formatDate(date){//将日期格式为9月6日格式
+            //转换为日期对象
+            const dateObject = new Date(date);
+            //加一是因为月份是0~11来表示的
+            let month = dateObject.getMonth() + 1;
+            //获取天数
+            let day = dateObject.getDate();
+            return `${month}月${day}日`;
+        },
+        //获取轮播图的方法
+        async getBanner(){
+            await this.$store.dispatch('changeBannerList');
+            this.bannerlist = this.$store.state.bannerlist;
+        },
+        searchArea(){//点击跳转景区搜索页
+            this.$router.push({
+                //路由自定义的name
+                name:'spot',
+                //路由
+                path:'/findspots',
+                //传过去的城市
+                params:{
+                    city:'北京'
+                }
+            });
+        },
+        arrivalTime(){//点击跳转到选择入住时间列表页
+            this.$router.push('/calendar');
+        },
+        searchList(){//点击跳转到搜索列表页
+            this.$router.push('/search');
+        },
+        searchType(){//点击按钮区跳转到搜索页面
+            this.$router.push('/search');
+        }
     }
 };
 </script>
@@ -231,7 +321,6 @@ export default {
         width: 100%;
         height: 307px;
         color: #fff;
-        background-color: #39a9ed;
     }
     .container,.container11{
         display: flex;

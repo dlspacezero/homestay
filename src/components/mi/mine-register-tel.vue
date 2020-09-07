@@ -2,12 +2,12 @@
     <div class="register">
   <div class="mine-register" v-show="showbox==true">
       <!-- 退出按钮 -->
-      <a href="javascript:;" class="exit van-hairline--surround"><img src="../assets/img/sign_out.png" alt=""></a>
+      <a href="javascript:;" class="exit van-hairline--surround" @click="toback"><img src="@/assets/img/sign_out.png" alt=""></a>
       <!-- logo -->
       <div class="register-logo">
-          <div class="logo"><img src="../assets/img/dl_icon.png" alt=""></div>
+          <div class="logo"><img src="@/assets/img/dl_icon.png" alt=""></div>
             <div class="register-logo-title">
-                <div class="title-img"><img src="../assets/img/木鸟民宿.png" alt=""></div>
+                <div class="title-img"><img src="@/assets/img/木鸟民宿.png" alt=""></div>
                 <p>只为美好住宿多一种选择</p>
             </div>
 
@@ -38,22 +38,7 @@
             @delete="onDelete"
             @blur="showKeyboard = false"
             />
-            <!-- 账号密码登录 -->
-        <a href="javascript:;" class="register-login" @click="changecomponent">账号密码登录</a>
-        
-        <!-- <router-link active-class="register-login" ></router-link> -->
-        <!-- 其他方式登录 -->
-        <p class="register-otherlogin">其他方式登录 <a href="javascript:;"><img src="../assets/img/dl_btn.png" alt=""></a></p>
-        <!-- 登录方式 -->
-        <div class="register-loginway">
-            <a href="javascript:;"><img src="../assets/img/home_qq.png" alt=""></a>
-            <a href="javascript:;"><img src="../assets/img/home_weibo.png" alt=""></a>
-            <a href="javascript:;"><img src="../assets/img/home_weixin.png" alt=""></a>
-        </div>
-        <!-- 同意协议 -->
-        <van-radio-group v-model="radio">
-            <van-radio name="1" checked-color="lightgreen" icon-size="15px">登录代表您同意<span>《服务协议》《隐私政策》</span></van-radio>
-        </van-radio-group>
+
         
   </div>
   <component :is="componentname"></component>
@@ -61,7 +46,7 @@
 </template>
 
 <script>
-import Regadmin from '../components/mi/mine-register-admin'
+import Regadmin from '@/components/mi/mine-register-admin'
 export default {
   data() {
     return {
@@ -88,7 +73,9 @@ export default {
           this.componentname='Regadmin'
           this.showbox=false
       },
-     
+      toback(){//后退
+          this.$router.go(-1);
+      },
       timeless(){
            
           let timer=setInterval(() => {
@@ -226,64 +213,9 @@ export default {
             // font-weight: 600;
             }
     }
-    // 账号密码登录
-    .register-login{
-        width: 73px;
-        height: 18px;
-        line-height: 18px;
-        margin: 23px auto 0;
-        font-size: 12px;
-        color: #999999;
-         border-bottom: 2px solid #F5F5F5;
-    }
-    // 其他方式登录
-    .register-otherlogin{
-        width: 92px;
-        display: flex;
-        height: 12px;
-        align-content: center;
-        justify-content: space-around;
-        font-size: 10px;
-        margin: 285px auto 25px;
-        color: #999999;
-            a{
-                width: 9px;
-                height: 9px;
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-    }
-    // 登录方式
-    .register-loginway{
-        width: 131px;
-        height: 28px;
-        display: flex;
-        justify-content: space-between;
-        margin: 0 auto;
-            a{
-                width: 28px;
-                height: 28px;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
-            }
-    }
-    // 同意协议
-    .van-radio-group{
-        width: 300px;
-        // text-align: center;
-        font-size: 12px;
-        margin-left: 54px;
-        margin-top: 80px;
-            span{
-                background: white;
-                color: #FD7F6C;
-            }
-    }
+    
+  
+  
    
 }
     

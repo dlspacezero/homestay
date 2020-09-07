@@ -15,8 +15,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
@@ -28,8 +28,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
@@ -41,8 +41,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
@@ -54,8 +54,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
@@ -67,8 +67,8 @@
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
     </ul>
   </div>
@@ -88,6 +88,24 @@ export default {
   methods: {
     toRecommend() {
       this.$router.push("/cl-recommend");
+    },
+    Like(like) {
+      this.$toast({
+        message: "收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".clMoreContainer",
+      });
+      this.like = 1;
+    },
+    unLike(like) {
+      this.like = 0;
+      this.$toast({
+        message: "取消收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".clMoreContainer",
+      });
     },
   },
 };
@@ -175,12 +193,16 @@ export default {
     }
   }
 }
-.morelist{
-  li{
-    .title{
-      margin:0px;
+.morelist {
+  li {
+    .title {
+      margin: 0px;
       height: 30px;
     }
   }
+}
+// 提示信息样式
+.van-toast {
+  background-color: rgba(125, 125, 125, 0.4);
 }
 </style>

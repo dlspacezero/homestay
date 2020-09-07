@@ -35,8 +35,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
       <div class="li">
         <img
@@ -72,8 +72,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
       <div class="li">
         <img
@@ -109,8 +109,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
     </div>
   </div>
@@ -126,6 +126,26 @@ export default {
       unlikeimg: unlikeimg,
       likeimg: likeimg,
     };
+  },
+  methods: {
+    Like(like) {
+      this.$toast({
+        message: "收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".historyContainer",
+      });
+      this.like = 1;
+    },
+    unLike(like) {
+      this.like = 0;
+      this.$toast({
+        message: "取消收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".historyContainer",
+      });
+    },
   },
 };
 </script>
@@ -187,7 +207,7 @@ export default {
           height: 31px;
           display: flex;
           align-items: center;
-          
+
           .cyber {
             width: 49px;
             height: 16px;
@@ -263,6 +283,10 @@ export default {
         background: transparent;
       }
     }
+  }
+  // 提示信息样式
+  .van-toast {
+    background-color: rgba(125, 125, 125, 0.4);
   }
 }
 </style>

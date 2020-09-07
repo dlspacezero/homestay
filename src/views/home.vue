@@ -8,6 +8,7 @@
       inactive-color="#999999"
       route
       :placeholder="true"
+      z-index="20"
     >
       <van-tabbar-item
         v-for="(item, index) in tabList"
@@ -83,6 +84,9 @@ export default {
     };
   },
   methods: {},
+  mounted(){
+    
+  }
 };
 </script>
 <style lang='scss' ></style>

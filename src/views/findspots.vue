@@ -1,7 +1,7 @@
 <template>
   <div class="hs-spotsContainer">
     <!-- 顶部搜索 -->
-    <van-nav-bar left-arrow>
+    <van-nav-bar left-arrow @click-left="onClickLeft">
         <template #title>
             <van-search v-model="value" placeholder="搜索北京的景点/地标/房源编号" shape="round"/>
         </template>
@@ -12,7 +12,7 @@
         <span class="hs-city">
            <img src="../assets/imgs/nav_icon.png" alt="">
         </span>
-        <span class="custom-title">北京市</span>
+        <span class="custom-title">{{city}}市</span>
         <span class="hs-target">目的地</span>
         <span class="hs-housenum">59100+房源</span>
       </template>
@@ -141,8 +141,19 @@
 export default {
   data() {
     return {
-      value:''
-    };
+      value:'',
+      city:''
+    }
+  },
+  mounted(){
+    //对data里的属性进行赋值
+    this.city = this.$route.params.city;
+    console.log(this.city);
+  },
+  methods:{
+    onClickLeft(){
+      this.$router.go(-1);
+    }
   }
 };
 </script>
