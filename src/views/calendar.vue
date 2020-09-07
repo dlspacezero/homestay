@@ -19,6 +19,7 @@
         :max-date="maxDate"
         row-height=40
         ref="clear"
+        position="right"
     />
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
     data() {
         return {
             //设置日历的最长时间
-            maxDate: new Date(2021, 1, 2)
+            maxDate: new Date(2021, 1, 28),
+            show:false
         }
     },
     methods: {
@@ -47,8 +49,21 @@ export default {
         //选中时间区间
         onConfirm(date) {
             const [start, end] = date;
+
             this.show = false;
+            //9/7 - 9/18 选择的日期
             this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
+            //存储到store中
+            this.$store.commit('updateState',{
+                'date': {
+                    start,//开始日期
+                    end,//退房日期
+                    status:0//为0表示日期由点击日历选择
+                }
+            });
+            setTimeout(()=>{
+                this.$router.go(-1);
+            }); 
         },
         //日期格式化
         formatter(day) {
@@ -166,6 +181,7 @@ export default {
             position: fixed;
             top: 37px;
             left: 0;
+            z-index: 99;
             //设置星期栏内容样式
             .van-calendar__weekday{
                 font-size: 13px;
@@ -200,8 +216,11 @@ export default {
                 font-weight: 400;
                 color: #383737;
             }
+            // .selectable-day {
+            //     color: #383737!important;
+            // }
             .weekday {
-                color: #EE8975;
+                color: #EE8975!important;
             }
             //年月日样式
             .van-calendar__month-title{
@@ -230,8 +249,8 @@ export default {
             }
         }
         //不能选择的日期的样式
-        .van-calendar__day--disabled{
-            color: #383737;
+        .van-calendar__day--disabled {
+            color: #c8c9cc!important;
         }
     }
 </style>

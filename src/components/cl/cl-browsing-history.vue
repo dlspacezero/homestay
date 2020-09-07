@@ -18,7 +18,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="history-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -35,8 +35,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
       <div class="li">
         <img
@@ -55,7 +55,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="history-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -72,8 +72,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
       <div class="li">
         <img
@@ -92,7 +92,7 @@
             <span style="color:#FD8735">"超赞"</span>
             <span>1条评价</span>
           </div>
-          <div class="title">
+          <div class="history-li-title">
             <span class="cyber">网红民宿</span>
             <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
           </div>
@@ -109,8 +109,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </div>
     </div>
   </div>
@@ -127,6 +127,26 @@ export default {
       likeimg: likeimg,
     };
   },
+  methods: {
+    Like(like) {
+      this.$toast({
+        message: "收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".historyContainer",
+      });
+      this.like = 1;
+    },
+    unLike(like) {
+      this.like = 0;
+      this.$toast({
+        message: "取消收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".historyContainer",
+      });
+    },
+  },
 };
 </script>
 
@@ -136,8 +156,8 @@ export default {
   padding-top: 1px;
   .list {
     width: 345px;
-    margin: 7px auto 15px;
-    // padding-bottom: 1px;
+    margin: 0 auto;
+    padding: 0px 0 1px;
     color: #333333;
     .li {
       box-sizing: border-box;
@@ -183,11 +203,11 @@ export default {
           justify-content: space-evenly;
           align-items: center;
         }
-        .title {
+        .history-li-title {
           height: 31px;
           display: flex;
           align-items: center;
-          
+
           .cyber {
             width: 49px;
             height: 16px;
@@ -260,8 +280,13 @@ export default {
         right: 26px;
         width: 19px;
         height: 17px;
+        background: transparent;
       }
     }
+  }
+  // 提示信息样式
+  .van-toast {
+    background-color: rgba(125, 125, 125, 0.4);
   }
 }
 </style>

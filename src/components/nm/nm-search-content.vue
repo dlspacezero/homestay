@@ -3,8 +3,8 @@
     <!-- 筛选条件 -->
     <div class="content-top">
         <!-- 移动滑块插件 -->
-        <van-swipe :loop="false" :width="90" :show-indicators="false">
-            <van-swipe-item v-for="(value,index) in list" :key="index" :class="{active:index===aindex}" @click="change(index)">{{value}} <div class="content-top-arrow"></div></van-swipe-item>
+        <van-swipe :loop="false" :show-indicators="false" :width="110">
+            <van-swipe-item  v-for="(value,index) in list" :key="index" :class="{active:arrlist.join('').indexOf(index)!==-1}" @click="change(index)" style="width: 100px; margin-right:10px">{{value}} <div class="content-top-arrow"></div></van-swipe-item>
         </van-swipe>
         <!-- <div class="content-top-scroll">
         <a href="javascript:;" v-for="(value,index) in list" :key="index" :class="{active:index===aindex}" @click="change(index)">{{value}}</a></div> -->
@@ -46,19 +46,31 @@ export default {
   data() {
     return {
         aindex:-1,
+        arrlist:[],
         list:['优惠活动','民宿推荐','特色出行','特惠预售','可做饭','可带宠物']
     };
   },
-
   components: {},
 
   computed: {},
 
-  mounted() {},
+  mounted() {
+    this.arrlist=[]
+  },
 
   methods: {
-      change(index){
-          this.aindex=index
+      change(val){
+            console.log(this.arrlist);
+            if(this.arrlist.join('').indexOf(val)==-1){
+                console.log(true);
+                 this.arrlist.push(val)
+                 console.log(this.arrlist);
+            }else{
+                console.log(false);
+                this.arrlist.splice(this.arrlist[val],1)
+                console.log(this.arrlist);
+            }
+       
        
       }
   }
@@ -88,18 +100,23 @@ export default {
                 line-height: 30px;
                 border-radius: 15px;
                 margin-top: 8px;
-                margin-right: 10px;
+                // margin-right: 10px;
                 position: relative;
-                .content-top-arrow{
-                    width: 0;
-                    height: 0;
-                    border-width: 3px 1.5px;
-                    border-style: solid;
-                    border-color: black transparent transparent transparent;
-                    position: absolute;
-                    top: 15px;
-                    right: 10px;
+                 .van-swipe__track{
+                        width: 1000px;
+                        // height: 500px;
+                    .content-top-arrow{
+                        width: 0;
+                        height: 0;
+                        border-width: 3px 1.5px;
+                        border-style: solid;
+                        border-color: black transparent transparent transparent;
+                        position: absolute;
+                        top: 15px;
+                        right: 10px;
                 }
+                }
+                
 
             }
               .active{
@@ -272,6 +289,7 @@ export default {
             margin-bottom: 62px;
             text-align: center;
         }
+       
     }
 
 </style>

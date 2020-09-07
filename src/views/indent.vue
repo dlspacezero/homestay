@@ -2,6 +2,11 @@
   <div class="orderContainer">
     <!-- 订单页 -->
     <van-nav-bar title="订单" left-arrow @click-left="toMine" class="van-hairline--bottom" />
+    <!-- 进行中 订单详细信息 -->
+    <ordering />
+    <!-- 已完成 订单详细信息 -->
+    <orderfinish />
+
     <van-tabs v-model="active" swipeable>
       <van-tab v-for="item in tabArr" :title="item.bar" :key="item.bar">
         <!-- 如果数据为空时显示 -->
@@ -14,10 +19,12 @@
 
 <script>
 import OrderEmpty from "@/components/order/orderempty.vue";
+import ordering from "@/components/order/order-ing.vue";
+import orderfinish from "@/components/order/order-finish.vue";
 export default {
   data() {
     return {
-      active: 1,
+      active: 0,
       tabArr: [
         {
           bar: "进行中",
@@ -34,6 +41,8 @@ export default {
   },
   components: {
     OrderEmpty,
+    ordering,
+    orderfinish,
   },
   methods: {
     toMine() {
@@ -43,26 +52,44 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .orderContainer {
   // 页面底色，列表未铺满时的边缘色，暂时设定色，如有设计颜色，可替换
-  background: #e1e1e1;
+  min-height: 100vh;
+  background: #f7f7f7;
   font-family: PingFang SC;
 
   // 头部样式
-  .van-nav-bar {
+  ::v-deep .van-nav-bar {
     height: 49px;
     .van-nav-bar__title {
       font-size: 15px;
       font-weight: 600;
       color: #333333;
     }
-    .van-icon {
-      color: #fe9180;
-    }
+  }
+  ::v-deep .van-nav-bar .van-icon {
+    color: #fe9180;
   }
   // tab-bar样式
-  .van-tabs--line .van-tabs__wrap {
+  .van-tabs {
+    margin: 0;
+    min-height: calc(100vh - 50px);
+  }
+  .van-tabs .van-tabs__wrap {
+    margin: 0;
+  }
+  .van-tabs .van-tabs__nav {
+    background: #fff;
+  }
+  .van-tabs .van-tabs__wrap .van-tab {
+    width: 50%;
+    padding: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+  }
+  ::v-deep .van-tabs--line .van-tabs__wrap {
     height: 33px;
     font-size: 13px;
     font-weight: 400;

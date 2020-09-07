@@ -8,65 +8,65 @@
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
       <li>
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
         />
-        <p class="title" :style="{margin:'0px',height:'30px'}">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
         <p class="info">
           <span class="addr">背景朝阳区</span>
           <span class="price">￥558</span>
         </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
       </li>
     </ul>
   </div>
@@ -86,6 +86,24 @@ export default {
   methods: {
     onClickLeft() {
       this.$router.go(-1);
+    },
+    Like(like) {
+      this.$toast({
+        message: "收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".recommendContainer",
+      });
+      this.like = 1;
+    },
+    unLike(like) {
+      this.like = 0;
+      this.$toast({
+        message: "取消收藏成功！",
+        position: "bottom",
+        className: "cl-detail-toast",
+        getContainer: ".recommendContainer",
+      });
     },
   },
 };
@@ -131,7 +149,7 @@ export default {
         height: 100px;
         border-radius: 9px;
       }
-      .title {
+      .re-li-title {
         width: 143px;
         white-space: nowrap;
         overflow: hidden;
@@ -163,8 +181,13 @@ export default {
         right: 6px;
         width: 18px;
         height: 17px;
+        background: transparent;
       }
     }
+  }
+  // 提示信息样式
+  .van-toast {
+    background-color: rgba(125, 125, 125, 0.4);
   }
 }
 </style>
