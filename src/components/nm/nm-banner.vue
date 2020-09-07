@@ -2,7 +2,7 @@
     <div id="homeBanner">
         <nmTardemark />
         <van-swipe :loop="false" :width="337" :show-indicators="false" :autoplay="3000">
-            <van-swipe-item v-for="i in 4" :key="i">
+            <van-swipe-item v-for="i in 4" :key="i" @click="toHouseDetail(i)">
                 <div class="bannerImg">
                     <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2173918788,77286624&fm=26&gp=0.jpg" alt="">
                 </div>
@@ -30,6 +30,11 @@ export default {
     },
     components:{
         nmTardemark
+    },
+    methods:{
+        toHouseDetail(i){
+            this.$router.push('/detail/house/'+ i);
+        }
     }
 };
 </script>

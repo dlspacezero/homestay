@@ -8,17 +8,12 @@ const routes = [{
         redirect: "/index",
     },
     {
-        //登陆注册页
-        path: "/login",
-        component: () =>
-            import ("../views/login.vue"),
-    },
-    {
         path: "/home",
         component: () =>
             import ("../views/home.vue"),
         children: [{
                 path: "",
+                name:'home',
                 redirect: "/index",
             },
             { //首页
@@ -26,6 +21,9 @@ const routes = [{
                 name:'home',
                 component: () =>
                     import ("../views/nominate.vue"),
+                children:[
+
+                ]
             },
             { //收藏页
                 path: "/collect",
@@ -46,7 +44,6 @@ const routes = [{
                 path: "/mine",
                 component: () =>
                     import ("../views/mine.vue"),
-
             },
             { //优惠券
                 path: '/coupond',
@@ -59,6 +56,12 @@ const routes = [{
                     import ("@/components/mi/mi-secondpage/redpakage-secondpage.vue")
             }
         ],
+    },
+    {
+        //日历页面
+        path: "calendar",
+        component: () =>
+            import ("../views/calendar.vue"),
     },
     {
         // 收藏页，头部"全部城市"跳转到=>城市页
@@ -79,10 +82,15 @@ const routes = [{
             import ("../components/cl/cl-recommend.vue"),
     },
     {
-        //日历页面
-        path: "/calendar",
+        //填写订单页面
+        path: '/addorder',
         component: () =>
-            import ("../views/calendar.vue"),
+            import ('../views/order.vue'),
+    },
+    {   //支付页面
+        path: '/pay',
+        component: () =>
+            import ('../views/payorder.vue'),
     },
     { //搜索景点页面
         path: "/findspots",
@@ -130,12 +138,12 @@ const routes = [{
     { //搜索页
         path: '/search',
         component: () =>
-            import ('../views/nm-search.vue'),
+            import ('../views/search.vue'),
     },
     {   //登录注册页面
         path: '/register',
         component: () =>
-            import ('../views/mine-register.vue')
+            import ('../views/register.vue')
     },
     //订单页面
     {

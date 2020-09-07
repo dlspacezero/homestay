@@ -10,7 +10,7 @@
                 </div>
             </van-grid-item>
         </van-grid>
-        <van-button type="default" block >查看更多</van-button>
+        <van-button type="default" block @click="toSearch" >查看更多</van-button>
     </div>
 </template>
 <script>
@@ -28,7 +28,10 @@ export default {
             //给组件添加一个自定义属性，然后用这种方式去获取到这个自定义属性
             console.log(this.$refs.houseWrap[i].$attrs.dataId);
             //然后进行跳转
-            this.$router.push('/detail/'+this.$refs.houseWrap[i].$attrs.dataId);
+            this.$router.push('detail/house/'+this.$refs.houseWrap[i].$attrs.dataId);
+        },
+        toSearch(){//跳转到搜索页面
+            this.$router.push('/search');
         }
     }
 }

@@ -29,7 +29,7 @@
       <template #right>
         <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
         <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-        <img :src="iconfx" alt="pic" class="icon_fx" @click="showShare = true" />
+        <img :src="detail_icon" alt="pic" class="icon_fx detail-icon" @click="showShare = true" />
       </template>
     </van-nav-bar>
     <!-- 分享面板 -->
@@ -45,6 +45,7 @@
 
 <script>
 import iconfx from "@/assets/imgs/maindetailsicon/icon_fx.png";
+import detail_icon from "@/assets/imgs/maindetailsicon/detail_icon.png";
 import likeimg from "@/assets/imgs/icon_sc.png";
 import unlikeimg from "@/assets/imgs/icon_sc2.png";
 export default {
@@ -56,6 +57,7 @@ export default {
       unlikeimg: unlikeimg,
       likeimg: likeimg,
       iconfx: iconfx,
+      detail_icon: detail_icon,
       showShare: false,
       options: [
         [
@@ -149,9 +151,6 @@ export default {
     ::v-deep .van-nav-bar .van-icon {
       color: #fe9180;
     }
-    .icon_fx {
-      background: #fe9180;
-    }
   }
   .like,
   .icon_fx {
@@ -159,6 +158,12 @@ export default {
     height: 22px;
     background: transparent;
     margin-left: 20px;
+  }
+  .detail-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 3px 3px 3px 23px;
   }
   ::v-deep .van-nav-bar__title {
     color: #bababa;

@@ -1,7 +1,7 @@
 <template>
    <header>
      <!-- 左边箭头 -->
-     <a href="javascript:;" class="header-left" ><van-icon name="arrow-left"  size="20" color="#FF9084"/></a>
+     <a href="javascript:;" class="header-left" @click="returnpage"><van-icon name="arrow-left"  size="20" color="#FF9084"/></a>
      <!-- 中间搜索框 -->
      <div class="header-search">
          <!-- 点击选择城市 -->
@@ -40,6 +40,10 @@ export default {
        showPopup() {
       this.show = true;
     },
+    returnpage(){
+        console.log(1);
+        this.$router.go(-1)
+    }
   }
 };
 </script>
