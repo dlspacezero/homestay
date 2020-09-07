@@ -14,7 +14,9 @@ export default new Vuex.Store({
         date:{
             //应该会有这些属性
             //start
+            start : new Date(),
             //end
+            end: new Date((new Date()).getTime() + 86400000)
             //status
         },
         discoverlist:[],

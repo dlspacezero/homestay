@@ -295,11 +295,11 @@ export default {
             }else{
                 //如果没有选择日期
                 //默认为今天和明天
+                console.log(this.date);
                 //今天
-                start = new Date().getTime();
+                start = this.date.start;
                 //明天
-                end = new Date();
-                end = end.setDate(end.getDate() + 1);
+                end = this.date.end;
             }
             //根据start 和end 计算出星期
             this.startText = this.WeekDay(start);
