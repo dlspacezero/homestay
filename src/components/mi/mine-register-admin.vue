@@ -109,7 +109,8 @@ export default {
     width: 22px;
     height: 22px;
 
-    margin: 20px 0 34px 10px;
+    // margin: 20px 0 34px 10px;
+    margin: 4px 0 44px 10px;
     border-style: dashed;
     border-color: black;
     img {
@@ -136,10 +137,13 @@ export default {
       width: 200px;
       height: 39px;
       margin-left: 12px;
+        display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       .title-img {
-        width: 86px;
-        height: 24px;
+        width: 69px;
+        height: 19px;
         img {
           width: 100%;
           height: 100%;

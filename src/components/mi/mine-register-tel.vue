@@ -134,10 +134,13 @@ export default {
             width: 200px;
             height: 39px;
              margin-left: 12px;
+             display: flex;
+             flex-direction: column;
+             justify-content: space-between;
              
                 .title-img{
-                    width: 86px;
-                    height: 24px;
+                    width: 69px;
+                    height: 19px;
                         img{
                             width: 100%;
                             height: 100%;

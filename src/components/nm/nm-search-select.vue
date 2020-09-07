@@ -1,7 +1,7 @@
 <template>
   <div class="select" >
       <!-- 日期选择 -->
-      <a href="javascript:;" class="data" >
+      <a href="javascript:;" class="data" @click="chooseday">
         <!-- @click="showtime=true" -->
           <!-- <p>住09-02</p>
           <p>退09-03</p> -->
@@ -60,6 +60,10 @@ export default {
   mounted() {},
 
   methods: {
+    // 选择日期
+    chooseday(){
+      this.$router.push('/calendar')
+    },
     //   弹出框事件
        showPlace() {
       this.showplace = true;
