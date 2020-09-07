@@ -1,7 +1,7 @@
 <template>
   <div class="historyContainer">
     <div class="list">
-      <div class="li">
+      <div class="li" @click="toDetail(id)">
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
           alt="pic"
@@ -35,82 +35,8 @@
             <span class="evn">/晚</span>
           </div>
         </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-      </div>
-      <div class="li">
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <div class="infoWrap">
-          <img
-            src="https://assets.muniao.com//UploadFiles/thumb/image/20180704/af1d3554888645a3ad697060de12e10c20180704163329873.jpg_150_150.jpg"
-            alt="photo"
-            class="owner"
-          />
-          <div class="praise">
-            <span>👍</span>
-            <span>5.0</span>
-            <span style="color:#FD8735">"超赞"</span>
-            <span>1条评价</span>
-          </div>
-          <div class="history-li-title">
-            <span class="cyber">网红民宿</span>
-            <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
-          </div>
-          <div class="specification">
-            <span>整租-1居室-宜住6人</span>
-            <span class="add">北京房山区</span>
-          </div>
-          <div class="ableDo">
-            <span>可做饭</span>
-          </div>
-          <div class="price">
-            <span class="unit">￥</span>
-            <span class="num">338</span>
-            <span class="evn">/晚</span>
-          </div>
-        </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
-      </div>
-      <div class="li">
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <div class="infoWrap">
-          <img
-            src="https://assets.muniao.com//UploadFiles/thumb/image/20180704/af1d3554888645a3ad697060de12e10c20180704163329873.jpg_150_150.jpg"
-            alt="photo"
-            class="owner"
-          />
-          <div class="praise">
-            <span>👍</span>
-            <span>5.0</span>
-            <span style="color:#FD8735">"超赞"</span>
-            <span>1条评价</span>
-          </div>
-          <div class="history-li-title">
-            <span class="cyber">网红民宿</span>
-            <span class="h2">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式</span>
-          </div>
-          <div class="specification">
-            <span>整租-1居室-宜住6人</span>
-            <span class="add">北京房山区</span>
-          </div>
-          <div class="ableDo">
-            <span>可做饭</span>
-          </div>
-          <div class="price">
-            <span class="unit">￥</span>
-            <span class="num">338</span>
-            <span class="evn">/晚</span>
-          </div>
-        </div>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click="unLike(like)" />
+        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click.stop="Like(like)" />
+        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click.stop="unLike(like)" />
       </div>
     </div>
   </div>
@@ -122,12 +48,16 @@ import unlikeimg from "@/assets/imgs/icon_sc2.png";
 export default {
   data() {
     return {
+      id: "",
       like: 0,
       unlikeimg: unlikeimg,
       likeimg: likeimg,
     };
   },
   methods: {
+    toDetail(id) {
+      this.$router.push("detail/house/" + id);
+    },
     Like(like) {
       this.$toast({
         message: "收藏成功！",
