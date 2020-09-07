@@ -9,8 +9,8 @@
         :class="{active:index===isActive}"
       >{{item}}</li>
     </ul>
-    <!-- 发现页banner轮播 -->
-    <van-swipe
+    <div class="scroll-wrap">
+      <van-swipe
       @change="onChange"
       class="my-swipe"
       :loop="false"
@@ -119,6 +119,9 @@
         </section>
       </van-swipe-item>
     </van-swipe>
+    </div>
+    <!-- 发现页banner轮播 -->
+    
   </div>
 </template>
 
@@ -227,10 +230,18 @@ export default {
       border-bottom: 3px solid;
     }
   }
-  // 发现页轮播图
-  .my-swipe {
+  .scroll-wrap {
     position: absolute;
     top: 91px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+  }
+  // 发现页轮播图
+  .my-swipe {
+    // min-height: 600px;
+    position: absolute;
+    top: 0px;
     bottom: 50px;
     left: 0;
     right: 0;

@@ -50,7 +50,8 @@ import {
     PasswordInput,
     NumberKeyboard,
     RadioGroup,
-    Radio
+    Radio,
+    PullRefresh
 } from 'vant';
 Vue.use(ShareSheet);
 Vue.use(Toast);
@@ -90,12 +91,13 @@ Vue.use(PasswordInput);
 Vue.use(NumberKeyboard);
 Vue.use(Radio);
 Vue.use(RadioGroup);
+Vue.use(PullRefresh);
 import '../src/assets/style/reset.css'
 
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+    router,
+    store,
+    render: (h) => h(App),
 }).$mount("#app");
