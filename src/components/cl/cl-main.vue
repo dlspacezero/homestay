@@ -5,7 +5,7 @@
       <van-tab title="收藏">
         <!-- 登录，且有收藏数据时显示 -->
         <div class="topChoose">
-          <div class="date after-icon" @click="toChooseDate">选择入离时间</div>
+          <div class="date after-icon" @click="toChooseDate">{{start}}-{{end}}</div>
           <div class="city after-icon" @click="toChooseCity">{{clChooseCity}}</div>
           <div class="sort after-icon" @click="toChooseSorts">{{clChooseSort}}</div>
         </div>
@@ -58,7 +58,8 @@ export default {
       active: 0,
       token: "",
       collectData: "",
-      // city: "全部城市",
+      start: "", //开始日期
+      end: "", //结束日期
     };
   },
   components: {
@@ -70,9 +71,10 @@ export default {
   },
   mounted() {
     this.token = localStorage.getItem("token");
+    this.initDate();
   },
   computed: {
-    ...mapState(["clChooseCity", "clChooseSort"]),
+    ...mapState(["clChooseCity", "clChooseSort", "date"]),
   },
   methods: {
     toChooseDate() {
@@ -92,6 +94,38 @@ export default {
       // 如果不是发送相应请求，跳转回收藏主页面，进行数据渲染，
       // 或者将请求过的排序数据存入sessionStorage,再次点击相应排序时，不用发送请求，从本地取数据渲染，缺点：不能即时更新，容易超出体积
       this.$router.push("/cl-choose-sort");
+    },
+    //对开始日期和退房日期进行设置
+    initDate() {
+      let start = 0;
+      let end = 0;
+      //如果从日历上选择了日期
+      if (this.date.status === 0) {
+        start = this.date.start.getTime();
+        end = this.date.end.getTime();
+        //天数
+        this.daynum = (end - start) / 86400000; //86400000一天的毫秒数
+      } else {
+        //如果没有选择日期
+        //默认为今天和明天
+        //今天
+        start = this.date.start;
+        //明天
+        end = this.date.end;
+      }
+      //转换日期格式
+      this.start = this.formatDate(start);
+      this.end = this.formatDate(end);
+    },
+    formatDate(date) {
+      //将日期格式为9月6日格式
+      //转换为日期对象
+      const dateObject = new Date(date);
+      //加一是因为月份是0~11来表示的
+      let month = dateObject.getMonth() + 1;
+      //获取天数
+      let day = dateObject.getDate();
+      return `${month}.${day}`;
     },
   },
 };

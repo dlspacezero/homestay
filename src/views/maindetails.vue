@@ -3,13 +3,13 @@
     <!-- 头部nav 滚动条事件会发生变化 -->
     <TopNavBar></TopNavBar>
     <!-- 上部房间轮播图 -->
-    <Banner></Banner>
+    <Banner @mesg="mesg"></Banner>
     <!-- <div class="main-infos-container"> -->
     <!-- 下面的信息tabs详情 -->
     <InfoTabs></InfoTabs>
     <!-- 底部 -->
     <DetailsBottom></DetailsBottom>
-    <BottomButton></BottomButton>
+    <BottomButton :btnDate="this.date"></BottomButton>
   </div>
 </template>
 
@@ -23,6 +23,11 @@ export default {
   data() {
     return {
       id: "",
+      date: {
+        start: "",
+        end: "",
+        daynum: 1,
+      },
     };
   },
   components: {
@@ -36,7 +41,16 @@ export default {
     this.id = this.$route.params.id;
   },
   computed: {},
-  methods: {},
+  methods: {
+    mesg(val) {
+      if (!val) return "";
+      let [start, end, daynum] = val;
+      this.date.start = start;
+      this.date.end = end;
+      this.date.daynum = daynum;
+      return this.date;
+    },
+  },
 };
 </script>
 
