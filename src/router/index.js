@@ -130,7 +130,7 @@ const routes = [{
                 component: () =>
                     import ("../components/do/do-special.vue"),
             },
-            {
+            {   //房间详情页
                 path: "house/:id",
                 component: () =>
                     import ("../views/maindetails.vue"),
