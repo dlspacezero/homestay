@@ -8,17 +8,22 @@ export default new Vuex.Store({
     state: {
         clChooseCity: '全部城市',
         clChooseSort: '默认样式',
+        //选择的城市
+        chooseCity:'北京',
+        //选择的景点
+        chooseSpot:'',
         //首页轮播图图片数组
         bannerlist:[],
         //首页选择日期
         date:{
             //应该会有这些属性
-            //start
+            //start，默认为今天
             start : new Date(),
-            //end
+            //end，默认为明天
             end: new Date((new Date()).getTime() + 86400000)
-            //status
+            //status如果点击了日历组件选择，status则为0
         },
+        //发现页列表
         discoverlist:[],
     },
     mutations: {
