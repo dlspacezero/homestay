@@ -39,11 +39,11 @@
       </div>
     </div>
     <!-- 预定日期    需要跳转获取数据-->
-    <div class="reserv-date" @click="toDate">
+    <div class="reserv-date" @click="arrivalTime">
       <div class="datewrap">
-        <span class="date">8月31日</span>
-        <span class="duration">1晚</span>
-        <span class="date">9月1日</span>
+        <span class="date">{{ start }}</span>
+        <span class="duration">{{ daynum }}晚</span>
+        <span class="date">{{ end }}</span>
       </div>
       <span class="req">修改</span>
     </div>
@@ -64,6 +64,7 @@
 import sc_icon1 from "@/assets/imgs/maindetailsicon/sc_icon1.png";
 import sc_icon2 from "@/assets/imgs/maindetailsicon/sc_icon2.png";
 import sc_icon3 from "@/assets/imgs/maindetailsicon/sc_icon3.png";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -90,14 +91,63 @@ export default {
         "https://assets.muniao.com/UploadFiles/appimg/pc/Content/Assets_2019/images/index/hotcity/chengdu.jpg",
         "https://assets.muniao.com/UploadFiles/appimg/pc/Content/Assets_2019/images/index/hotcity/hangzhou.jpg",
       ],
+      start: "", //开始日期
+      end: "", //结束日期
+      daynum: 1, //天数
     };
+  },
+  mounted() {
+    //对开始日期和退房日期进行初始化
+    this.initDate();
+    this.$emit("mesg", [this.start, this.end, this.daynum]);
+  },
+  computed: {
+    //用state的辅助函数拿date属性
+    ...mapState({
+      //函数写法
+      date: (state) => state.date,
+    }),
   },
   methods: {
     onChange(index) {
       this.current = index;
     },
-    toDate() {
-      // 跳转到日期，获取数据
+    //对开始日期和退房日期进行设置
+    initDate() {
+      let start = 0;
+      let end = 0;
+      //如果从日历上选择了日期
+      if (this.date.status === 0) {
+        start = this.date.start.getTime();
+        end = this.date.end.getTime();
+        //天数
+        this.daynum = (end - start) / 86400000; //86400000一天的毫秒数
+      } else {
+        //如果没有选择日期
+        //默认为今天和明天
+        //今天
+        start = new Date().getTime();
+        //明天
+        end = new Date();
+        end = end.setDate(end.getDate() + 1);
+      }
+      //转换日期格式
+      this.start = this.formatDate(start);
+      this.end = this.formatDate(end);
+    },
+    formatDate(date) {
+      //将日期格式为9月6日格式
+      //转换为日期对象
+      const dateObject = new Date(date);
+      //加一是因为月份是0~11来表示的
+      let month = dateObject.getMonth() + 1;
+      //获取天数
+      let day = dateObject.getDate();
+      return `${month}月${day}日`;
+    },
+    arrivalTime() {
+      //点击跳转到选择入住时间列表页
+      this.$router.push("/calendar");
     },
   },
 };
