@@ -87,7 +87,13 @@ const routes = [{
         component: () =>
             import ('../views/nm-search.vue'),
     },
+    {
+        path: '/paypage',
+        component: () =>
+            import ('../views/paypage.vue'),
+    },
 ];
+
 const router = new VueRouter({
     routes,
 });
