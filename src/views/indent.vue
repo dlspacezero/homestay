@@ -71,6 +71,7 @@ export default {
   mounted() {
     this.leftBetterScroll();
     // this.rightBetterScroll(); //方法被调用时，会报错
+    // 这里的问题请求解决一下
   },
   methods: {
     toMine() {
