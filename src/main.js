@@ -8,12 +8,12 @@ import store from "./store";
 //用于设置rem基准值
 import 'amfe-flexible'
 
-import '../src/assets/style/reset.css'
-// import VueRouter from 'vue-router'
-
+//重置样式css
 import "../src/assets/style/reset.css";
+
 // 引入发现页icon-font：
 import '@/assets/font_discover/iconfont.css'
+
 
 // 按需引入Vant组件：
 import {
@@ -51,7 +51,7 @@ import {
     NumberKeyboard,
     RadioGroup,
     Radio,
-    IndexBar, 
+    IndexBar,
     IndexAnchor,
     PullRefresh
 } from 'vant';
@@ -97,13 +97,13 @@ Vue.use(NumberKeyboard);
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(PullRefresh);
-import '../src/assets/style/reset.css'
+
 
 
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+    router,
+    store,
+    render: (h) => h(App),
 }).$mount("#app");

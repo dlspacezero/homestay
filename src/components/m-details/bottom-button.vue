@@ -5,14 +5,14 @@
         <span class="pric">￥</span>
         <span>{{totalPrice}}</span>
       </p>
-      <div class="bottom">共1晚</div>
+      <div class="bottom">共{{btnDate.daynum}}晚</div>
     </div>
     <div class="right">
       <div class="icon">
         <img :src="sc_icon12" alt="pic" />
         <span>聊天</span>
       </div>
-      <button @click="toAddOrder(something)">立即预定</button>
+      <button @click="toAddOrder(btnDate)">立即预定</button>
     </div>
   </div>
 </template>
@@ -20,24 +20,29 @@
 <script>
 import sc_icon12 from "@/assets/imgs/maindetailsicon/sc_icon12.png";
 export default {
+  props: ["btnDate"],
   data() {
     return {
       sc_icon12: sc_icon12,
       id: "1",
-      date: {
-        into: "2020-09-15",
-        out: "2020-09-18",
-      },
+      // date: {
+      //   start: "",
+      //   end: "",
+      //   daynum: 1,
+      // },
       totalPrice: 0,
     };
+  },
+  mounted() {
+    // console.log(this.date);
   },
   methods: {
     // toOrderFillIn(id) {
     //   //   this.$router.push("/main-details/" + id );
     // },
-    toAddOrder(a){
-      this.$router.push('/addorder');
-    }
+    toAddOrder(a) {
+      this.$router.push("/addorder");
+    },
   },
 };
 </script>

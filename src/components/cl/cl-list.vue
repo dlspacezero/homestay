@@ -55,6 +55,7 @@ export default {
       likeimg: likeimg,
     };
   },
+  mounted() {},
   methods: {
     toDetail(id) {
       this.$router.push("detail/house/" + id);
@@ -87,7 +88,8 @@ export default {
             className: "cl-detail-toast",
             getContainer: ".listContainer",
           });
-        });
+        })
+        .catch(() => {});
     },
   },
 };
@@ -103,6 +105,7 @@ export default {
     width: 345px;
     margin: 8px auto 8px;
     color: #333333;
+    touch-action: none;
     .li {
       box-sizing: border-box;
       width: 345px;

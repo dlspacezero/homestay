@@ -5,10 +5,16 @@
 </template>
 
 <script>
+
+
 export default {
+  
   data() {
-    return {};
+    return {
+      
+    };
   },
+  
   watch:{
     //解决vueroute在hash模式下跳转不重置滚动条高度的问题
     '$route':function(to,from){
@@ -19,4 +25,9 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" >
+  #app{
+    width: 100%;
+    height: 100%;
+  }
+</style>

@@ -5,21 +5,23 @@
       <van-tab title="收藏">
         <!-- 登录，且有收藏数据时显示 -->
         <div class="topChoose">
-          <div class="date after-icon" @click="toChooseDate">选择入离时间</div>
+          <div class="date after-icon" @click="toChooseDate">{{start}}-{{end}}</div>
           <div class="city after-icon" @click="toChooseCity">{{clChooseCity}}</div>
           <div class="sort after-icon" @click="toChooseSorts">{{clChooseSort}}</div>
         </div>
 
-        <div class="scrollWrap">
-          <!-- 登录，且有收藏数据时显示 -->
-          <ClList></ClList>
-          <!-- 无论是否登录，都显示 -->
-          <ClMore></ClMore>
+        <div class="scrollWrap" ref="listContainer">
+          <div>
+            <!-- 登录，且有收藏数据时显示 -->
+            <ClList></ClList>
+            <!-- 无论是否登录，都显示 -->
+            <ClMore></ClMore>
+          </div>
         </div>
         <!-- 未登录 -->
         <!-- <ClNoLogin v-if="!token"></ClNoLogin> -->
         <!-- 登录，但收藏为空 -->
-        <ClNoSku v-if="!collectData && !token"></ClNoSku>
+        <!-- <ClNoSku v-if="!collectData && !token"></ClNoSku> -->
       </van-tab>
       <van-tab title="浏览记录">
         <ClBrowsingHistory></ClBrowsingHistory>
@@ -48,6 +50,7 @@ import ClList from "./cl-list";
 import ClNoLogin from "./cl-nologin";
 import ClNoSku from "./cl-nosku";
 import ClBrowsingHistory from "./cl-browsing-history";
+import BScroll from "better-scroll";
 
 // 获取数据
 import { mapState } from "vuex";
@@ -58,7 +61,8 @@ export default {
       active: 0,
       token: "",
       collectData: "",
-      // city: "全部城市",
+      start: "", //开始日期
+      end: "", //结束日期
     };
   },
   components: {
@@ -70,9 +74,11 @@ export default {
   },
   mounted() {
     this.token = localStorage.getItem("token");
+    this.initDate();
+    this.betterScroll();
   },
   computed: {
-    ...mapState(["clChooseCity", "clChooseSort"]),
+    ...mapState(["clChooseCity", "clChooseSort", "date"]),
   },
   methods: {
     toChooseDate() {
@@ -92,6 +98,59 @@ export default {
       // 如果不是发送相应请求，跳转回收藏主页面，进行数据渲染，
       // 或者将请求过的排序数据存入sessionStorage,再次点击相应排序时，不用发送请求，从本地取数据渲染，缺点：不能即时更新，容易超出体积
       this.$router.push("/cl-choose-sort");
+    },
+    //对开始日期和退房日期进行设置
+    initDate() {
+      let start = 0;
+      let end = 0;
+      //如果从日历上选择了日期
+      if (this.date.status === 0) {
+        start = this.date.start.getTime();
+        end = this.date.end.getTime();
+        //天数
+        this.daynum = (end - start) / 86400000; //86400000一天的毫秒数
+      } else {
+        //如果没有选择日期
+        //默认为今天和明天
+        //今天
+        start = this.date.start;
+        //明天
+        end = this.date.end;
+      }
+      //转换日期格式
+      this.start = this.formatDate(start);
+      this.end = this.formatDate(end);
+    },
+    formatDate(date) {
+      //将日期格式为9月6日格式
+      //转换为日期对象
+      const dateObject = new Date(date);
+      //加一是因为月份是0~11来表示的
+      let month = dateObject.getMonth() + 1;
+      //获取天数
+      let day = dateObject.getDate();
+      return `${month}.${day}`;
+    },
+    // 上拉加载
+    betterScroll() {
+      this.$nextTick(() => {
+        const bscroll = new BScroll(this.$refs.listContainer, {
+          pullUpLoad: true,
+          click: true,
+          scrollY: true,
+          // eventPassthrough: "horizontal",
+        });
+        // 上拉加载，监听pullingUp方法
+        bscroll.on("pullingUp", () => {
+          // 请求数据
+          // if (this.currentIndex < this.movieIds.length) {
+          // this.getMore({ movieIds: this.dataIds });
+          // }
+          // 告诉bscroll已经加载完了，可以下一次加载了
+          console.log(1);
+          bscroll.finishPullUp();
+        });
+      });
     },
   },
 };
@@ -113,6 +172,7 @@ export default {
     height: 46px;
     background: #ffffff;
     padding-left: 15px;
+    box-sizing: border-box;
     display: flex;
     .after-icon {
       line-height: 46px;
@@ -136,10 +196,12 @@ export default {
     // height: 673px;
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // overflow: auto;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+    height: calc(100vh - 100px);
+    overflow: hidden;
   }
 
   .van-tabs {

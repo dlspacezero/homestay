@@ -1,7 +1,8 @@
 <template>
   <!-- 发现-体验分享页 -->
   <section class="hs-content">
-    <div
+    <div class="wrap">
+      <div
       class="hs-houseInfo"
       v-for="(item,index) in discoverlist"
       :key="index"
@@ -21,10 +22,12 @@
       </div>
     </div>
     <div class="hs-getMore van-hairline--surround">查看更多</div>
+    </div>
   </section>
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 export default {
   data() {
     return {
@@ -35,6 +38,20 @@ export default {
     // 发现页-体验分享数据
     await this.$store.dispatch("changeDiscoverList");
     this.discoverlist = this.$store.state.discoverlist;
+    this.$nextTick(()=>{
+      let bscroll = new BScroll('.hs-content',{
+        click:true,       //滚动部分允许点击
+        pullUpLoad:true  //允许上拉加载
+      })
+      //上拉加载，监听pullingUp方法
+      bscroll.on('pullingUp',()=>{
+          // this.getMore('movieIds',this.currentId);
+          // this.getMore({
+          //   movieIds:this.currentId
+          // })
+          bscroll.finishPullUp();   //告诉bscoll已经加载完了，可以下一次加载了
+      })
+    })
   },
   methods: {
     // 进入推荐、网红民宿、体验分享详情页
@@ -52,6 +69,16 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
   .hs-houseInfo {
     display: flex;
     flex-direction: column;

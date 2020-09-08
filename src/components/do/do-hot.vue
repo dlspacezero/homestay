@@ -1,7 +1,8 @@
 <template>
   <!-- 发现-网红民宿页 -->
   <div class="hot-wrap">
-    <ul>
+    <div>
+      <ul>
       <li v-for="(item,index) in discoverlist" :key="index" @click="toRecommend(1)">
         <div class="hs-hot-photo">
           <div class="hs-hot-photo-big">
@@ -37,10 +38,12 @@
       </li>
     </ul>
     <div class="hs-getMore van-hairline--surround">查看更多</div>
+    </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 export default {
   data() {
     return {
@@ -51,6 +54,20 @@ export default {
     // 发现页-网红民宿数据
     await this.$store.dispatch("changeDiscoverList");
     this.discoverlist = this.$store.state.discoverlist;
+    this.$nextTick(()=>{
+      let bscroll = new BScroll('.hot-wrap',{
+        click:true,       //滚动部分允许点击
+        pullUpLoad:true  //允许上拉加载
+      })
+      //上拉加载，监听pullingUp方法
+      bscroll.on('pullingUp',()=>{
+          // this.getMore('movieIds',this.currentId);
+          // this.getMore({
+          //   movieIds:this.currentId
+          // })
+          bscroll.finishPullUp();   //告诉bscoll已经加载完了，可以下一次加载了
+      })
+    })
   },
   methods: {
     // 进入推荐、网红民宿、体验分享详情页
@@ -67,6 +84,11 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 0 15px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   ul {
     width: 100%;
     li {

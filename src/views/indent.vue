@@ -2,16 +2,24 @@
   <div class="orderContainer">
     <!-- 订单页 -->
     <van-nav-bar title="订单" left-arrow @click-left="toMine" class="van-hairline--bottom" />
-    <!-- 进行中 订单详细信息 -->
-    <ordering />
-    <!-- 已完成 订单详细信息 -->
-    <orderfinish />
-
     <van-tabs v-model="active" swipeable>
-      <van-tab v-for="item in tabArr" :title="item.bar" :key="item.bar">
-        <!-- 如果数据为空时显示 -->
-        <OrderEmpty :title="item.emptytitle"></OrderEmpty>
+      <!-- 进行中 -->
+      <van-tab :title="tabArr[0].bar">
         <!-- 数据不为空时，显示渲染列表 （组件）-->
+        <!-- 进行中 订单详细信息 -->
+        <ordering v-if="tabArr[0].dataList" />
+        <p class="noMoreMsg" v-if="tabArr[0].dataList">没有更多了~</p>
+        <!-- 如果数据为空时显示 -->
+        <OrderEmpty :title="tabArr[0].emptytitle" v-else></OrderEmpty>
+      </van-tab>
+      <!-- 已结束 -->
+      <van-tab :title="tabArr[1].bar">
+        <!-- 数据不为空时，显示渲染列表 （组件）-->
+        <!-- 已完成 订单详细信息 -->
+        <orderfinish v-if="tabArr[1].dataList" />
+        <p class="noMoreMsg" v-if="tabArr[1].dataList">没有更多了~</p>
+        <!-- 如果数据为空时显示 -->
+        <OrderEmpty :title="tabArr[1].emptytitle" v-else></OrderEmpty>
       </van-tab>
     </van-tabs>
   </div>
@@ -29,12 +37,12 @@ export default {
         {
           bar: "进行中",
           emptytitle: "暂无进行中订单",
-          dataList: [],
+          dataList: [], //获取数据列表数据，后期初始设置为 ''
         },
         {
           bar: "已结束",
           emptytitle: "暂无已结束订单",
-          dataList: [],
+          dataList: [], //获取数据列表数据，后期初始设置为 ''
         },
       ],
     };
@@ -103,6 +111,16 @@ export default {
       height: 2px;
       background: #f09685;
     }
+  }
+  .noMoreMsg {
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #999999;
+    margin-top: 20px;
   }
 }
 </style>

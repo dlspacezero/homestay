@@ -1,7 +1,8 @@
 <template>
   <!-- 发现-特色房源页 -->
   <section class="hs-featureHouse">
-    <div
+    <div class="wrap">
+      <div
       class="hs-typeHouse"
       v-for="(item,index) in specialList"
       :key="index"
@@ -13,10 +14,12 @@
       <span class="hs-typeEn">{{item.enm}}</span>
       <span class="hs-typeCn">{{item.cnm}}</span>
     </div>
+    </div>
   </section>
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 export default {
   data() {
     return {
@@ -75,6 +78,22 @@ export default {
       this.$router.push("/detail/special/" + id);
     },
   },
+  async mounted() {
+    this.$nextTick(()=>{
+      let bscroll = new BScroll('.hs-featureHouse',{
+        click:true,       //滚动部分允许点击
+        pullUpLoad:true  //允许上拉加载
+      })
+      //上拉加载，监听pullingUp方法
+      bscroll.on('pullingUp',()=>{
+          // this.getMore('movieIds',this.currentId);
+          // this.getMore({
+          //   movieIds:this.currentId
+          // })
+          bscroll.finishPullUp();   //告诉bscoll已经加载完了，可以下一次加载了
+      })
+    })
+  },
 };
 </script>
 
@@ -85,6 +104,16 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   .hs-typeHouse {
     display: flex;
     flex-direction: column;
