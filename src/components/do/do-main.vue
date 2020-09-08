@@ -34,7 +34,7 @@
       <van-swipe-item>
         <spe />
       </van-swipe-item>
-    </van-swipe>
+      </van-swipe>
     </div>
     <!-- 发现页banner轮播 -->
     
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 import rec from "./do-rec";
 import hot from "./do-hot";
 import exp from "./do-exp";
@@ -70,6 +71,9 @@ export default {
     onChange(i) {
       this.isActive = i;
     },
+  },
+  async mounted() {
+    
   },
 };
 </script>
@@ -104,14 +108,19 @@ export default {
   }
   .scroll-wrap {
     position: absolute;
-    top: 91px;
+    top: 0px;
     bottom: 50px;
     left: 0;
     right: 0;
+    overflow: hidden;
   }
   // 发现页轮播图
   .my-swipe {
     margin-top: 91px;
+    .van-swipe-item{
+      height: 526px;
+      overflow-y: auto;
+    }
     .iconfont {
       display: inline-block;
       margin-left: 15px;
