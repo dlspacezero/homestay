@@ -9,8 +9,8 @@
         :class="{active:index===isActive}"
       >{{item}}</li>
     </ul>
-    <!-- 发现页banner轮播 -->
-    <van-swipe
+    <div class="scroll-wrap">
+      <van-swipe
       @change="onChange"
       class="my-swipe"
       :loop="false"
@@ -34,11 +34,15 @@
       <van-swipe-item>
         <spe />
       </van-swipe-item>
-    </van-swipe>
+      </van-swipe>
+    </div>
+    <!-- 发现页banner轮播 -->
+    
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 import rec from "./do-rec";
 import hot from "./do-hot";
 import exp from "./do-exp";
@@ -67,6 +71,9 @@ export default {
     onChange(i) {
       this.isActive = i;
     },
+  },
+  async mounted() {
+    
   },
 };
 </script>
@@ -99,9 +106,21 @@ export default {
       border-bottom: 3px solid;
     }
   }
+  .scroll-wrap {
+    position: absolute;
+    top: 0px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
   // 发现页轮播图
   .my-swipe {
     margin-top: 91px;
+    .van-swipe-item{
+      height: 526px;
+      overflow-y: auto;
+    }
     .iconfont {
       display: inline-block;
       margin-left: 15px;

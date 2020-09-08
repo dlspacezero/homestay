@@ -51,7 +51,7 @@ import {
     NumberKeyboard,
     RadioGroup,
     Radio,
-    IndexBar, 
+    IndexBar,
     IndexAnchor,
     PullRefresh
 } from 'vant';
@@ -103,7 +103,7 @@ Vue.use(PullRefresh);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+    router,
+    store,
+    render: (h) => h(App),
 }).$mount("#app");

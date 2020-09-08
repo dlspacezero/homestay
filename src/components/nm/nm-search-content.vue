@@ -10,9 +10,11 @@
         <a href="javascript:;" v-for="(value,index) in list" :key="index" :class="{active:index===aindex}" @click="change(index)">{{value}}</a></div> -->
     </div>
     <!--中间图片 -->
-    <a href="javascript:;" class="content-img van-hairline--surround">民宿特惠，抄底团购</a>
+        <a href="javascript:;" class="content-img van-hairline--surround">民宿特惠，抄底团购</a>
     <!-- 筛选出的房间 -->
-    <div class="content-house" v-for="(value,index) in 5" :key="index">
+    <div class="content-wrap">
+        <div>
+            <div class="content-house" v-for="(value,index) in 5" :key="index">
         <!-- 房间图片 -->
         <div class="content-house-img"><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2574667224,539269533&fm=26&gp=0.jpg" alt="">
         <!-- 爱心 -->
@@ -35,6 +37,8 @@
         <!-- 单价 -->
         <div class="content-house-price"><van-icon name="fire" color="#FFD44C"/><h4>￥809</h4>/晚</div>
 
+            </div>
+        </div>
     </div>
     <!-- 底部提示 -->
     <p class="content-title">设置条件，还有更多房间哦！</p>
@@ -42,6 +46,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 export default {
   data() {
     return {
@@ -54,8 +59,22 @@ export default {
 
   computed: {},
 
-  mounted() {
-    this.arrlist=[]
+  async mounted() {
+    this.arrlist=[];
+    this.$nextTick(()=>{
+      let bscroll = new BScroll('.content-wrap',{
+        click:true,       //滚动部分允许点击
+        pullUpLoad:true  //允许上拉加载
+      })
+      //上拉加载，监听pullingUp方法
+      bscroll.on('pullingUp',()=>{
+          // this.getMore('movieIds',this.currentId);
+        //   this.getMore({
+        //     movieIds:this.currentId
+        //   })
+          bscroll.finishPullUp();   //告诉bscoll已经加载完了，可以下一次加载了
+      })
+    })
   },
 
   methods: {
@@ -76,6 +95,7 @@ export default {
   }
 };
 </script>
+
 <style lang='scss' scoped>
     .content{
         width: 345px;
@@ -140,6 +160,13 @@ export default {
              margin-top: 9px;
              margin-bottom: 8px;
          }
+        .content-wrap {
+            position: absolute;
+            top: 230px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
         //  筛选出的房间
         .content-house{
             position: relative;

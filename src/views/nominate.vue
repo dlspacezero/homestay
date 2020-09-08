@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="scroll">
+    <div>
       <router-view></router-view>
       <noMain />
       <div class="nominate">
@@ -24,10 +25,12 @@
       </div>
       <!-- 双色背景部分 -->
       <div class="anotherBg"></div>
+    </div>
 </div>    
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 import noMain from "@/components/nm/nm-main.vue";
 import nmTitle from '../components/nm/nm-title'
 import nmTabs from '../components/nm/nm-tabs'
@@ -49,13 +52,34 @@ export default {
     nmBanner,
     nmCityTopic,
     nmChoseCity 
-  }
+  },
+  async mounted() {
+    this.$nextTick(()=>{
+      let bscroll = new BScroll('.scroll',{
+        click:true,       //滚动部分允许点击
+        pullUpLoad:true  //允许上拉加载
+      })
+      //上拉加载，监听pullingUp方法
+      bscroll.on('pullingUp',()=>{
+          // this.getMore('movieIds',this.currentId);
+          // this.getMore({
+          //   movieIds:this.currentId
+          // })
+          bscroll.finishPullUp();   //告诉bscoll已经加载完了，可以下一次加载了
+      })
+    })
+  },
 };
 </script>
 
 <style lang="scss" >
-div{
-  position: relative;
+.scroll{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  overflow: hidden;
   .anotherBg{
     position: absolute;
     right: 0;
