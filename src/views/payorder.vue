@@ -23,7 +23,7 @@
       </div>
      
     <!-- 确认支付 -->
-    <a href="javascript:;" class="pay">
+    <a href="javascript:;" class="pay" @click="toPaydone">
       <img src="@/assets/img/qrzf@2x.png" alt />
     </a>
   </div>
@@ -53,6 +53,9 @@ export default {
     returnpage() {
       this.$router.go(-1);
     },
+    toPaydone(){
+      this.$router.replace('/paypage');
+    }
   },
 };
 </script>

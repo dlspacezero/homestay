@@ -13,15 +13,15 @@ const routes = [{
             import ("../views/home.vue"),
         children: [{
                 path: "",
-                name:'home',
+                name: 'home',
                 redirect: "/index",
             },
             { //首页
                 path: "/index",
-                name:'home',
+                name: 'home',
                 component: () =>
                     import ("../views/nominate.vue"),
-                children:[
+                children: [
 
                 ]
             },
@@ -87,14 +87,14 @@ const routes = [{
         component: () =>
             import ('../views/order.vue'),
     },
-    {   //支付页面
+    { //支付页面
         path: '/pay',
         component: () =>
             import ('../views/payorder.vue'),
     },
     { //搜索景点页面
         path: "/findspots",
-        name:'spot',
+        name: 'spot',
         component: () =>
             import ("../views/findspots.vue")
     },
@@ -115,7 +115,8 @@ const routes = [{
     {
         path: "/detail",
         // 主详情页，动态路由，多个页面的房屋列表点击可跳转=>主详情页
-        component:()=>import("../views/detail.vue"),
+        component: () =>
+            import ("../views/detail.vue"),
         children: [
             // 发现页：推荐、网红民宿、体验分享的详情页
             {
@@ -131,7 +132,8 @@ const routes = [{
             },
             {   //房间详情页
                 path: "house/:id",
-                component: () => import ("../views/maindetails.vue"),
+                component: () =>
+                    import ("../views/maindetails.vue"),
             }
         ],
     },
@@ -140,15 +142,21 @@ const routes = [{
         component: () =>
             import ('../views/search.vue'),
     },
-    {   //登录注册页面
+    { //登录注册页面
         path: '/register',
         component: () =>
             import ('../views/register.vue')
     },
     //订单页面
     {
-        path:'/order',
-        component:() => import('../views/indent.vue')
+        path: '/order',
+        component: () =>
+            import ('../views/indent.vue')
+    },
+    {
+        path: '/paypage',
+        component: () =>
+            import ('../views/paypage.vue'),
     },
     { //404 not found
         path: "*",
@@ -156,6 +164,7 @@ const routes = [{
             import ("../views/notfound404.vue"),
     }
 ];
+
 const router = new VueRouter({
     routes,
 });
