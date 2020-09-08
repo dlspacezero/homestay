@@ -1,6 +1,6 @@
 <template>
   <div class="listContainer">
-    <div class="list" ref="list">
+    <div class="list">
       <div class="li" @click="toDetail(id)">
         <img
           src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
@@ -45,8 +45,6 @@
 <script>
 import likeimg from "@/assets/imgs/icon_sc.png";
 import unlikeimg from "@/assets/imgs/icon_sc2.png";
-
-import BScroll from "better-scroll";
 export default {
   data() {
     return {
@@ -57,30 +55,8 @@ export default {
       likeimg: likeimg,
     };
   },
-  mounted() {
-    this.betterScroll();
-  },
+  mounted() {},
   methods: {
-    // 上拉加载
-    betterScroll() {
-      this.$nextTick(() => {
-        const bscroll = new BScroll(this.$refs.list, {
-          pullUpLoad: true,
-          click: true,
-          scrollY: true,
-          eventPassthrough: "horizontal",
-        });
-        // 上拉加载，监听pullingUp方法
-        bscroll.on("pullingUp", () => {
-          // 请求数据
-          // if (this.currentIndex < this.movieIds.length) {
-          // this.getMore({ movieIds: this.dataIds });
-          // }
-          // 告诉bscroll已经加载完了，可以下一次加载了
-          bscroll.finishPullUp();
-        });
-      });
-    },
     toDetail(id) {
       this.$router.push("detail/house/" + id);
     },
@@ -127,7 +103,6 @@ export default {
   }
   .list {
     width: 345px;
-    max-height: calc(100vh - 150px);
     margin: 8px auto 8px;
     color: #333333;
     touch-action: none;

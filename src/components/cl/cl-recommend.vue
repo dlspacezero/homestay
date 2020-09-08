@@ -2,27 +2,30 @@
   <div class="recommendContainer">
     <van-nav-bar fixed placeholder left-text="X" @click-left="onClickLeft" />
     <h4>"他们"收藏的美馆</h4>
-    <ul>
-      <li @click="toDetail(id)">
-        <img
-          src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
-          alt="pic"
-        />
-        <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
-        <p class="info">
-          <span class="addr">背景朝阳区</span>
-          <span class="price">￥558</span>
-        </p>
-        <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click.stop="Like(like)" />
-        <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click.stop="unLike(like)" />
-      </li>
-    </ul>
+    <div class="listContainer" ref="listContainer">
+      <ul>
+        <li @click="toDetail(id)">
+          <img
+            src="https://assets.muniao.com/imagefile/image/20180707/ab4cb75737364959baf521e09dc55df720180707232012238.jpg?width=580&height=368&mode=stretch&format=jpg"
+            alt="pic"
+          />
+          <p class="re-li-title">卓小花【白色恋人】春熙路太古里/双地铁环公交两居室/复式三床</p>
+          <p class="info">
+            <span class="addr">背景朝阳区</span>
+            <span class="price">￥558</span>
+          </p>
+          <img :src="unlikeimg" alt="pic" class="like" v-if="like===0" @click.stop="Like(like)" />
+          <img :src="likeimg" alt="pic" class="like" v-if="like===1" @click.stop="unLike(like)" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import likeimg from "@/assets/imgs/icon_sc.png";
 import unlikeimg from "@/assets/imgs/icon_sc2.png";
+import BScroll from "better-scroll";
 export default {
   data() {
     return {
@@ -31,6 +34,9 @@ export default {
       unlikeimg: unlikeimg,
       likeimg: likeimg,
     };
+  },
+  mounted() {
+    this.betterScroll();
   },
   methods: {
     // 回退到收藏页
@@ -59,6 +65,26 @@ export default {
         getContainer: ".recommendContainer",
       });
     },
+    // 上拉加载
+    betterScroll() {
+      this.$nextTick(() => {
+        const bscroll = new BScroll(this.$refs.listContainer, {
+          pullUpLoad: true,
+          click: true,
+          scrollY: true,
+          eventPassthrough: "horizontal",
+        });
+        // 上拉加载，监听pullingUp方法
+        bscroll.on("pullingUp", () => {
+          // 请求数据
+          // if (this.currentIndex < this.movieIds.length) {
+          // this.getMore({ movieIds: this.dataIds });
+          // }
+          // 告诉bscroll已经加载完了，可以下一次加载了
+          bscroll.finishPullUp();
+        });
+      });
+    },
   },
 };
 </script>
@@ -77,6 +103,10 @@ export default {
   .van-nav-bar__text {
     color: #333;
     font-size: 18px;
+  }
+  .listContainer {
+    height: calc(100vh - 75px);
+    overflow: hidden;
   }
   ul {
     box-sizing: border-box;

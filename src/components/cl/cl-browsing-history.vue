@@ -1,5 +1,5 @@
 <template>
-  <div class="historyContainer">
+  <div class="historyContainer" ref="listContainer">
     <div class="list">
       <div class="li" @click="toDetail(id)">
         <img
@@ -45,6 +45,7 @@
 <script>
 import likeimg from "@/assets/imgs/icon_sc.png";
 import unlikeimg from "@/assets/imgs/icon_sc2.png";
+import BScroll from "better-scroll";
 export default {
   data() {
     return {
@@ -54,7 +55,30 @@ export default {
       likeimg: likeimg,
     };
   },
+  mounted() {
+    this.betterScroll();
+  },
   methods: {
+    // 上拉加载
+    betterScroll() {
+      this.$nextTick(() => {
+        const bscroll = new BScroll(this.$refs.listContainer, {
+          pullUpLoad: true,
+          click: true,
+          scrollY: true,
+          eventPassthrough: "horizontal",
+        });
+        // 上拉加载，监听pullingUp方法
+        bscroll.on("pullingUp", () => {
+          // 请求数据
+          // if (this.currentIndex < this.movieIds.length) {
+          // this.getMore({ movieIds: this.dataIds });
+          // }
+          // 告诉bscroll已经加载完了，可以下一次加载了
+          bscroll.finishPullUp();
+        });
+      });
+    },
     toDetail(id) {
       this.$router.push("detail/house/" + id);
     },
@@ -83,6 +107,8 @@ export default {
 <style lang="scss">
 .historyContainer {
   margin-top: 50px;
+  height: calc(100vh - 100px);
+  overflow: hidden;
   padding-top: 1px;
   .list {
     width: 345px;

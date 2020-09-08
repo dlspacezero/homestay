@@ -10,16 +10,18 @@
           <div class="sort after-icon" @click="toChooseSorts">{{clChooseSort}}</div>
         </div>
 
-        <div class="scrollWrap">
-          <!-- 登录，且有收藏数据时显示 -->
-          <ClList></ClList>
-          <!-- 无论是否登录，都显示 -->
-          <ClMore></ClMore>
+        <div class="scrollWrap" ref="listContainer">
+          <div>
+            <!-- 登录，且有收藏数据时显示 -->
+            <ClList></ClList>
+            <!-- 无论是否登录，都显示 -->
+            <ClMore></ClMore>
+          </div>
         </div>
         <!-- 未登录 -->
         <!-- <ClNoLogin v-if="!token"></ClNoLogin> -->
         <!-- 登录，但收藏为空 -->
-        <ClNoSku v-if="!collectData && !token"></ClNoSku>
+        <!-- <ClNoSku v-if="!collectData && !token"></ClNoSku> -->
       </van-tab>
       <van-tab title="浏览记录">
         <ClBrowsingHistory></ClBrowsingHistory>
@@ -48,6 +50,7 @@ import ClList from "./cl-list";
 import ClNoLogin from "./cl-nologin";
 import ClNoSku from "./cl-nosku";
 import ClBrowsingHistory from "./cl-browsing-history";
+import BScroll from "better-scroll";
 
 // 获取数据
 import { mapState } from "vuex";
@@ -72,6 +75,7 @@ export default {
   mounted() {
     this.token = localStorage.getItem("token");
     this.initDate();
+    this.betterScroll();
   },
   computed: {
     ...mapState(["clChooseCity", "clChooseSort", "date"]),
@@ -127,6 +131,27 @@ export default {
       let day = dateObject.getDate();
       return `${month}.${day}`;
     },
+    // 上拉加载
+    betterScroll() {
+      this.$nextTick(() => {
+        const bscroll = new BScroll(this.$refs.listContainer, {
+          pullUpLoad: true,
+          click: true,
+          scrollY: true,
+          eventPassthrough: "horizontal",
+        });
+        // 上拉加载，监听pullingUp方法
+        bscroll.on("pullingUp", () => {
+          // 请求数据
+          // if (this.currentIndex < this.movieIds.length) {
+          // this.getMore({ movieIds: this.dataIds });
+          // }
+          // 告诉bscroll已经加载完了，可以下一次加载了
+          console.log(1);
+          bscroll.finishPullUp();
+        });
+      });
+    },
   },
 };
 </script>
@@ -171,10 +196,12 @@ export default {
     // height: 673px;
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // overflow: auto;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+    height: calc(100vh - 100px);
+    overflow: hidden;
   }
 
   .van-tabs {
