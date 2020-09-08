@@ -130,7 +130,7 @@ const routes = [{
                 component: () =>
                     import ("../components/do/do-special.vue"),
             },
-            {   //房间详情页
+            { //房间详情页
                 path: "house/:id",
                 component: () =>
                     import ("../views/maindetails.vue"),
@@ -153,12 +153,18 @@ const routes = [{
         component: () =>
             import ('../views/indent.vue')
     },
+    {
+        path: '/paypage',
+        component: () =>
+            import ('../views/paypage.vue'),
+    },
     { //404 not found
         path: "*",
         component: () =>
             import ("../views/notfound404.vue"),
     }
 ];
+
 const router = new VueRouter({
     routes,
 });

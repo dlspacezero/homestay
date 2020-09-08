@@ -41,7 +41,7 @@
                         <!-- 位置 -->
                         <div class="hs-nmsearch-city">
                             <span class="city-name">
-                                北京
+                                {{ chooseCity }}
                             </span>
                             <div class="hs-nmsearch-place">
                                 <van-icon name="arrow"  />
@@ -243,7 +243,8 @@ export default {
         //用state的辅助函数拿date属性
         ...mapState({
             //函数写法
-            date: state => state.date
+            date: state => state.date,
+            chooseCity:'chooseCity'
         }),
     },
     watch:{

@@ -27,7 +27,7 @@ export default {
     methods: {
         onClickRight(){
             console.log(1);
-            this.$router.push("/coupond");
+            this.$router.push("/paypage");
         }
     },
 }
