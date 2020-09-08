@@ -152,6 +152,14 @@ const routes = [{
         path: '/order',
         component: () =>
             import ('../views/indent.vue')
+<<<<<<< HEAD
+=======
+    },
+    {
+        path: '/paypage',
+        component: () =>
+            import ('../views/paypage.vue'),
+>>>>>>> 08ef8e2af7e5b15c7db72208622ca15bb19ed35d
     },
     { //404 not found
         path: "*",
@@ -159,6 +167,7 @@ const routes = [{
             import ("../views/notfound404.vue"),
     }
 ];
+
 const router = new VueRouter({
     routes,
 });

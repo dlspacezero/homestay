@@ -113,6 +113,7 @@ export default {
     height: 46px;
     background: #ffffff;
     padding-left: 15px;
+    box-sizing: border-box;
     display: flex;
     .after-icon {
       line-height: 46px;

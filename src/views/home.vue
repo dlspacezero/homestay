@@ -1,6 +1,10 @@
 <template>
   <div class="homeContainer">
-    <router-view></router-view>
+    <div class="wrapper">
+      <div class="swipe">
+        <router-view></router-view>
+      </div>
+    </div>
     <van-tabbar
       v-model="active"
       active="{ active }"
@@ -9,11 +13,13 @@
       route
       :placeholder="true"
       z-index="20"
+      class="footer"
     >
       <van-tabbar-item
         v-for="(item, index) in tabList"
         :key="index"
         :to="item.to"
+        style="flex:1,width:20%"
       >{{ item.title }}
       <template>
         <span style="display:block; width:44px; height:46px; background-size:315px" :style="[bg , active==index?item.position1:item.position2]"></span>
@@ -24,6 +30,7 @@
 </template>
 
 <script>
+import Bscroll from 'better-scroll'
 import imgUrl from '../assets/imgs/icon.png'
 export default {
   data() {
@@ -81,12 +88,48 @@ export default {
           }
         },
       ],
+
     };
   },
-  methods: {},
   mounted(){
-    
+    this.scrollinit();
+  },
+  methods:{
+    scrollinit(){
+      this.$nextTick(() => {
+        this.scroll = new Bscroll('.wrapper',{
+          scrollY: true,
+          click: true,
+          // scrollX:false,
+          startY:0,
+          bounce:{
+            top:false
+          }
+        })
+      })
+    }
+  },
+  updated(){
+    this.scrollinit();
   }
+  
 };
 </script>
-<style lang='scss' ></style>
+<style lang='scss' >
+  @import "../assets/style/home.css";
+  .homeContainer{
+    width: 100%;
+    height: 100%;
+  }
+  .wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 51px;
+    right: 0;
+  }
+  .swipe{
+    width: 100%;
+    height: auto;
+  }
+</style>
