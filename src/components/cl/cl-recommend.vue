@@ -107,6 +107,7 @@ export default {
   .listContainer {
     height: calc(100vh - 75px);
     overflow: hidden;
+    padding: 0;
   }
   ul {
     box-sizing: border-box;

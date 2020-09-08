@@ -10,7 +10,6 @@
             <!-- 数据不为空时，显示渲染列表 （组件）-->
             <!-- 进行中 订单详细信息 -->
             <ordering v-if="tabArr[0].dataList" />
-            <ordering v-if="tabArr[0].dataList" />
             <p class="noMoreMsg" v-if="tabArr[0].dataList">没有更多了~</p>
             <!-- 如果数据为空时显示 -->
             <OrderEmpty :title="tabArr[0].emptytitle" v-else></OrderEmpty>
@@ -23,12 +22,6 @@
           <div>
             <!-- 数据不为空时，显示渲染列表 （组件）-->
             <!-- 已完成 订单详细信息 -->
-            <orderfinish v-if="tabArr[1].dataList" />
-            <orderfinish v-if="tabArr[1].dataList" />
-            <orderfinish v-if="tabArr[1].dataList" />
-            <orderfinish v-if="tabArr[1].dataList" />
-            <orderfinish v-if="tabArr[1].dataList" />
-            <orderfinish v-if="tabArr[1].dataList" />
             <orderfinish v-if="tabArr[1].dataList" />
             <p class="noMoreMsg" v-if="tabArr[1].dataList">没有更多了~</p>
             <!-- 如果数据为空时显示 -->
@@ -70,8 +63,9 @@ export default {
   },
   mounted() {
     this.leftBetterScroll();
-    // this.rightBetterScroll(); //方法被调用时，会报错
-    // 这里的问题请求解决一下
+  },
+  updated() {
+    this.rightBetterScroll();
   },
   methods: {
     toMine() {
@@ -86,7 +80,7 @@ export default {
         });
       });
     },
-    // 已结束上拉，刚进页面时，本页面display:none;所以会一直报错找不到BScroll的this.$refs.listContainer
+    // 已结束上拉，刚进页面时，本页面display:none;所以把本方法放在updated
     rightBetterScroll() {
       this.$nextTick(() => {
         const bscroll = new BScroll(this.$refs.listContainer, {
