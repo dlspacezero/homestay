@@ -5,21 +5,36 @@
     <van-tabs v-model="active" swipeable>
       <!-- 进行中 -->
       <van-tab :title="tabArr[0].bar">
-        <!-- 数据不为空时，显示渲染列表 （组件）-->
-        <!-- 进行中 订单详细信息 -->
-        <ordering v-if="tabArr[0].dataList" />
-        <p class="noMoreMsg" v-if="tabArr[0].dataList">没有更多了~</p>
-        <!-- 如果数据为空时显示 -->
-        <OrderEmpty :title="tabArr[0].emptytitle" v-else></OrderEmpty>
+        <div class="orderListContainer" ref="orderListContainer">
+          <div>
+            <!-- 数据不为空时，显示渲染列表 （组件）-->
+            <!-- 进行中 订单详细信息 -->
+            <ordering v-if="tabArr[0].dataList" />
+            <ordering v-if="tabArr[0].dataList" />
+            <p class="noMoreMsg" v-if="tabArr[0].dataList">没有更多了~</p>
+            <!-- 如果数据为空时显示 -->
+            <OrderEmpty :title="tabArr[0].emptytitle" v-else></OrderEmpty>
+          </div>
+        </div>
       </van-tab>
       <!-- 已结束 -->
       <van-tab :title="tabArr[1].bar">
-        <!-- 数据不为空时，显示渲染列表 （组件）-->
-        <!-- 已完成 订单详细信息 -->
-        <orderfinish v-if="tabArr[1].dataList" />
-        <p class="noMoreMsg" v-if="tabArr[1].dataList">没有更多了~</p>
-        <!-- 如果数据为空时显示 -->
-        <OrderEmpty :title="tabArr[1].emptytitle" v-else></OrderEmpty>
+        <div class="orderListContainer" ref="listContainer">
+          <div>
+            <!-- 数据不为空时，显示渲染列表 （组件）-->
+            <!-- 已完成 订单详细信息 -->
+            <orderfinish v-if="tabArr[1].dataList" />
+            <orderfinish v-if="tabArr[1].dataList" />
+            <orderfinish v-if="tabArr[1].dataList" />
+            <orderfinish v-if="tabArr[1].dataList" />
+            <orderfinish v-if="tabArr[1].dataList" />
+            <orderfinish v-if="tabArr[1].dataList" />
+            <orderfinish v-if="tabArr[1].dataList" />
+            <p class="noMoreMsg" v-if="tabArr[1].dataList">没有更多了~</p>
+            <!-- 如果数据为空时显示 -->
+            <OrderEmpty :title="tabArr[1].emptytitle" v-else></OrderEmpty>
+          </div>
+        </div>
       </van-tab>
     </van-tabs>
   </div>
@@ -29,6 +44,7 @@
 import OrderEmpty from "@/components/order/orderempty.vue";
 import ordering from "@/components/order/order-ing.vue";
 import orderfinish from "@/components/order/order-finish.vue";
+import BScroll from "better-scroll";
 export default {
   data() {
     return {
@@ -52,9 +68,31 @@ export default {
     ordering,
     orderfinish,
   },
+  mounted() {
+    this.leftBetterScroll();
+    // this.rightBetterScroll(); //方法被调用时，会报错
+  },
   methods: {
     toMine() {
       this.$router.replace("/mine");
+    },
+    // 进行中上拉
+    leftBetterScroll() {
+      this.$nextTick(() => {
+        const bscroll = new BScroll(this.$refs.orderListContainer, {
+          click: true,
+          scrollY: true,
+        });
+      });
+    },
+    // 已结束上拉，刚进页面时，本页面display:none;所以会一直报错找不到BScroll的this.$refs.listContainer
+    rightBetterScroll() {
+      this.$nextTick(() => {
+        const bscroll = new BScroll(this.$refs.listContainer, {
+          click: true,
+          scrollY: true,
+        });
+      });
     },
   },
 };
@@ -78,6 +116,11 @@ export default {
   }
   ::v-deep .van-nav-bar .van-icon {
     color: #fe9180;
+  }
+  // 滚动区间添加样式
+  .orderListContainer {
+    height: calc(100vh - 75px);
+    overflow: hidden;
   }
   // tab-bar样式
   .van-tabs {
@@ -106,10 +149,14 @@ export default {
       color: #fe9180;
       font-weight: 500;
     }
+    .van-tabs__nav--line {
+      padding-bottom: 0;
+    }
     .van-tabs__line {
       width: 44px;
       height: 2px;
       background: #f09685;
+      bottom: 0;
     }
   }
   .noMoreMsg {

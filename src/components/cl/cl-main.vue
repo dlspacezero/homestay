@@ -138,7 +138,7 @@ export default {
           pullUpLoad: true,
           click: true,
           scrollY: true,
-          eventPassthrough: "horizontal",
+          // eventPassthrough: "horizontal",
         });
         // 上拉加载，监听pullingUp方法
         bscroll.on("pullingUp", () => {
