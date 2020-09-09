@@ -1,10 +1,6 @@
 <template>
   <div class="homeContainer">
-    <div class="wrapper">
-      <div class="swipe">
-        <router-view></router-view>
-      </div>
-    </div>
+      <router-view></router-view>
     <van-tabbar
       v-model="active"
       active="{ active }"
@@ -95,22 +91,10 @@ export default {
     };
   },
   mounted() {
-    // this.scrollinit();
+    
   },
   methods: {
-    scrollinit() {
-      this.$nextTick(() => {
-        this.scroll = new Bscroll(".wrapper", {
-          scrollY: true,
-          click: true,
-          // scrollX:false,
-          startY: 0,
-          bounce: {
-            top: false,
-          },
-        });
-      });
-    },
+    
   },
   updated() {
     // this.scrollinit();
@@ -130,8 +114,5 @@ export default {
   bottom: 51px;
   right: 0;
 }
-.swipe {
-  width: 100%;
-  height: auto;
-}
+
 </style>
