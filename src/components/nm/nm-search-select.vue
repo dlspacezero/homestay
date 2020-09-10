@@ -1,13 +1,13 @@
 <template>
-  <div class="select" >
+  <div class="select " :style="{marginTop:`${movevalue}px`}" >
       <!-- 日期选择 -->
-      <a href="javascript:;" class="data" @click="chooseday">
+      <a href="javascript:;" class="data" >
         <!-- @click="showtime=true" -->
           <!-- <p>住09-02</p>
           <p>退09-03</p> -->
           {{date}}
           <!--  右下角小箭头 -->
-        <div class="small-div"></div>
+        <div class="small-div top-div"></div>
         
       </a>
        <!-- <van-calendar v-model="showtime" type="range" @confirm="onConfirm" :style="{ height: '100%' }"  /> -->
@@ -42,6 +42,8 @@ export default {
         showplace:false,
         showselect:false,
          value1: 0,
+         scroll:'',
+         wid:'``',
           option1: [
         { text: '默认排序', value: 0 },
         { text: '好评优先', value: 1 },
@@ -52,14 +54,18 @@ export default {
       ],
     };
   },
-
+  props:['movevalue'],
   components: {},
 
   computed: {},
 
-  mounted() {},
+  mounted() {
+   
+  },
 
   methods: {
+    
+
     // 选择日期
     chooseday(){
       this.$router.push('/calendar')
@@ -85,11 +91,17 @@ export default {
 </script>
 <style lang='scss' scoped>
 .select{
-    width: 335px;
-    height: 61px;
+    width: 100%;
+    height: 53px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 49px;
+    position: fixed;
+    z-index: 10;
+    background: white;
+    // display: none;
+    // transition: 2s;
     // 所有列表样式
         a{
             width: 80px;
@@ -110,6 +122,9 @@ export default {
                 bottom: 0;
                 right: 0;
             }
+          .top-div{
+            top: 19px;
+          }
         // 时间样式
         .data{
             width: 50px;

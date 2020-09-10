@@ -1,7 +1,7 @@
 <template>
 <div class="content">
     <!-- 筛选条件 -->
-    <div class="content-top">
+    <div class="content-top" :style="{top:`${movevalue+51}px`}">
         <!-- 移动滑块插件 -->
         <van-swipe :loop="false" :show-indicators="false" :width="110">
             <van-swipe-item  v-for="(value,index) in list" :key="index" :class="{active:arrlist.join('').indexOf(index)!==-1}" @click="change(index)" style="width: 100px; margin-right:10px">{{value}} <div class="content-top-arrow"></div></van-swipe-item>
@@ -9,11 +9,13 @@
         <!-- <div class="content-top-scroll">
         <a href="javascript:;" v-for="(value,index) in list" :key="index" :class="{active:index===aindex}" @click="change(index)">{{value}}</a></div> -->
     </div>
-    <!--中间图片 -->
-        <a href="javascript:;" class="content-img van-hairline--surround">民宿特惠，抄底团购</a>
+   
     <!-- 筛选出的房间 -->
     <div class="content-wrap">
-        <div>
+       
+        <div class="wrap-list"> 
+             <!--中间图片 -->
+        <a href="javascript:;" class="content-img van-hairline--surround">民宿特惠，抄底团购</a>
             <div class="content-house" v-for="(value,index) in 5" :key="index">
         <!-- 房间图片 -->
         <div class="content-house-img"><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2574667224,539269533&fm=26&gp=0.jpg" alt="">
@@ -38,10 +40,11 @@
         <div class="content-house-price"><van-icon name="fire" color="#FFD44C"/><h4>￥809</h4>/晚</div>
 
             </div>
+             <p class="content-title">设置条件，还有更多房间哦！</p>
         </div>
     </div>
     <!-- 底部提示 -->
-    <p class="content-title">设置条件，还有更多房间哦！</p>
+   
 </div>
 </template>
 
@@ -55,6 +58,7 @@ export default {
         list:['优惠活动','民宿推荐','特色出行','特惠预售','可做饭','可带宠物']
     };
   },
+  props:['movevalue'],
   components: {},
 
   computed: {},
@@ -98,16 +102,24 @@ export default {
 
 <style lang='scss' scoped>
     .content{
-        width: 345px;
-        padding: 0 15px;
+        width: 375px;
+        // padding: 0 15px;
          background: #f7f8fa;
          display: flex;
+         height: 100%;
          flex-direction: column;
-        //  overflow: hidden;
+        //  margin-top:102px;
+        padding-top: 102px;
+         overflow: hidden;
         //  筛选条件
          .content-top{
-                width: 100%;
+                width: 345px;
+                padding: 0 15px;
                 height: 48px;
+                position: fixed;
+                z-index: 100;
+                 background: #f7f8fa;
+                top: 100px;
             .van-swipe{
                 height: 48px;
                  .van-swipe-item{
@@ -151,8 +163,28 @@ export default {
                     
          }
         //  中间图片
+        
+        .content-wrap {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f7f8fa;
+            .wrap-list{
+                width: 100%;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+               
+                   background: #f7f8fa;
+            }
+        }
+        //  筛选出的房间
          .content-img{
-             width: 100%;
+             display: block;
+             width: 345px;
              height: 63px;
              background: white;
              font-size: 17px;
@@ -160,17 +192,9 @@ export default {
              margin-top: 9px;
              margin-bottom: 8px;
          }
-        .content-wrap {
-            position: absolute;
-            top: 230px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-        //  筛选出的房间
         .content-house{
             position: relative;
-            width: 100%;
+            width: 341px;
             height: 372px;
             background: white;
             display: flex;
@@ -308,6 +332,7 @@ export default {
                     
             }
         .content-title{
+            // bottom: 0;
             width: 100%;
             height: 15px;
             font-size: 15px;

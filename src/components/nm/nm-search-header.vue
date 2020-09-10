@@ -50,11 +50,15 @@ export default {
 <style lang='scss' scoped>
 header{
         width: 100%;
-        height: 33px;
+        height: 49px;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        margin-top: 8px;
+        position: fixed;
+        z-index: 100;
+        background: white
+        ;
+        // margin-bottom: 33px;
         // 左边箭头
         .header-left{
             width: 10px;
